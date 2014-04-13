@@ -1,0 +1,11 @@
+# Project-specific excludes
+vendor
+docs
+phpdoc.xml
+
+# Platform-specific excludes
+thumbs.db
+.DS_Store
+
+# Code editor-specific excludes
+*.sublime-*

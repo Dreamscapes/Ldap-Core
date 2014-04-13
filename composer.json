@@ -1,0 +1,21 @@
+{
+    "name": "dreamscapes/ldap-core",
+    "description": "Object encapsulation of PHP's native ldap functions",
+    "license": "BSD-3-Clause",
+    "authors": [
+        {
+            "name": "Robert Rossmann",
+            "email": "rr.rossmann@me.com"
+        }
+    ],
+    "autoload": {
+        "psr-0": { "Dreamscapes\\": "." }
+    },
+    "require": {
+        "php": ">=5.4.0"
+    },
+    "require-dev": {
+        "squizlabs/php_codesniffer": "~1.5.2",
+        "phpdocumentor/phpdocumentor": "~2"
+    }
+}
