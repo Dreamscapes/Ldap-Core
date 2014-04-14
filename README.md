@@ -1,4 +1,4 @@
-Ldap Core
+Ldap Core [![Build Status](https://travis-ci.org/Dreamscapes/Ldap-Core.svg)](https://travis-ci.org/Dreamscapes/Ldap-Core)
 =========
 
 > Object-oriented implementation of PHP's native ldap functions
