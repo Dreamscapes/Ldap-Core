@@ -1,0 +1,6 @@
+language: php
+php:
+ - 5.5
+ - 5.4
+install: composer install
+script: './vendor/bin/phpcs --standard=PSR2 --ignore=vendor/*,docs/* -p .'
