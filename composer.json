@@ -2,6 +2,7 @@
     "name": "dreamscapes/ldap-core",
     "description": "Object encapsulation of PHP's native ldap functions",
     "license": "BSD-3-Clause",
+    "keywords": ["ldap", "directory", "mock", "testing", "openldap", "oop", "library"],
     "authors": [
         {
             "name": "Robert Rossmann",
