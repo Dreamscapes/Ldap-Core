@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <phpdoc>
   <parser>
-    <target>docs</target>
+    <target>tmp</target>
     <visibility>public</visibility>
   </parser>
   <transformer>
