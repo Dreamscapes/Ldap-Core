@@ -1,11 +1,24 @@
 #!/bin/bash
 
+###############################################################################
+# gh-pages automatic updater
+#
+# Automatically update gh-pages branch with newly generated documentation after
+# successful Travis build.
+#
+# @AUTHOR           Robert Rossmann <rr.rossmann@me.com>
+# @LICENSE          BSD-3-Clause
+# @VERSION          0.1.0
+#
+###############################################################################
 
 # CONFIG
 
 GH_USER="Dreamscapes"
 GH_REPO="Ldap-Core"
 FOLDER="docs"
+
+# CONDITIONS
 
 # Only publish when running tests for PHP 5.5, when committing to master and when not building a pull request
 if [ "$TRAVIS_BRANCH" != "master" ] \
