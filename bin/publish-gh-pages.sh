@@ -8,9 +8,9 @@ GH_REPO="Ldap-Core"
 FOLDER="docs"
 
 # Only publish when running tests for PHP 5.5, when committing to master and when not building a pull request
-if [ "$TRAVIS_BRANCH" == "master" ] \
-&& [ "$TRAVIS_PHP_VERSION" == "5.5" ] \
-&& [ "$TRAVIS_PULL_REQUEST" == "false" ]
+if [ "$TRAVIS_BRANCH" != "master" ] \
+|| [ "$TRAVIS_PHP_VERSION" != "5.5" ] \
+|| [ "$TRAVIS_PULL_REQUEST" != "false" ]
 then
   echo "Not updating gh-pages for this build"
   exit 0
