@@ -1,6 +1,166 @@
 <?xml version="1.0" encoding="utf-8"?>
 <project title="Dreamscapes - Ldap Core" version="2.4.0&#10;">
   <partials/>
+  <file path="LdapException.php" generated-path="LdapException.html" hash="c246dd1ca4c2690259c0ad3a610f85c2" package="global">
+    <docblock line="0">
+      <description>Dreamscapes/Ldap-Core</description>
+      <long-description>Licensed under the BSD (3-Clause) license
+For full copyright and license information, please see the LICENSE file</long-description>
+      <tag name="author" line="0" description="Robert Rossmann" link="mailto:rr.rossmann@me.com"/>
+      <tag name="copyright" line="0" description="2013 Robert Rossmann"/>
+      <tag name="link" line="0" description="https://github.com/Dreamscapes/Ldap-Core" link="https://github.com/Dreamscapes/Ldap-Core"/>
+      <tag name="license" line="0" description="BSD (3-Clause) License" link="http://choosealicense.com/licenses/bsd-3-clause"/>
+    </docblock>
+    <class final="false" abstract="false" namespace="Dreamscapes\Ldap" line="23" package="Ldap-Core">
+      <extends>\Exception</extends>
+      <name>LdapException</name>
+      <full_name>\Dreamscapes\Ldap\LdapException</full_name>
+      <docblock line="23">
+        <description>Custom exception that represents an error from PHP's native ldap interface</description>
+        <long-description></long-description>
+        <tag name="package" line="23" description="Ldap-Core"/>
+      </docblock>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap" line="32" package="Ldap-Core">
+        <name>__construct</name>
+        <full_name>\Dreamscapes\Ldap\LdapException::__construct()</full_name>
+        <docblock line="32">
+          <description>Custom constructor method</description>
+          <long-description>The error code and message are extracted from the LinkResource instance.</long-description>
+          <tag name="param" line="32" description="" type="\Dreamscapes\Ldap\LinkResourceInterface" variable="$res">
+            <type>\Dreamscapes\Ldap\LinkResourceInterface</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$res</name>
+          <default></default>
+          <type>\Dreamscapes\Ldap\LinkResourceInterface</type>
+        </argument>
+      </method>
+    </class>
+    <source>eJx1Uk1P4zAQvftXzGGlbSrSwPZWEIsoXS1StUKwRyTkOtMmIrGtGQeBEP99x24SupXwxV/vzcx7Mxc/feWVKqZTBVO4IdQtG+2Ri3Wpfb50hPIR/9a1QctYQmdLJAgVwvXDDUzm+bLRHWMGzR4Rwb8cwbZrGjDOv1G9qwJoWw4IqO3WUatD7ewJ+Aa1vDFiCrq+Xa7+PKxgWzdD6ivdhUoipnXvNkhBNuZWWwsXRDPqL1ctzoxrLxPpMzXAj9Oz+TEzgZraPkO/qhA8L4piV4eq28RAxVeGROJeykAUnqmcY9T9T+L3Zy42XObz3CSnhHHk3Hp0rlBKWd0ie23wsB+PMf352Kllx8G1gK8GfbRRrNMBCD0how0sdgMSxTaQ4O5+331nsOL4C0IjkaQFAWkrSQaPJeGz3on/BzILJRUzp7fVmApfA9qS4XF8Uu8q+pBqi2uszzjLgToTpJAWpYllDxhwf6Xj+zqNKzENiYjnWIgmjKlImyBTl2Sk+ZCO3SO7jkwcJA7aGpwdhRU1pNv/sLeDYPgmHvXAIu2+20ijZGCtSQKfnsa6J1+HyBJ3rzxFkYJtWCwO2RGXXyaBk+wExqt1kyw7T9QP9aH+AatbIEI=</source>
+  </file>
+  <file path="ResultResourceInterface.php" generated-path="ResultResourceInterface.html" hash="e2cfe61799bb1550441f028a57c0779a" package="global">
+    <docblock line="0">
+      <description>Dreamscapes/Ldap-Core</description>
+      <long-description>Licensed under the BSD (3-Clause) license
+For full copyright and license information, please see the LICENSE file</long-description>
+      <tag name="author" line="0" description="Robert Rossmann" link="mailto:rr.rossmann@me.com"/>
+      <tag name="copyright" line="0" description="2013 Robert Rossmann"/>
+      <tag name="link" line="0" description="https://github.com/Dreamscapes/Ldap-Core" link="https://github.com/Dreamscapes/Ldap-Core"/>
+      <tag name="license" line="0" description="BSD (3-Clause) License" link="http://choosealicense.com/licenses/bsd-3-clause"/>
+    </docblock>
+    <interface namespace="Dreamscapes\Ldap" line="24" package="Ldap-Core">
+      <name>ResultResourceInterface</name>
+      <full_name>\Dreamscapes\Ldap\ResultResourceInterface</full_name>
+      <docblock line="24">
+        <description>This interface prescribes which methods a class must implement to serve as object encapsulation of PHP's native ldap
+result resource and related functions.</description>
+        <long-description></long-description>
+        <tag name="package" line="24" description="Ldap-Core"/>
+      </docblock>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap" line="32" package="Ldap-Core">
+        <name>__construct</name>
+        <full_name>\Dreamscapes\Ldap\ResultResourceInterface::__construct()</full_name>
+        <docblock line="32">
+          <description>Create a new instance</description>
+          <long-description></long-description>
+          <tag name="param" line="32" description="" type="\Dreamscapes\Ldap\LinkResourceInterface" variable="$link">
+            <type>\Dreamscapes\Ldap\LinkResourceInterface</type>
+          </tag>
+          <tag name="param" line="32" description="" type="resource" variable="$result">
+            <type>resource</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$link</name>
+          <default></default>
+          <type>\Dreamscapes\Ldap\LinkResourceInterface</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$result</name>
+          <default></default>
+          <type>resource</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap" line="39" package="Ldap-Core">
+        <name>pagedResultResponse</name>
+        <full_name>\Dreamscapes\Ldap\ResultResourceInterface::pagedResultResponse()</full_name>
+        <docblock line="39">
+          <description>Retrieve the LDAP pagination cookie</description>
+          <long-description></long-description>
+          <tag name="return" line="39" description="Array with two keys: 'cookie' and 'estimated'" type="array">
+            <type>array</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap" line="46" package="Ldap-Core">
+        <name>countEntries</name>
+        <full_name>\Dreamscapes\Ldap\ResultResourceInterface::countEntries()</full_name>
+        <docblock line="46">
+          <description>Count the number of entries in a search</description>
+          <long-description></long-description>
+          <tag name="return" line="46" description="Number of entries in the result" type="int">
+            <type>int</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap" line="56" package="Ldap-Core">
+        <name>freeResult</name>
+        <full_name>\Dreamscapes\Ldap\ResultResourceInterface::freeResult()</full_name>
+        <docblock line="56">
+          <description>Free result memory</description>
+          <long-description>Once the result is freed from memory the instance holding the result must not be used any further. This method
+must be called automatically when the instance is released from memory.</long-description>
+          <tag name="return" line="56" description="" type="void">
+            <type>void</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap" line="63" package="Ldap-Core">
+        <name>getEntries</name>
+        <full_name>\Dreamscapes\Ldap\ResultResourceInterface::getEntries()</full_name>
+        <docblock line="63">
+          <description>Get all result entries</description>
+          <long-description></long-description>
+          <tag name="return" line="63" description="Complete result information in a multi-dimensional array" type="array">
+            <type>array</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap" line="70" package="Ldap-Core">
+        <name>getReferrals</name>
+        <full_name>\Dreamscapes\Ldap\ResultResourceInterface::getReferrals()</full_name>
+        <docblock line="70">
+          <description>Extract information about referrals (if returned by server)</description>
+          <long-description></long-description>
+          <tag name="return" line="70" description="" type="array">
+            <type>array</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap" line="78" package="Ldap-Core">
+        <name>sort</name>
+        <full_name>\Dreamscapes\Ldap\ResultResourceInterface::sort()</full_name>
+        <docblock line="78">
+          <description>Sort LDAP result entries</description>
+          <long-description></long-description>
+          <tag name="param" line="78" description="&lt;p&gt;The attribute to use as a key in the sort&lt;/p&gt;" type="string" variable="$sortFilter">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="78" description="" type="\Dreamscapes\Ldap\ResultResourceInterface">
+            <type>\Dreamscapes\Ldap\ResultResourceInterface</type>
+          </tag>
+          <tag name="fluent" description="This method is part of a fluent interface and will return the same instance"/>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$sortFilter</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+    </interface>
+    <source>eJyNVdtu2zgQfddXzEMAO0FttZu3btFt6yS7BYI2cPaxQEBRI4s1RQq8JGsU/fce6uI4juOuXmSRc+bMnLn43V9t3WZZfnaW0RldOBaNl6Jln1+Xop0trGNcpLtrJdl4Limakh2FmunT7QVNz2cLLaLnU9K9RTK+so6qqDVJ226cWtWBhClHC1Kmsq4RQVnzilrNAmeeuXN6/Xlx+eX2kiqlR+oPIoYaHrtnaQt2AS/vG2EMvXNu7oaPDw3PpW3ed6BHaqI/Xr8530d2RlqZNQ1PHULr3+b5SoU6FslR/pIgCdinMgKBk7W1nsVw0+GH3z4vfDk7n8lOKSD2lLveKpdnWWZEw74Vknfr8S3R/7mt1L+18pAxsKuSYevYS6cK9vRQK1lTw1Cs9CQInN5TE30g1UDrhk2gYKG3u2cSnmzxnWUgNuDxUXdVIVvRzT83E08G37DTYE+84Ik6pJeNDsSpqo4BQmNU0cgE9vOxbkhiLVao6Y50efYY9rLzthycfR7Psx9ZkrVLNT1ntIAQAWxk+AFp+yAMzPrL0QZsTjTQ0qyfeaSTVOg9y20ST56TPsXBNu/ebSxQyW2CdHcnkWZwUYbpEb5Xo7NTFG4voyUHp/h+6PmLjzfUipUyvfrS2rV6lp/jEJ0h4ZzYpKOP3Y8HdCuFB0tr3vi3NOmxk64yE/ZBNak4k6P5gJrLbTFa5MbTAzEvbEy9g4BNbDBLqUvQTcgj9SKqg+53sn4hbpS9V/jLIXDy+j+UlymEyx52KMQrx6MfzEBj3WYvmq9onB0ywhhVwKB7nW0GSHc/dhnVVpfKrHZB3TQZG6hgimknCrNBjA4mbt7PZj+AI2sHgLEUWifzGGxaf+kTFazZPKUEHkOV1uKTuOYvKHtvVXlUtZRhX95Dmv3N2M7Y1UNyQ1F+130Lm7ZJeBTycaf3zdDgVM1KhYXjcSh0jz0a6IqPFffyv+CEfEolChvTPqoYzrWnqaqoDxXaFZt+zbnTY9n8LqLl6PxQTLcWfynd/B6Xr185hKWReunEA3alNNYF2gWLLeC8iFATmzn9RYi0ujHR42gk+/3gPevqaOwJNN2hQvg/s19GWnpM</source>
+  </file>
   <file path="Core/LinkResource.php" generated-path="Core.LinkResource.html" hash="69a75a77518ab6024ae957b87a2caeea" package="global">
     <docblock line="0">
       <description>Dreamscapes/Ldap-Core</description>
@@ -1405,44 +1565,6 @@ is called automatically when the instance is released from memory.</long-descrip
     </class>
     <source>eJylVltv2zYUftevOA8BYgdxvC1vTZOlc5KtQNAGyd7aIqClY5uLRAoklcwY+t/3kZRkWb51mB7iSPzO7Ts3vv+1XJRJMj45SeiEbgyLwqaiZDu+z0Q5mmjDOPBn9zJlZTmjSmVsyC2Yfnu6ocH5aJKLyvKQ8ojw4DttaFblOaW6XBo5XzgSKmsQJNVMm0I4qdUplTkLfLPMQen9x8ntp6dbmsm8MX0tKreAxvA86ikbhx9rC6EUvTfmzNQv1wWfpbq4CkIr00S//PTzeV8ygHKpXqh+Fs6V9t14PJduUU29ovEuQrxgDKURhFy60NqyqE+CfP2/HU9tNjofpYEpSPSYu2+ZGydJokTBthQpd/Px1Zv/6s1fJIlXsnF2j1Ae2erKpPxROTYzqLjYjgWuyt0WdFMJn6d/ceqIFYQADakiPQsZMrXYIIcq/wZVQ1LAvDLpINgkDlG8iDmS2uFunIAGa2ndB5IFCqFg5fonrXfJP4lnO3jonxN6+OPh2DaWgzchn42DrTMRff0qzOps0OKHNWAcfkujHYRQ6Ef+EJQcNPof7NVs7bLYoGG1b3aCHDomQYrf0EDWCQVK4mFrsRRGFLS1EmI4PWTr3dpzFL1cd7KaopjR1CoNtfD8nGo4YarUDfbYO22UxZBjBoMNt5B2dBXydRmxo6s5t1kfDC/62NbZy0ZphHzf4OqRnZH8Wg+Umw8PVIq5VLGKU61f5AZzhl1lFAljxNJ/+hD+ecMoIPem6YWX9h0dR9njMMyO2TqJIcbZ8V6mYJqztqRLsIbg+mxExYhMYWp2Im9ttEft2bUvKJ8FZ3T+HKw8R1r8T7TTYfm0T+NpY/W0Y2bYMVBT8qX94J+WgsurVn4dsKIlYNrXFezbrrxNdKVcSJqqCgxrP3EwEZBLi5JH7WO8mnSxI3dSuaj/0zbhenIdquvUu3AbxTbSVBuqiQfwuTawl+jhrnDvDDc+UcGFNsteZJ/R4h3HSVqaQSbDX13UIuG8mQe00Hkm1bwrVFTWkdKOpkyVX+BCLRGvAcSc0Z9wFZqwX7PGKj6kIs89snLar2n/imZYsFq3BqThsL7XXDrbkaBXLbO95PvgYqdsUB849+d1jQ9+lOTfGXcP3ERqNuqEHWr/ifbryK2YX91YYiUW+CpHmcTGsvgo8ii7NzyMtx+pLMD+X13d/u2MSNedFlNdOZiZMdzMLQ3krDaK3E2X6Czzyma4j5dDsT02yjfH28ruxhgLIWMbWZ9ZoHDlODi3WnVbxtXqcBc9Txq3wLAV9tdEXJGEJec76shC7E7mWG9oGixih+/TCiXitO8rEhZlgT3RDBuP7/NoOZ/tpdELDTqmtrZBBO2nqKNiC0cevnt5xgv5Wqd3urtPk/QbHw1w4LqQcX1b2HET6PZ+49r35F8rCtSG</source>
   </file>
-  <file path="LdapException.php" generated-path="LdapException.html" hash="c246dd1ca4c2690259c0ad3a610f85c2" package="global">
-    <docblock line="0">
-      <description>Dreamscapes/Ldap-Core</description>
-      <long-description>Licensed under the BSD (3-Clause) license
-For full copyright and license information, please see the LICENSE file</long-description>
-      <tag name="author" line="0" description="Robert Rossmann" link="mailto:rr.rossmann@me.com"/>
-      <tag name="copyright" line="0" description="2013 Robert Rossmann"/>
-      <tag name="link" line="0" description="https://github.com/Dreamscapes/Ldap-Core" link="https://github.com/Dreamscapes/Ldap-Core"/>
-      <tag name="license" line="0" description="BSD (3-Clause) License" link="http://choosealicense.com/licenses/bsd-3-clause"/>
-    </docblock>
-    <class final="false" abstract="false" namespace="Dreamscapes\Ldap" line="23" package="Ldap-Core">
-      <extends>\Exception</extends>
-      <name>LdapException</name>
-      <full_name>\Dreamscapes\Ldap\LdapException</full_name>
-      <docblock line="23">
-        <description>Custom exception that represents an error from PHP's native ldap interface</description>
-        <long-description></long-description>
-        <tag name="package" line="23" description="Ldap-Core"/>
-      </docblock>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap" line="32" package="Ldap-Core">
-        <name>__construct</name>
-        <full_name>\Dreamscapes\Ldap\LdapException::__construct()</full_name>
-        <docblock line="32">
-          <description>Custom constructor method</description>
-          <long-description>The error code and message are extracted from the LinkResource instance.</long-description>
-          <tag name="param" line="32" description="" type="\Dreamscapes\Ldap\LinkResourceInterface" variable="$res">
-            <type>\Dreamscapes\Ldap\LinkResourceInterface</type>
-          </tag>
-        </docblock>
-        <argument line="0" by_reference="false">
-          <name>$res</name>
-          <default></default>
-          <type>\Dreamscapes\Ldap\LinkResourceInterface</type>
-        </argument>
-      </method>
-    </class>
-    <source>eJx1Uk1P4zAQvftXzGGlbSrSwPZWEIsoXS1StUKwRyTkOtMmIrGtGQeBEP99x24SupXwxV/vzcx7Mxc/feWVKqZTBVO4IdQtG+2Ri3Wpfb50hPIR/9a1QctYQmdLJAgVwvXDDUzm+bLRHWMGzR4Rwb8cwbZrGjDOv1G9qwJoWw4IqO3WUatD7ewJ+Aa1vDFiCrq+Xa7+PKxgWzdD6ivdhUoipnXvNkhBNuZWWwsXRDPqL1ctzoxrLxPpMzXAj9Oz+TEzgZraPkO/qhA8L4piV4eq28RAxVeGROJeykAUnqmcY9T9T+L3Zy42XObz3CSnhHHk3Hp0rlBKWd0ie23wsB+PMf352Kllx8G1gK8GfbRRrNMBCD0how0sdgMSxTaQ4O5+331nsOL4C0IjkaQFAWkrSQaPJeGz3on/BzILJRUzp7fVmApfA9qS4XF8Uu8q+pBqi2uszzjLgToTpJAWpYllDxhwf6Xj+zqNKzENiYjnWIgmjKlImyBTl2Sk+ZCO3SO7jkwcJA7aGpwdhRU1pNv/sLeDYPgmHvXAIu2+20ijZGCtSQKfnsa6J1+HyBJ3rzxFkYJtWCwO2RGXXyaBk+wExqt1kyw7T9QP9aH+AatbIEI=</source>
-  </file>
   <file path="LinkResourceInterface.php" generated-path="LinkResourceInterface.html" hash="fbf9a09bedb09a6e3e51e316082efabe" package="global">
     <docblock line="0">
       <description>Dreamscapes/Ldap-Core</description>
@@ -2154,128 +2276,6 @@ link resource and related functions.</description>
       </method>
     </interface>
     <source>eJzNWVtv47gVfvevIAYBxhk49mznpZ1u2vXEnm0AbxLYyT4VCCiJitihSJWkkvUU/e89hxQlWZZsZ3ZaVA+JTZHn8p07/eNfi6wYjWbv3o3IO7LQjOYmpgUzs1VCi4srpRm8wHcrHjNpWEJKmTBNbMbIp82CjD9cXAlaGnZOhN+Bmz8rTdJSCBKrYqv5U2YJlUnYQbhMlc6p5UpOSCEYhTXDmCO6ur5a3myWJOUisP6JljYDiu5Zq4hpC/+MyamU5Eetp7r68lPOprHK/+IONawJ+cP7Hz50T7pNgssvpHoyawvzcTZ74jYrIyQ0GwIED3pVwkE4F2dKGUarN+589dnMIpNcfLiIHVJwooPcqkZuNhqNJM2ZKWjM2vb4O7L/c22p+4wbgNEyneLGQjMTax4xQ14yHmckZ4BYYgglwNMYkpfGEp4D1jmTllgFeOtnRqghKvoHiy1hEviYUjirEJWSu7/dvTVEwnfYJ4A78nV4ATNVamCLNtUMjoBbpKWM8aiZBquBCl/oE1i0Bdxs1Ai9AlrritR1WB39a4SQOjXxeUeuAAQLvIhkL6CysVTCNv8y7LlOyRmK+KAFAWAKrZ55wpIJ4ZaYTJUiIVQYRVTBJPiklMzJijigz+FRD4gm0ZbEVICeT7Ai0o8fq+3j8w5P0E/TnBircW/N/rZAylR4og/r67ADIO3wqijN3P+ijMBbahjJ4yMwhqMlsK6JXxIJUXUOftAFSclndO7FDer0APTJZ82ZTMSW3NAc+fuQ61ei1iKR4FqMJNxY+F5yk4Fp0SFRfCrJajG/A1ex3G5rEprZUstAAh8kUaIMaZABSfSpC9a0ba0Tea8eUjkGQQ5o6aXQGnKCLHOIagwFFSTwLyCGDHjfgL7ohU9w7gw2S+UEbtM7oFvQb4fLBAOJVttO0RNO36uN1WMvQI+um0Jwa9CgTjf8DBmlUBLjF7Sw5rApnS3bAr/Kpl2YXiAnzi1QjtC5EnQyzf5ZMswq3q/XixuAQDPiIYM9eIYoCdZ/pgK2EuXKBteEOkqlhTXA7YUJ0QWcak23ZPdZu1cGRfavUXyoMQBRjYw5CfzfCqEStnBuNtlR7pK8R1t0jfEzs07JvZzY5EKfRrs2qdSpd43dIcyi5wej/4nZkBrHPc4xTxK0GESXQVM4CyZcgwBKb/v9ohXh3+4QlVnOkPeWzIMhbEYhzxYs5qmTKNsp8YRGqvT4uXN7wQVp9iAYNEm8pTw3z703PeQFeqBzN6dL8DNIftC2gFBeglrWykkXN0di6bsEU0OskcsRa7620mTPMa9XLUPs1U28vl1UI6UE6T4hhO7XD0sMXE8RzBRnGJ9gIv3CTYhhQz7PV5vlQdtUQlSRVGsyqaTtsdKCCYb1PNgi1Qoc65j7fpcKdczREifaQPG53e8dgN1+OR+0Hz51JYdndbRBIGM+ZVO3Av1lvp36ZWwtP37445/OX61g6GWCGH11Bwq2B7GgT1zScM5qJQY0DFXCawjH2IZ/Za1oqYo0KBiSFnRZRVOda0rotIxWoXbGzZXmkLmpd+RrmcBn63pchq7q4GpJCZ1fHA4AL6nsYVvESn3hQU6C6UwVFIoa8W1XqXEqgWobbR2nHSufjjnqmUAyLwXgHsCZ7Gh3SVJoT3GxEumSvH3bY5tPXCan5vs6YCI4tAjZCztDFyypL8YE3x46eQfTw4vSCak/hJNlRerVgCDZcRDLd7STDrPBPtcnMD8oNk1g1YXVEURN1SNCoMCol3QR2unqDsrq6PdV4H5BGkd/jRxV/BwTRKo+QUJrEpdao7P6lI5GeoImBV0azx9rg/0uF6zVR3CzqGnmuiLn/Ld6cbCD8aPQuCI+0MY0xa/qEoFx0KXpE48XBfLthXm3q/m1FgP0h9bDd7suAdRdw55gp3t/rpL5if1MqJRdhFzF/P/ByFfNxIv1PXFa1OV4ECrf81kecZiWtjAOcBgo0Pn97N4QOT/M5yR7rFkh8OJizyCuicTrCZhB/pdmmLfmKKwMbrh6bttGe5H34vcU+Ct1T4LmF5XwdNsW/pRG7r8BhLOFRyJHoXhokL/JBUGp1+iP3t+S/3QYqud3jhZn4IPrmqDrvMAp1/V407f/jro00tpfuJWZKQumOYTS7tDW6tQIzkUuvG5FgnyvUz9ZIAxKJMjZYz8259idaZarZ7yWY9DtHNhlKccLBFqb7OAjlbzYBS3cN6S/Y+gEDAD6aq7xuE5agE12VT+5WYO2CZHfzDerk/q2U3qzoT2GGvELi7ND79eMivzQhnlps/j6IA/c8nV4S6FV8frgQ8II4XgU7NxpGXfXO61j621Aof+N07//VaX58MuvfS+dttWyW+2dsagGgZxnWM2GLinrm7yIGla18Bik+BVvvUIn3p0E9gmkXNhqQHNTJww5OHn71bFLVXlh6xUIQhie8HJNvUA4nXfphtu5s9ZF3rx1K4dC4fUg1zs9AMT99Gnqt43f5JSLNxPyxkj8G8s3e2xq8U2simpO25QRIjbBUnsh2DMTeK2IiAzNkk5Ic4v3kGTjfwuIcJhzv4L8gLcg7o6yKep2WzB/lflCoT/e8+u6aTYwyK14ziF7LiWNBJzaqhLJCrfq2nJVQnZtTb4pw8uWZApOYDFlwS7uqvV7GGOoROT98UG2lueBLdDw123N4GEYDOuJIZl6IUIBfaAODRnkIiWrMRadb3pKaj0m4nRQxoRpllZE6ntBFMl1aPDZ1JbIoHUR4CdJqT2vIGI3ZfgZOlyLHk4ejkA7dbgIaoWp9/RmoarvLWdtxbtzv8uqp9xc3d4tHzcPn+7Xy2VrV+NmYZxvUag95ZK8b603ptxd9/BdugzxuFiul58fb5a/LtfDCcV7W33ziV+Oz3/d8Q9iWGBOqr66H6AgBDqn3OyHUkIxhEGg7huaydPWY+QRK3VGxEmgOaAidT/NRTT+0hABt0zwx4gLrAKGuMqdwrQMgsUZNc2A39ECKWHMkrNA8/UlCi/pXfHRCnrsUrPxPtVjw4oLWfSrHmqDQ8vO3sNMa/ws1ZbcrzaHVcJd98L03TQ8SOTox7zeG6h+kqU7hgT/PfoPHGfMEA==</source>
-  </file>
-  <file path="ResultResourceInterface.php" generated-path="ResultResourceInterface.html" hash="e2cfe61799bb1550441f028a57c0779a" package="global">
-    <docblock line="0">
-      <description>Dreamscapes/Ldap-Core</description>
-      <long-description>Licensed under the BSD (3-Clause) license
-For full copyright and license information, please see the LICENSE file</long-description>
-      <tag name="author" line="0" description="Robert Rossmann" link="mailto:rr.rossmann@me.com"/>
-      <tag name="copyright" line="0" description="2013 Robert Rossmann"/>
-      <tag name="link" line="0" description="https://github.com/Dreamscapes/Ldap-Core" link="https://github.com/Dreamscapes/Ldap-Core"/>
-      <tag name="license" line="0" description="BSD (3-Clause) License" link="http://choosealicense.com/licenses/bsd-3-clause"/>
-    </docblock>
-    <interface namespace="Dreamscapes\Ldap" line="24" package="Ldap-Core">
-      <name>ResultResourceInterface</name>
-      <full_name>\Dreamscapes\Ldap\ResultResourceInterface</full_name>
-      <docblock line="24">
-        <description>This interface prescribes which methods a class must implement to serve as object encapsulation of PHP's native ldap
-result resource and related functions.</description>
-        <long-description></long-description>
-        <tag name="package" line="24" description="Ldap-Core"/>
-      </docblock>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap" line="32" package="Ldap-Core">
-        <name>__construct</name>
-        <full_name>\Dreamscapes\Ldap\ResultResourceInterface::__construct()</full_name>
-        <docblock line="32">
-          <description>Create a new instance</description>
-          <long-description></long-description>
-          <tag name="param" line="32" description="" type="\Dreamscapes\Ldap\LinkResourceInterface" variable="$link">
-            <type>\Dreamscapes\Ldap\LinkResourceInterface</type>
-          </tag>
-          <tag name="param" line="32" description="" type="resource" variable="$result">
-            <type>resource</type>
-          </tag>
-        </docblock>
-        <argument line="0" by_reference="false">
-          <name>$link</name>
-          <default></default>
-          <type>\Dreamscapes\Ldap\LinkResourceInterface</type>
-        </argument>
-        <argument line="0" by_reference="false">
-          <name>$result</name>
-          <default></default>
-          <type>resource</type>
-        </argument>
-      </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap" line="39" package="Ldap-Core">
-        <name>pagedResultResponse</name>
-        <full_name>\Dreamscapes\Ldap\ResultResourceInterface::pagedResultResponse()</full_name>
-        <docblock line="39">
-          <description>Retrieve the LDAP pagination cookie</description>
-          <long-description></long-description>
-          <tag name="return" line="39" description="Array with two keys: 'cookie' and 'estimated'" type="array">
-            <type>array</type>
-          </tag>
-        </docblock>
-      </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap" line="46" package="Ldap-Core">
-        <name>countEntries</name>
-        <full_name>\Dreamscapes\Ldap\ResultResourceInterface::countEntries()</full_name>
-        <docblock line="46">
-          <description>Count the number of entries in a search</description>
-          <long-description></long-description>
-          <tag name="return" line="46" description="Number of entries in the result" type="int">
-            <type>int</type>
-          </tag>
-        </docblock>
-      </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap" line="56" package="Ldap-Core">
-        <name>freeResult</name>
-        <full_name>\Dreamscapes\Ldap\ResultResourceInterface::freeResult()</full_name>
-        <docblock line="56">
-          <description>Free result memory</description>
-          <long-description>Once the result is freed from memory the instance holding the result must not be used any further. This method
-must be called automatically when the instance is released from memory.</long-description>
-          <tag name="return" line="56" description="" type="void">
-            <type>void</type>
-          </tag>
-        </docblock>
-      </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap" line="63" package="Ldap-Core">
-        <name>getEntries</name>
-        <full_name>\Dreamscapes\Ldap\ResultResourceInterface::getEntries()</full_name>
-        <docblock line="63">
-          <description>Get all result entries</description>
-          <long-description></long-description>
-          <tag name="return" line="63" description="Complete result information in a multi-dimensional array" type="array">
-            <type>array</type>
-          </tag>
-        </docblock>
-      </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap" line="70" package="Ldap-Core">
-        <name>getReferrals</name>
-        <full_name>\Dreamscapes\Ldap\ResultResourceInterface::getReferrals()</full_name>
-        <docblock line="70">
-          <description>Extract information about referrals (if returned by server)</description>
-          <long-description></long-description>
-          <tag name="return" line="70" description="" type="array">
-            <type>array</type>
-          </tag>
-        </docblock>
-      </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap" line="78" package="Ldap-Core">
-        <name>sort</name>
-        <full_name>\Dreamscapes\Ldap\ResultResourceInterface::sort()</full_name>
-        <docblock line="78">
-          <description>Sort LDAP result entries</description>
-          <long-description></long-description>
-          <tag name="param" line="78" description="&lt;p&gt;The attribute to use as a key in the sort&lt;/p&gt;" type="string" variable="$sortFilter">
-            <type>string</type>
-          </tag>
-          <tag name="return" line="78" description="" type="\Dreamscapes\Ldap\ResultResourceInterface">
-            <type>\Dreamscapes\Ldap\ResultResourceInterface</type>
-          </tag>
-          <tag name="fluent" description="This method is part of a fluent interface and will return the same instance"/>
-        </docblock>
-        <argument line="0" by_reference="false">
-          <name>$sortFilter</name>
-          <default></default>
-          <type>string</type>
-        </argument>
-      </method>
-    </interface>
-    <source>eJyNVdtu2zgQfddXzEMAO0FttZu3btFt6yS7BYI2cPaxQEBRI4s1RQq8JGsU/fce6uI4juOuXmSRc+bMnLn43V9t3WZZfnaW0RldOBaNl6Jln1+Xop0trGNcpLtrJdl4Limakh2FmunT7QVNz2cLLaLnU9K9RTK+so6qqDVJ226cWtWBhClHC1Kmsq4RQVnzilrNAmeeuXN6/Xlx+eX2kiqlR+oPIoYaHrtnaQt2AS/vG2EMvXNu7oaPDw3PpW3ed6BHaqI/Xr8530d2RlqZNQ1PHULr3+b5SoU6FslR/pIgCdinMgKBk7W1nsVw0+GH3z4vfDk7n8lOKSD2lLveKpdnWWZEw74Vknfr8S3R/7mt1L+18pAxsKuSYevYS6cK9vRQK1lTw1Cs9CQInN5TE30g1UDrhk2gYKG3u2cSnmzxnWUgNuDxUXdVIVvRzT83E08G37DTYE+84Ik6pJeNDsSpqo4BQmNU0cgE9vOxbkhiLVao6Y50efYY9rLzthycfR7Psx9ZkrVLNT1ntIAQAWxk+AFp+yAMzPrL0QZsTjTQ0qyfeaSTVOg9y20ST56TPsXBNu/ebSxQyW2CdHcnkWZwUYbpEb5Xo7NTFG4voyUHp/h+6PmLjzfUipUyvfrS2rV6lp/jEJ0h4ZzYpKOP3Y8HdCuFB0tr3vi3NOmxk64yE/ZBNak4k6P5gJrLbTFa5MbTAzEvbEy9g4BNbDBLqUvQTcgj9SKqg+53sn4hbpS9V/jLIXDy+j+UlymEyx52KMQrx6MfzEBj3WYvmq9onB0ywhhVwKB7nW0GSHc/dhnVVpfKrHZB3TQZG6hgimknCrNBjA4mbt7PZj+AI2sHgLEUWifzGGxaf+kTFazZPKUEHkOV1uKTuOYvKHtvVXlUtZRhX95Dmv3N2M7Y1UNyQ1F+130Lm7ZJeBTycaf3zdDgVM1KhYXjcSh0jz0a6IqPFffyv+CEfEolChvTPqoYzrWnqaqoDxXaFZt+zbnTY9n8LqLl6PxQTLcWfynd/B6Xr185hKWReunEA3alNNYF2gWLLeC8iFATmzn9RYi0ujHR42gk+/3gPevqaOwJNN2hQvg/s19GWnpM</source>
   </file>
   <package name="Ldap-Core" full_name="Ldap-Core"/>
   <package name="global" full_name="global"/>
