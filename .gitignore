@@ -1,6 +1,7 @@
 # Project-specific excludes
 vendor
 docs
+tmp
 phpdoc.xml
 
 # Platform-specific excludes
