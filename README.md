@@ -58,7 +58,7 @@ print_r($res->getEntries());
 
 ## Documentation
 
-Online docs will be added soon. In the meantime, you can generate API documentation offline:
+Online API documentation is available [here](http://dreamscapes.github.io/Ldap-Core). To generate API documentation offline:
 ```
 git clone https://github.com/Dreamscapes/Ldap-Core.git
 composer install
