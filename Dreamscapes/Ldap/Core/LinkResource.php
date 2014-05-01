@@ -83,6 +83,31 @@ class LinkResource implements LinkResourceInterface
     const SCOPE_ONELEVEL                        = 'ldap_list';
     const SCOPE_SUBTREE                         = 'ldap_search';
 
+    const OPT_DEREF                             = LDAP_OPT_DEREF;
+    const OPT_SIZELIMIT                         = LDAP_OPT_SIZELIMIT;
+    const OPT_TIMELIMIT                         = LDAP_OPT_TIMELIMIT;
+    const OPT_NETWORK_TIMEOUT                   = LDAP_OPT_NETWORK_TIMEOUT;
+    const OPT_PROTOCOL_VERSION                  = LDAP_OPT_PROTOCOL_VERSION;
+    const OPT_ERROR_NUMBER                      = LDAP_OPT_ERROR_NUMBER;
+    const OPT_REFERRALS                         = LDAP_OPT_REFERRALS;
+    const OPT_RESTART                           = LDAP_OPT_RESTART;
+    const OPT_HOST_NAME                         = LDAP_OPT_HOST_NAME;
+    const OPT_ERROR_STRING                      = LDAP_OPT_ERROR_STRING;
+    const OPT_MATCHED_DN                        = LDAP_OPT_MATCHED_DN;
+    const OPT_SERVER_CONTROLS                   = LDAP_OPT_SERVER_CONTROLS;
+    const OPT_CLIENT_CONTROLS                   = LDAP_OPT_CLIENT_CONTROLS;
+    const OPT_DEBUG_LEVEL                       = LDAP_OPT_DEBUG_LEVEL;
+
+    // Available constants if ldap-sasl is present
+    // LDAP_OPT_X_SASL_MECH;
+    // LDAP_OPT_X_SASL_REALM;
+    // LDAP_OPT_X_SASL_AUTHCID;
+    // LDAP_OPT_X_SASL_AUTHZID;
+    //
+    // Available constants if Oracle LDAP libraries are used instead of OpenLDAP
+    // GSLC_SSL_NO_AUTH;
+    // GSLC_SSL_ONEWAY_AUTH;
+    // GSLC_SSL_TWOWAY_AUTH;
 
     /**
      * PHP's native ldap resource object
