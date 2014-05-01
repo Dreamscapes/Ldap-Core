@@ -174,6 +174,16 @@ class LinkResource implements LinkResourceInterface
     }
 
     /**
+     * Allow resource's string representation to be ldap URI string
+     *
+     * @return string Ldap server and port of this connection (i.e. example.com:389)
+     */
+    public function __toString()
+    {
+        return $this->getOption(static::OPT_HOST_NAME);
+    }
+
+    /**
      * Get the PHP's native ldap resource object
      *
      * @return resource (ldap link)
