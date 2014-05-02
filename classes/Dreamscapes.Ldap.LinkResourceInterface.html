@@ -80,6 +80,7 @@
 <li class="method public "><a href="#method_modDelete" title="modDelete() :: Delete attribute values from current attributes"><span class="description">Delete attribute values from current attributes</span><pre>modDelete()</pre></a></li>
 <li class="method public "><a href="#method_modReplace" title="modReplace() :: Replace attribute values with new ones"><span class="description">Replace attribute values with new ones</span><pre>modReplace()</pre></a></li>
 <li class="method public "><a href="#method_modify" title="modify() :: Modify an LDAP entry"><span class="description">Modify an LDAP entry</span><pre>modify()</pre></a></li>
+<li class="method public "><a href="#method_modifyBatch" title="modifyBatch() :: Modify an existing entry in the LDAP directory"><span class="description">Modify an existing entry in the LDAP directory</span><pre>modifyBatch()</pre></a></li>
 <li class="method public "><a href="#method_pagedResult" title="pagedResult() :: Send LDAP pagination control"><span class="description">Send LDAP pagination control</span><pre>pagedResult()</pre></a></li>
 <li class="method public "><a href="#method_rename" title="rename() :: Modify the name of an entry"><span class="description">Modify the name of an entry</span><pre>rename()</pre></a></li>
 <li class="method public "><a href="#method_saslBind" title="saslBind() :: Bind to LDAP directory using SASL"><span class="description">Bind to LDAP directory using SASL</span><pre>saslBind()</pre></a></li>
@@ -415,6 +416,27 @@ link resource and related functions.</p>
 <div class="subelement response"><code>\Dreamscapes\Ldap\LinkResourceInterface</code></div>
 </div></div>
 </div>
+<a id="method_modifyBatch"></a><div class="element clickable method public method_modifyBatch" data-toggle="collapse" data-target=".method_modifyBatch .collapse" title="public">
+<h2>Modify an existing entry in the LDAP directory</h2>
+<pre>modifyBatch(string $dn, array $entry) : \Dreamscapes\Ldap\LinkResourceInterface</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description">Allows detailed specification of the modifications to perform.</div>
+<table class="table table-bordered"><tr>
+<th>fluent</th>
+<td>This method is part of a fluent interface and will return the same instance</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$dn</h4>
+<code>string</code><p>The distinguished name of an LDAP entity</p></div>
+<div class="subelement argument">
+<h4>$entry</h4>
+<code>array</code><p>Modification specifications</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>\Dreamscapes\Ldap\LinkResourceInterface</code></div>
+</div></div>
+</div>
 <a id="method_pagedResult"></a><div class="element clickable method public method_pagedResult" data-toggle="collapse" data-target=".method_pagedResult .collapse" title="public">
 <h2>Send LDAP pagination control</h2>
 <pre>pagedResult(integer $pageSize, boolean $isCritical<code> = false</code>, string $cookie<code> = ''</code>) : \Dreamscapes\Ldap\LinkResourceInterface</pre>
@@ -610,7 +632,7 @@ link resource and related functions.</p>
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.4.0
 </a> and<br>
-            generated on 2014-04-27T22:33:57Z.<br></footer></div>
+            generated on 2014-05-02T14:11:40Z.<br></footer></div>
 </div>
 </body>
 </html>

@@ -64,6 +64,7 @@
 <i title="Methods" class="icon-custom icon-method"></i> Methods
                     <ul>
 <li class="method public "><a href="#method___construct" title="__construct() :: Create a new instance"><span class="description">Create a new instance</span><pre>__construct()</pre></a></li>
+<li class="method public "><a href="#method___toString" title="__toString() :: Allow resource's string representation to be ldap URI string"><span class="description">Allow resource's string representation to be ldap URI string</span><pre>__toString()</pre></a></li>
 <li class="method public "><a href="#method_add" title="add() :: Add entries to LDAP directory"><span class="description">Add entries to LDAP directory</span><pre>add()</pre></a></li>
 <li class="method public "><a href="#method_bind" title="bind() :: Bind to LDAP directory"><span class="description">Bind to LDAP directory</span><pre>bind()</pre></a></li>
 <li class="method public "><a href="#method_close" title="close() :: Alias of self::unbind()"><span class="description">Alias of self::unbind()</span><pre>close()</pre></a></li>
@@ -82,6 +83,7 @@
 <li class="method public "><a href="#method_modDelete" title="modDelete() :: Delete attribute values from current attributes"><span class="description">Delete attribute values from current attributes</span><pre>modDelete()</pre></a></li>
 <li class="method public "><a href="#method_modReplace" title="modReplace() :: Replace attribute values with new ones"><span class="description">Replace attribute values with new ones</span><pre>modReplace()</pre></a></li>
 <li class="method public "><a href="#method_modify" title="modify() :: Modify an LDAP entry"><span class="description">Modify an LDAP entry</span><pre>modify()</pre></a></li>
+<li class="method public "><a href="#method_modifyBatch" title="modifyBatch() :: Modify an existing entry in the LDAP directory"><span class="description">Modify an existing entry in the LDAP directory</span><pre>modifyBatch()</pre></a></li>
 <li class="method public "><a href="#method_pagedResult" title="pagedResult() :: Send LDAP pagination control"><span class="description">Send LDAP pagination control</span><pre>pagedResult()</pre></a></li>
 <li class="method public "><a href="#method_rename" title="rename() :: Modify the name of an entry"><span class="description">Modify the name of an entry</span><pre>rename()</pre></a></li>
 <li class="method public "><a href="#method_saslBind" title="saslBind() :: Bind to LDAP directory using SASL"><span class="description">Bind to LDAP directory using SASL</span><pre>saslBind()</pre></a></li>
@@ -132,6 +134,10 @@
 <li class="constant  "><a href="#constant_INVALID_SYNTAX" title="INVALID_SYNTAX() :: "><span class="description">INVALID_SYNTAX</span><pre>INVALID_SYNTAX</pre></a></li>
 <li class="constant  "><a href="#constant_IS_LEAF" title="IS_LEAF() :: "><span class="description">IS_LEAF</span><pre>IS_LEAF</pre></a></li>
 <li class="constant  "><a href="#constant_LOOP_DETECT" title="LOOP_DETECT() :: "><span class="description">LOOP_DETECT</span><pre>LOOP_DETECT</pre></a></li>
+<li class="constant  "><a href="#constant_MODIFY_BATCH_ADD" title="MODIFY_BATCH_ADD() :: "><span class="description">MODIFY_BATCH_ADD</span><pre>MODIFY_BATCH_ADD</pre></a></li>
+<li class="constant  "><a href="#constant_MODIFY_BATCH_REMOVE" title="MODIFY_BATCH_REMOVE() :: "><span class="description">MODIFY_BATCH_REMOVE</span><pre>MODIFY_BATCH_REMOVE</pre></a></li>
+<li class="constant  "><a href="#constant_MODIFY_BATCH_REMOVE_ALL" title="MODIFY_BATCH_REMOVE_ALL() :: "><span class="description">MODIFY_BATCH_REMOVE_ALL</span><pre>MODIFY_BATCH_REMOVE_ALL</pre></a></li>
+<li class="constant  "><a href="#constant_MODIFY_BATCH_REPLACE" title="MODIFY_BATCH_REPLACE() :: "><span class="description">MODIFY_BATCH_REPLACE</span><pre>MODIFY_BATCH_REPLACE</pre></a></li>
 <li class="constant  "><a href="#constant_NAMING_VIOLATION" title="NAMING_VIOLATION() :: "><span class="description">NAMING_VIOLATION</span><pre>NAMING_VIOLATION</pre></a></li>
 <li class="constant  "><a href="#constant_NOT_ALLOWED_ON_NONLEAF" title="NOT_ALLOWED_ON_NONLEAF() :: "><span class="description">NOT_ALLOWED_ON_NONLEAF</span><pre>NOT_ALLOWED_ON_NONLEAF</pre></a></li>
 <li class="constant  "><a href="#constant_NOT_ALLOWED_ON_RDN" title="NOT_ALLOWED_ON_RDN() :: "><span class="description">NOT_ALLOWED_ON_RDN</span><pre>NOT_ALLOWED_ON_RDN</pre></a></li>
@@ -141,6 +147,20 @@
 <li class="constant  "><a href="#constant_NO_SUCH_OBJECT" title="NO_SUCH_OBJECT() :: "><span class="description">NO_SUCH_OBJECT</span><pre>NO_SUCH_OBJECT</pre></a></li>
 <li class="constant  "><a href="#constant_OBJECT_CLASS_VIOLATION" title="OBJECT_CLASS_VIOLATION() :: "><span class="description">OBJECT_CLASS_VIOLATION</span><pre>OBJECT_CLASS_VIOLATION</pre></a></li>
 <li class="constant  "><a href="#constant_OPERATIONS_ERROR" title="OPERATIONS_ERROR() :: "><span class="description">OPERATIONS_ERROR</span><pre>OPERATIONS_ERROR</pre></a></li>
+<li class="constant  "><a href="#constant_OPT_CLIENT_CONTROLS" title="OPT_CLIENT_CONTROLS() :: "><span class="description">OPT_CLIENT_CONTROLS</span><pre>OPT_CLIENT_CONTROLS</pre></a></li>
+<li class="constant  "><a href="#constant_OPT_DEBUG_LEVEL" title="OPT_DEBUG_LEVEL() :: "><span class="description">OPT_DEBUG_LEVEL</span><pre>OPT_DEBUG_LEVEL</pre></a></li>
+<li class="constant  "><a href="#constant_OPT_DEREF" title="OPT_DEREF() :: "><span class="description">OPT_DEREF</span><pre>OPT_DEREF</pre></a></li>
+<li class="constant  "><a href="#constant_OPT_ERROR_NUMBER" title="OPT_ERROR_NUMBER() :: "><span class="description">OPT_ERROR_NUMBER</span><pre>OPT_ERROR_NUMBER</pre></a></li>
+<li class="constant  "><a href="#constant_OPT_ERROR_STRING" title="OPT_ERROR_STRING() :: "><span class="description">OPT_ERROR_STRING</span><pre>OPT_ERROR_STRING</pre></a></li>
+<li class="constant  "><a href="#constant_OPT_HOST_NAME" title="OPT_HOST_NAME() :: "><span class="description">OPT_HOST_NAME</span><pre>OPT_HOST_NAME</pre></a></li>
+<li class="constant  "><a href="#constant_OPT_MATCHED_DN" title="OPT_MATCHED_DN() :: "><span class="description">OPT_MATCHED_DN</span><pre>OPT_MATCHED_DN</pre></a></li>
+<li class="constant  "><a href="#constant_OPT_NETWORK_TIMEOUT" title="OPT_NETWORK_TIMEOUT() :: "><span class="description">OPT_NETWORK_TIMEOUT</span><pre>OPT_NETWORK_TIMEOUT</pre></a></li>
+<li class="constant  "><a href="#constant_OPT_PROTOCOL_VERSION" title="OPT_PROTOCOL_VERSION() :: "><span class="description">OPT_PROTOCOL_VERSION</span><pre>OPT_PROTOCOL_VERSION</pre></a></li>
+<li class="constant  "><a href="#constant_OPT_REFERRALS" title="OPT_REFERRALS() :: "><span class="description">OPT_REFERRALS</span><pre>OPT_REFERRALS</pre></a></li>
+<li class="constant  "><a href="#constant_OPT_RESTART" title="OPT_RESTART() :: "><span class="description">OPT_RESTART</span><pre>OPT_RESTART</pre></a></li>
+<li class="constant  "><a href="#constant_OPT_SERVER_CONTROLS" title="OPT_SERVER_CONTROLS() :: "><span class="description">OPT_SERVER_CONTROLS</span><pre>OPT_SERVER_CONTROLS</pre></a></li>
+<li class="constant  "><a href="#constant_OPT_SIZELIMIT" title="OPT_SIZELIMIT() :: "><span class="description">OPT_SIZELIMIT</span><pre>OPT_SIZELIMIT</pre></a></li>
+<li class="constant  "><a href="#constant_OPT_TIMELIMIT" title="OPT_TIMELIMIT() :: "><span class="description">OPT_TIMELIMIT</span><pre>OPT_TIMELIMIT</pre></a></li>
 <li class="constant  "><a href="#constant_OTHER" title="OTHER() :: "><span class="description">OTHER</span><pre>OTHER</pre></a></li>
 <li class="constant  "><a href="#constant_PASSWORD_EXPIRED" title="PASSWORD_EXPIRED() :: "><span class="description">PASSWORD_EXPIRED</span><pre>PASSWORD_EXPIRED</pre></a></li>
 <li class="constant  "><a href="#constant_PROTOCOL_ERROR" title="PROTOCOL_ERROR() :: "><span class="description">PROTOCOL_ERROR</span><pre>PROTOCOL_ERROR</pre></a></li>
@@ -203,6 +223,17 @@
 <div class="subelement argument">
 <h4>$ldapUrl</h4>
 <code>string</code><p>Optional ldap URI string of the ldap server</p></div>
+</div></div>
+</div>
+<a id="method___toString"></a><div class="element clickable method public method___toString" data-toggle="collapse" data-target=".method___toString .collapse" title="public">
+<h2>Allow resource's string representation to be ldap URI string</h2>
+<pre>__toString() : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>string</code>Ldap server and port of this connection (i.e. example.com:389)</div>
 </div></div>
 </div>
 <a id="method_add"></a><div class="element clickable method public method_add" data-toggle="collapse" data-target=".method_add .collapse" title="public">
@@ -494,6 +525,44 @@
 <div class="subelement argument">
 <h4>$entry</h4>
 <code>array</code><p>Attributes with their modified values</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>\Dreamscapes\Ldap\Core\LinkResource</code></div>
+</div></div>
+</div>
+<a id="method_modifyBatch"></a><div class="element clickable method public method_modifyBatch" data-toggle="collapse" data-target=".method_modifyBatch .collapse" title="public">
+<h2>Modify an existing entry in the LDAP directory</h2>
+<pre>modifyBatch(string $dn, array $entry) : \Dreamscapes\Ldap\Core\LinkResource</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description">Allows detailed specification of the modifications to perform.
+
+Example:
+
+$modifs = array(
+    array(
+        "attrib"  => "telephoneNumber",
+        "modtype" => LinkResource::MODIFY_BATCH_ADD,
+        "values"  => array("+420 777 111 222")
+    )
+);
+$linkResource->modifyBatch("cn=Robert Rossmann,dc=example,dc=com", $modifs);</div>
+<table class="table table-bordered">
+<tr>
+<th>see</th>
+<td><a href="%5CDreamscapes%5CLdap%5CCore%5Chttps://wiki.php.net/rfc/ldap_modify_batch"></a></td>
+</tr>
+<tr>
+<th>fluent</th>
+<td>This method is part of a fluent interface and will return the same instance</td>
+</tr>
+</table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$dn</h4>
+<code>string</code><p>The distinguished name of an LDAP entity</p></div>
+<div class="subelement argument">
+<h4>$entry</h4>
+<code>array</code><p>Modification specifications</p></div>
 <h3>Returns</h3>
 <div class="subelement response"><code>\Dreamscapes\Ldap\Core\LinkResource</code></div>
 </div></div>
@@ -870,6 +939,30 @@ self::SCOPE_BASE - equivalent of ldap_read()</div>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
+<a id="constant_MODIFY_BATCH_ADD"> </a><div class="element clickable constant  constant_MODIFY_BATCH_ADD" data-toggle="collapse" data-target=".constant_MODIFY_BATCH_ADD .collapse" title="">
+<h2>MODIFY_BATCH_ADD</h2>
+<pre>MODIFY_BATCH_ADD = LDAP_MODIFY_BATCH_ADD </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_MODIFY_BATCH_REMOVE"> </a><div class="element clickable constant  constant_MODIFY_BATCH_REMOVE" data-toggle="collapse" data-target=".constant_MODIFY_BATCH_REMOVE .collapse" title="">
+<h2>MODIFY_BATCH_REMOVE</h2>
+<pre>MODIFY_BATCH_REMOVE = LDAP_MODIFY_BATCH_REMOVE </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_MODIFY_BATCH_REMOVE_ALL"> </a><div class="element clickable constant  constant_MODIFY_BATCH_REMOVE_ALL" data-toggle="collapse" data-target=".constant_MODIFY_BATCH_REMOVE_ALL .collapse" title="">
+<h2>MODIFY_BATCH_REMOVE_ALL</h2>
+<pre>MODIFY_BATCH_REMOVE_ALL = LDAP_MODIFY_BATCH_REMOVE_ALL </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_MODIFY_BATCH_REPLACE"> </a><div class="element clickable constant  constant_MODIFY_BATCH_REPLACE" data-toggle="collapse" data-target=".constant_MODIFY_BATCH_REPLACE .collapse" title="">
+<h2>MODIFY_BATCH_REPLACE</h2>
+<pre>MODIFY_BATCH_REPLACE = LDAP_MODIFY_BATCH_REPLACE </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
 <a id="constant_NAMING_VIOLATION"> </a><div class="element clickable constant  constant_NAMING_VIOLATION" data-toggle="collapse" data-target=".constant_NAMING_VIOLATION .collapse" title="">
 <h2>NAMING_VIOLATION</h2>
 <pre>NAMING_VIOLATION = 64 </pre>
@@ -921,6 +1014,90 @@ self::SCOPE_BASE - equivalent of ldap_read()</div>
 <a id="constant_OPERATIONS_ERROR"> </a><div class="element clickable constant  constant_OPERATIONS_ERROR" data-toggle="collapse" data-target=".constant_OPERATIONS_ERROR .collapse" title="">
 <h2>OPERATIONS_ERROR</h2>
 <pre>OPERATIONS_ERROR = 1 </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_OPT_CLIENT_CONTROLS"> </a><div class="element clickable constant  constant_OPT_CLIENT_CONTROLS" data-toggle="collapse" data-target=".constant_OPT_CLIENT_CONTROLS .collapse" title="">
+<h2>OPT_CLIENT_CONTROLS</h2>
+<pre>OPT_CLIENT_CONTROLS = LDAP_OPT_CLIENT_CONTROLS </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_OPT_DEBUG_LEVEL"> </a><div class="element clickable constant  constant_OPT_DEBUG_LEVEL" data-toggle="collapse" data-target=".constant_OPT_DEBUG_LEVEL .collapse" title="">
+<h2>OPT_DEBUG_LEVEL</h2>
+<pre>OPT_DEBUG_LEVEL = LDAP_OPT_DEBUG_LEVEL </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_OPT_DEREF"> </a><div class="element clickable constant  constant_OPT_DEREF" data-toggle="collapse" data-target=".constant_OPT_DEREF .collapse" title="">
+<h2>OPT_DEREF</h2>
+<pre>OPT_DEREF = LDAP_OPT_DEREF </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_OPT_ERROR_NUMBER"> </a><div class="element clickable constant  constant_OPT_ERROR_NUMBER" data-toggle="collapse" data-target=".constant_OPT_ERROR_NUMBER .collapse" title="">
+<h2>OPT_ERROR_NUMBER</h2>
+<pre>OPT_ERROR_NUMBER = LDAP_OPT_ERROR_NUMBER </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_OPT_ERROR_STRING"> </a><div class="element clickable constant  constant_OPT_ERROR_STRING" data-toggle="collapse" data-target=".constant_OPT_ERROR_STRING .collapse" title="">
+<h2>OPT_ERROR_STRING</h2>
+<pre>OPT_ERROR_STRING = LDAP_OPT_ERROR_STRING </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_OPT_HOST_NAME"> </a><div class="element clickable constant  constant_OPT_HOST_NAME" data-toggle="collapse" data-target=".constant_OPT_HOST_NAME .collapse" title="">
+<h2>OPT_HOST_NAME</h2>
+<pre>OPT_HOST_NAME = LDAP_OPT_HOST_NAME </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_OPT_MATCHED_DN"> </a><div class="element clickable constant  constant_OPT_MATCHED_DN" data-toggle="collapse" data-target=".constant_OPT_MATCHED_DN .collapse" title="">
+<h2>OPT_MATCHED_DN</h2>
+<pre>OPT_MATCHED_DN = LDAP_OPT_MATCHED_DN </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_OPT_NETWORK_TIMEOUT"> </a><div class="element clickable constant  constant_OPT_NETWORK_TIMEOUT" data-toggle="collapse" data-target=".constant_OPT_NETWORK_TIMEOUT .collapse" title="">
+<h2>OPT_NETWORK_TIMEOUT</h2>
+<pre>OPT_NETWORK_TIMEOUT = LDAP_OPT_NETWORK_TIMEOUT </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_OPT_PROTOCOL_VERSION"> </a><div class="element clickable constant  constant_OPT_PROTOCOL_VERSION" data-toggle="collapse" data-target=".constant_OPT_PROTOCOL_VERSION .collapse" title="">
+<h2>OPT_PROTOCOL_VERSION</h2>
+<pre>OPT_PROTOCOL_VERSION = LDAP_OPT_PROTOCOL_VERSION </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_OPT_REFERRALS"> </a><div class="element clickable constant  constant_OPT_REFERRALS" data-toggle="collapse" data-target=".constant_OPT_REFERRALS .collapse" title="">
+<h2>OPT_REFERRALS</h2>
+<pre>OPT_REFERRALS = LDAP_OPT_REFERRALS </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_OPT_RESTART"> </a><div class="element clickable constant  constant_OPT_RESTART" data-toggle="collapse" data-target=".constant_OPT_RESTART .collapse" title="">
+<h2>OPT_RESTART</h2>
+<pre>OPT_RESTART = LDAP_OPT_RESTART </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_OPT_SERVER_CONTROLS"> </a><div class="element clickable constant  constant_OPT_SERVER_CONTROLS" data-toggle="collapse" data-target=".constant_OPT_SERVER_CONTROLS .collapse" title="">
+<h2>OPT_SERVER_CONTROLS</h2>
+<pre>OPT_SERVER_CONTROLS = LDAP_OPT_SERVER_CONTROLS </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_OPT_SIZELIMIT"> </a><div class="element clickable constant  constant_OPT_SIZELIMIT" data-toggle="collapse" data-target=".constant_OPT_SIZELIMIT .collapse" title="">
+<h2>OPT_SIZELIMIT</h2>
+<pre>OPT_SIZELIMIT = LDAP_OPT_SIZELIMIT </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_OPT_TIMELIMIT"> </a><div class="element clickable constant  constant_OPT_TIMELIMIT" data-toggle="collapse" data-target=".constant_OPT_TIMELIMIT .collapse" title="">
+<h2>OPT_TIMELIMIT</h2>
+<pre>OPT_TIMELIMIT = LDAP_OPT_TIMELIMIT </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
@@ -1064,7 +1241,7 @@ self::SCOPE_BASE - equivalent of ldap_read()</div>
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.4.0
 </a> and<br>
-            generated on 2014-04-27T22:33:57Z.<br></footer></div>
+            generated on 2014-05-02T14:11:40Z.<br></footer></div>
 </div>
 </body>
 </html>

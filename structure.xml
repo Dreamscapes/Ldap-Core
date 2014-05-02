@@ -1,13 +1,913 @@
 <?xml version="1.0" encoding="utf-8"?>
 <project title="Dreamscapes - Ldap Core" version="2.4.0&#10;">
   <partials/>
-  <file path="Core/ResultResource.php" generated-path="Core.ResultResource.html" hash="0935abb41e71073f914cf7cd77b578c4" package="global">
+  <file path="ResultResourceInterface.php" generated-path="ResultResourceInterface.html" hash="cbcc6cd4d327e16062d7d6e84fa55f41" package="global">
     <docblock line="0">
       <description>Dreamscapes/Ldap-Core</description>
       <long-description>Licensed under the BSD (3-Clause) license
 For full copyright and license information, please see the LICENSE file</long-description>
       <tag name="author" line="0" description="Robert Rossmann" link="mailto:rr.rossmann@me.com"/>
-      <tag name="copyright" line="0" description="2013 Robert Rossmann"/>
+      <tag name="copyright" line="0" description="2014 Robert Rossmann"/>
+      <tag name="link" line="0" description="https://github.com/Dreamscapes/Ldap-Core" link="https://github.com/Dreamscapes/Ldap-Core"/>
+      <tag name="license" line="0" description="BSD (3-Clause) License" link="http://choosealicense.com/licenses/bsd-3-clause"/>
+    </docblock>
+    <interface namespace="Dreamscapes\Ldap" line="24" package="Ldap-Core">
+      <name>ResultResourceInterface</name>
+      <full_name>\Dreamscapes\Ldap\ResultResourceInterface</full_name>
+      <docblock line="24">
+        <description>This interface prescribes which methods a class must implement to serve as object encapsulation of PHP's native ldap
+result resource and related functions.</description>
+        <long-description></long-description>
+        <tag name="package" line="24" description="Ldap-Core"/>
+      </docblock>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap" line="32" package="Ldap-Core">
+        <name>__construct</name>
+        <full_name>\Dreamscapes\Ldap\ResultResourceInterface::__construct()</full_name>
+        <docblock line="32">
+          <description>Create a new instance</description>
+          <long-description></long-description>
+          <tag name="param" line="32" description="" type="\Dreamscapes\Ldap\LinkResourceInterface" variable="$link">
+            <type>\Dreamscapes\Ldap\LinkResourceInterface</type>
+          </tag>
+          <tag name="param" line="32" description="" type="resource" variable="$result">
+            <type>resource</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$link</name>
+          <default></default>
+          <type>\Dreamscapes\Ldap\LinkResourceInterface</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$result</name>
+          <default></default>
+          <type>resource</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap" line="39" package="Ldap-Core">
+        <name>pagedResultResponse</name>
+        <full_name>\Dreamscapes\Ldap\ResultResourceInterface::pagedResultResponse()</full_name>
+        <docblock line="39">
+          <description>Retrieve the LDAP pagination cookie</description>
+          <long-description></long-description>
+          <tag name="return" line="39" description="Array with two keys: 'cookie' and 'estimated'" type="array">
+            <type>array</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap" line="46" package="Ldap-Core">
+        <name>countEntries</name>
+        <full_name>\Dreamscapes\Ldap\ResultResourceInterface::countEntries()</full_name>
+        <docblock line="46">
+          <description>Count the number of entries in a search</description>
+          <long-description></long-description>
+          <tag name="return" line="46" description="Number of entries in the result" type="int">
+            <type>int</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap" line="56" package="Ldap-Core">
+        <name>freeResult</name>
+        <full_name>\Dreamscapes\Ldap\ResultResourceInterface::freeResult()</full_name>
+        <docblock line="56">
+          <description>Free result memory</description>
+          <long-description>Once the result is freed from memory the instance holding the result must not be used any further. This method
+must be called automatically when the instance is released from memory.</long-description>
+          <tag name="return" line="56" description="" type="void">
+            <type>void</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap" line="63" package="Ldap-Core">
+        <name>getEntries</name>
+        <full_name>\Dreamscapes\Ldap\ResultResourceInterface::getEntries()</full_name>
+        <docblock line="63">
+          <description>Get all result entries</description>
+          <long-description></long-description>
+          <tag name="return" line="63" description="Complete result information in a multi-dimensional array" type="array">
+            <type>array</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap" line="70" package="Ldap-Core">
+        <name>getReferrals</name>
+        <full_name>\Dreamscapes\Ldap\ResultResourceInterface::getReferrals()</full_name>
+        <docblock line="70">
+          <description>Extract information about referrals (if returned by server)</description>
+          <long-description></long-description>
+          <tag name="return" line="70" description="" type="array">
+            <type>array</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap" line="78" package="Ldap-Core">
+        <name>sort</name>
+        <full_name>\Dreamscapes\Ldap\ResultResourceInterface::sort()</full_name>
+        <docblock line="78">
+          <description>Sort LDAP result entries</description>
+          <long-description></long-description>
+          <tag name="param" line="78" description="&lt;p&gt;The attribute to use as a key in the sort&lt;/p&gt;" type="string" variable="$sortFilter">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="78" description="" type="\Dreamscapes\Ldap\ResultResourceInterface">
+            <type>\Dreamscapes\Ldap\ResultResourceInterface</type>
+          </tag>
+          <tag name="fluent" description="This method is part of a fluent interface and will return the same instance"/>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$sortFilter</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+    </interface>
+    <source>eJyNVdtu2zgQfddXzEMAO0Ft9bJPbbDbrpO0BYJu4PRxgYCiRhbXFCnwktQo+u891MVxXMddvcgi58yZOXPx+V9t3WZZfnaW0RldOBaNl6Jln1+Xop0trGNcpLtrJdl4Limakh2Fmunv2wuavpkttIieT0n3Fsn4yjqqotYkbbtxalUHEqYcLUiZyrpGBGXNC2o1C5x55s7p9efF5ZfbS6qUHqnfixhqeOyepS3YBby8b4QxdO7c3A0f7xueS9v82YEeqYlev3z1xz6yM9LKrGl46hBa/zbPVyrUsUiO8ucEScA+lREInKyt9SyGmw4//PZ54cvZm5nslAJiT7nrrXJ5lmVGNOxbIXm3Hv8m+nfbSn2tlYeMgV2VDFvHXjpVsKeHWsmaGoZipSdB4PSemugDqQZaN2wCBQu93T2T8GSL/1gGYgMeH3VXFbIV3Xy6mXgy+IadBnviBU/UIb1sdCBOVXUMEBqjikYmsJ+PdUMSa7FCTXeky7PHsJedt+Xg7PN4nn3Pkqxdquk5owWECGAjww9I2wdhYNZfjjZgc6KBlmb9i0c6SYXes9wm8eQ56VMcbPPu3cYCldwmSHd3EmkGF2WYHuF7MTo7ReH2MlpycIrvh56/+HBDrVgp06svrV2rX/JzHKIzJJwTm3T0ofvxgG6l8GBpzRv/liY9dtJVZsI+qCYVZ3I0H1BzuS1Gi9x4eiDmhY2pdxCwiQ1mKXUJugl5pF5EddD9TtbPxI2y9wp/OQROXv+H8jKFcNnDDoV45Xj0gxlorNvsRfMPGmeHjDBGFTDoXmebAdLdj11GtdWlMqtdUDdNxgYqmGLaicJsEKODiZv3s9kP4MjaAWAshdbJPAab1l/6RAVrNk8pgcdQpbX4JK75M8reW1UeVS1l2Jf3kGYfGdsZu3pIbijK77pvYdM2CY9CPu70vhkanKpZqbBwPA6F7rFHA13xseJefgtOyKdUorAx7aOK4Vx7mqqK+lChXbHp15w7PZbN7yJajs4PxXRr8ZfSze9x+fqVQ1gaqZdOPGBXSmNdoF2w2ALOiwg1sZnTX4RIqxsTPY5Gst8P3rOujsaeQNMdKoT/I/sJTWJ6TQ==</source>
+  </file>
+  <file path="LinkResourceInterface.php" generated-path="LinkResourceInterface.html" hash="6da66c9b3664db48878e467809d33a8b" package="global">
+    <docblock line="0">
+      <description>Dreamscapes/Ldap-Core</description>
+      <long-description>Licensed under the BSD (3-Clause) license
+For full copyright and license information, please see the LICENSE file</long-description>
+      <tag name="author" line="0" description="Robert Rossmann" link="mailto:rr.rossmann@me.com"/>
+      <tag name="copyright" line="0" description="2014 Robert Rossmann"/>
+      <tag name="link" line="0" description="https://github.com/Dreamscapes/Ldap-Core" link="https://github.com/Dreamscapes/Ldap-Core"/>
+      <tag name="license" line="0" description="BSD (3-Clause) License" link="http://choosealicense.com/licenses/bsd-3-clause"/>
+    </docblock>
+    <interface namespace="Dreamscapes\Ldap" line="24" package="Ldap-Core">
+      <name>LinkResourceInterface</name>
+      <full_name>\Dreamscapes\Ldap\LinkResourceInterface</full_name>
+      <docblock line="24">
+        <description>This interface prescribes which methods a class must implement to serve as object encapsulation of PHP's native ldap
+link resource and related functions.</description>
+        <long-description></long-description>
+        <tag name="package" line="24" description="Ldap-Core"/>
+      </docblock>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap" line="33" package="Ldap-Core">
+        <name>__construct</name>
+        <full_name>\Dreamscapes\Ldap\LinkResourceInterface::__construct()</full_name>
+        <docblock line="33">
+          <description>Create a new instance</description>
+          <long-description>If $ldapUrl is provided, it should also open connection to the ldap server by calling self::connect()</long-description>
+          <tag name="param" line="33" description="&lt;p&gt;Optional ldap URI string of the ldap server&lt;/p&gt;" type="string" variable="$ldapUrl">
+            <type>string</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$ldapUrl</name>
+          <default>null</default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="Dreamscapes\Ldap" line="41" package="Ldap-Core">
+        <name>dnToUfn</name>
+        <full_name>\Dreamscapes\Ldap\LinkResourceInterface::dnToUfn()</full_name>
+        <docblock line="41">
+          <description>Convert DN to User Friendly Naming format</description>
+          <long-description></long-description>
+          <tag name="param" line="41" description="&lt;p&gt;The distinguished name of an LDAP entity&lt;/p&gt;" type="string" variable="$dn">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="41" description="The user friendly name" type="string">
+            <type>string</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$dn</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="Dreamscapes\Ldap" line="49" package="Ldap-Core">
+        <name>errToStr</name>
+        <full_name>\Dreamscapes\Ldap\LinkResourceInterface::errToStr()</full_name>
+        <docblock line="49">
+          <description>Convert LDAP error number into string error message</description>
+          <long-description></long-description>
+          <tag name="param" line="49" description="&lt;p&gt;The error number&lt;/p&gt;" type="integer" variable="$errno">
+            <type>integer</type>
+          </tag>
+          <tag name="return" line="49" description="The error message, as a string" type="string">
+            <type>string</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$errno</name>
+          <default></default>
+          <type>integer</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="Dreamscapes\Ldap" line="58" package="Ldap-Core">
+        <name>explodeDn</name>
+        <full_name>\Dreamscapes\Ldap\LinkResourceInterface::explodeDn()</full_name>
+        <docblock line="58">
+          <description>Splits DN into its component parts</description>
+          <long-description></long-description>
+          <tag name="param" line="58" description="&lt;p&gt;The distinguished name of an LDAP entity&lt;/p&gt;" type="string" variable="$dn">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="58" description="&lt;p&gt;Used to request if the RDNs are returned with only values or their attributes as well&lt;/p&gt;" type="integer" variable="$withAttrib">
+            <type>integer</type>
+          </tag>
+          <tag name="return" line="58" description="Returns an array of all DN components" type="array">
+            <type>array</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$dn</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$withAttrib</name>
+          <default>0</default>
+          <type>integer</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap" line="66" package="Ldap-Core">
+        <name>getResource</name>
+        <full_name>\Dreamscapes\Ldap\LinkResourceInterface::getResource()</full_name>
+        <docblock line="66">
+          <description>Get the PHP's native ldap resource object</description>
+          <long-description></long-description>
+          <tag name="return" line="66" description="(ldap link)" type="resource">
+            <type>resource</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap" line="75" package="Ldap-Core">
+        <name>add</name>
+        <full_name>\Dreamscapes\Ldap\LinkResourceInterface::add()</full_name>
+        <docblock line="75">
+          <description>Add entries to LDAP directory</description>
+          <long-description></long-description>
+          <tag name="param" line="75" description="&lt;p&gt;The distinguished name of an LDAP entity&lt;/p&gt;" type="string" variable="$dn">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="75" description="&lt;p&gt;An array that specifies the information about the entry&lt;/p&gt;" type="array" variable="$entry">
+            <type>array</type>
+          </tag>
+          <tag name="return" line="75" description="" type="\Dreamscapes\Ldap\LinkResourceInterface">
+            <type>\Dreamscapes\Ldap\LinkResourceInterface</type>
+          </tag>
+          <tag name="fluent" description="This method is part of a fluent interface and will return the same instance"/>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$dn</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$entry</name>
+          <default></default>
+          <type>array</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap" line="85" package="Ldap-Core">
+        <name>compare</name>
+        <full_name>\Dreamscapes\Ldap\LinkResourceInterface::compare()</full_name>
+        <docblock line="85">
+          <description>Compare value of attribute found in entry specified with DN</description>
+          <long-description></long-description>
+          <tag name="param" line="85" description="&lt;p&gt;The distinguished name of an LDAP entity&lt;/p&gt;" type="string" variable="$dn">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="85" description="&lt;p&gt;The attribute name&lt;/p&gt;" type="string" variable="$attribute">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="85" description="&lt;p&gt;The compared value&lt;/p&gt;" type="string" variable="$value">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="85" description="Returns TRUE if value matches otherwise returns FALSE" type="bool">
+            <type>bool</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$dn</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$attribute</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$value</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap" line="93" package="Ldap-Core">
+        <name>delete</name>
+        <full_name>\Dreamscapes\Ldap\LinkResourceInterface::delete()</full_name>
+        <docblock line="93">
+          <description>Delete an entry from a directory</description>
+          <long-description></long-description>
+          <tag name="param" line="93" description="&lt;p&gt;The distinguished name of an LDAP entity&lt;/p&gt;" type="string" variable="$dn">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="93" description="" type="\Dreamscapes\Ldap\LinkResourceInterface">
+            <type>\Dreamscapes\Ldap\LinkResourceInterface</type>
+          </tag>
+          <tag name="fluent" description="This method is part of a fluent interface and will return the same instance"/>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$dn</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap" line="101" package="Ldap-Core">
+        <name>connect</name>
+        <full_name>\Dreamscapes\Ldap\LinkResourceInterface::connect()</full_name>
+        <docblock line="101">
+          <description>Open connection to an ldap server</description>
+          <long-description></long-description>
+          <tag name="param" line="101" description="&lt;p&gt;Ldap URI string of the ldap server (i.e. ldap://my.server.com:389)&lt;/p&gt;" type="string" variable="$ldapUrl">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="101" description="" type="\Dreamscapes\Ldap\LinkResourceInterface">
+            <type>\Dreamscapes\Ldap\LinkResourceInterface</type>
+          </tag>
+          <tag name="fluent" description="This method is part of a fluent interface and will return the same instance"/>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$ldapUrl</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap" line="111" package="Ldap-Core">
+        <name>pagedResult</name>
+        <full_name>\Dreamscapes\Ldap\LinkResourceInterface::pagedResult()</full_name>
+        <docblock line="111">
+          <description>Send LDAP pagination control</description>
+          <long-description></long-description>
+          <tag name="param" line="111" description="&lt;p&gt;The number of entries by page&lt;/p&gt;" type="integer" variable="$pageSize">
+            <type>integer</type>
+          </tag>
+          <tag name="param" line="111" description="&lt;p&gt;Indicates whether the pagination is critical of not&lt;/p&gt;" type="boolean" variable="$isCritical">
+            <type>boolean</type>
+          </tag>
+          <tag name="param" line="111" description="&lt;p&gt;An opaque structure sent by the server&lt;/p&gt;" type="string" variable="$cookie">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="111" description="" type="\Dreamscapes\Ldap\LinkResourceInterface">
+            <type>\Dreamscapes\Ldap\LinkResourceInterface</type>
+          </tag>
+          <tag name="fluent" description="This method is part of a fluent interface and will return the same instance"/>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$pageSize</name>
+          <default></default>
+          <type>integer</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$isCritical</name>
+          <default>false</default>
+          <type>boolean</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$cookie</name>
+          <default>''</default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap" line="120" package="Ldap-Core">
+        <name>bind</name>
+        <full_name>\Dreamscapes\Ldap\LinkResourceInterface::bind()</full_name>
+        <docblock line="120">
+          <description>Bind to LDAP directory</description>
+          <long-description></long-description>
+          <tag name="param" line="120" description="&lt;p&gt;Username for the bind&lt;/p&gt;" type="string" variable="$bindDn">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="120" description="&lt;p&gt;Password for the username&lt;/p&gt;" type="string" variable="$bindPassword">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="120" description="" type="\Dreamscapes\Ldap\LinkResourceInterface">
+            <type>\Dreamscapes\Ldap\LinkResourceInterface</type>
+          </tag>
+          <tag name="fluent" description="This method is part of a fluent interface and will return the same instance"/>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$bindDn</name>
+          <default>null</default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$bindPassword</name>
+          <default>null</default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap" line="127" package="Ldap-Core">
+        <name>error</name>
+        <full_name>\Dreamscapes\Ldap\LinkResourceInterface::error()</full_name>
+        <docblock line="127">
+          <description>Return the LDAP error message of the last LDAP command</description>
+          <long-description></long-description>
+          <tag name="return" line="127" description="" type="string">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap" line="134" package="Ldap-Core">
+        <name>errno</name>
+        <full_name>\Dreamscapes\Ldap\LinkResourceInterface::errno()</full_name>
+        <docblock line="134">
+          <description>Return the LDAP error number of the last LDAP command</description>
+          <long-description></long-description>
+          <tag name="return" line="134" description="" type="integer">
+            <type>integer</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap" line="142" package="Ldap-Core">
+        <name>getOption</name>
+        <full_name>\Dreamscapes\Ldap\LinkResourceInterface::getOption()</full_name>
+        <docblock line="142">
+          <description>Get the current value for given option</description>
+          <long-description></long-description>
+          <tag name="param" line="142" description="&lt;p&gt;The option to be returned&lt;/p&gt;" type="integer" variable="$option">
+            <type>integer</type>
+          </tag>
+          <tag name="return" line="142" description="" type="mixed">
+            <type>mixed</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$option</name>
+          <default></default>
+          <type>integer</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap" line="151" package="Ldap-Core">
+        <name>modAdd</name>
+        <full_name>\Dreamscapes\Ldap\LinkResourceInterface::modAdd()</full_name>
+        <docblock line="151">
+          <description>Add attribute values to current attributes</description>
+          <long-description></long-description>
+          <tag name="param" line="151" description="&lt;p&gt;The distinguished name of an LDAP entity&lt;/p&gt;" type="string" variable="$dn">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="151" description="&lt;p&gt;Values to be added to the specified attributes&lt;/p&gt;" type="array" variable="$entry">
+            <type>array</type>
+          </tag>
+          <tag name="return" line="151" description="" type="\Dreamscapes\Ldap\LinkResourceInterface">
+            <type>\Dreamscapes\Ldap\LinkResourceInterface</type>
+          </tag>
+          <tag name="fluent" description="This method is part of a fluent interface and will return the same instance"/>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$dn</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$entry</name>
+          <default></default>
+          <type>array</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap" line="160" package="Ldap-Core">
+        <name>modDelete</name>
+        <full_name>\Dreamscapes\Ldap\LinkResourceInterface::modDelete()</full_name>
+        <docblock line="160">
+          <description>Delete attribute values from current attributes</description>
+          <long-description></long-description>
+          <tag name="param" line="160" description="&lt;p&gt;The distinguished name of an LDAP entity&lt;/p&gt;" type="string" variable="$dn">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="160" description="&lt;p&gt;Values to be deleted from the specified attributes&lt;/p&gt;" type="array" variable="$entry">
+            <type>array</type>
+          </tag>
+          <tag name="return" line="160" description="" type="\Dreamscapes\Ldap\LinkResourceInterface">
+            <type>\Dreamscapes\Ldap\LinkResourceInterface</type>
+          </tag>
+          <tag name="fluent" description="This method is part of a fluent interface and will return the same instance"/>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$dn</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$entry</name>
+          <default></default>
+          <type>array</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap" line="163" package="Ldap-Core">
+        <name>modDel</name>
+        <full_name>\Dreamscapes\Ldap\LinkResourceInterface::modDel()</full_name>
+        <docblock line="163">
+          <description>Compatibility alias for self::modDelete()</description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$dn</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$entry</name>
+          <default></default>
+          <type>array</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap" line="172" package="Ldap-Core">
+        <name>modReplace</name>
+        <full_name>\Dreamscapes\Ldap\LinkResourceInterface::modReplace()</full_name>
+        <docblock line="172">
+          <description>Replace attribute values with new ones</description>
+          <long-description></long-description>
+          <tag name="param" line="172" description="&lt;p&gt;The distinguished name of an LDAP entity&lt;/p&gt;" type="string" variable="$dn">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="172" description="&lt;p&gt;Attributes and their values to be replaced&lt;/p&gt;" type="array" variable="$entry">
+            <type>array</type>
+          </tag>
+          <tag name="return" line="172" description="" type="\Dreamscapes\Ldap\LinkResourceInterface">
+            <type>\Dreamscapes\Ldap\LinkResourceInterface</type>
+          </tag>
+          <tag name="fluent" description="This method is part of a fluent interface and will return the same instance"/>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$dn</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$entry</name>
+          <default></default>
+          <type>array</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap" line="181" package="Ldap-Core">
+        <name>modify</name>
+        <full_name>\Dreamscapes\Ldap\LinkResourceInterface::modify()</full_name>
+        <docblock line="181">
+          <description>Modify an LDAP entry</description>
+          <long-description></long-description>
+          <tag name="param" line="181" description="&lt;p&gt;The distinguished name of an LDAP entity&lt;/p&gt;" type="string" variable="$dn">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="181" description="&lt;p&gt;Attributes with their modified values&lt;/p&gt;" type="array" variable="$entry">
+            <type>array</type>
+          </tag>
+          <tag name="return" line="181" description="" type="\Dreamscapes\Ldap\LinkResourceInterface">
+            <type>\Dreamscapes\Ldap\LinkResourceInterface</type>
+          </tag>
+          <tag name="fluent" description="This method is part of a fluent interface and will return the same instance"/>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$dn</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$entry</name>
+          <default></default>
+          <type>array</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap" line="192" package="Ldap-Core">
+        <name>modifyBatch</name>
+        <full_name>\Dreamscapes\Ldap\LinkResourceInterface::modifyBatch()</full_name>
+        <docblock line="192">
+          <description>Modify an existing entry in the LDAP directory</description>
+          <long-description>Allows detailed specification of the modifications to perform.</long-description>
+          <tag name="param" line="192" description="&lt;p&gt;The distinguished name of an LDAP entity&lt;/p&gt;" type="string" variable="$dn">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="192" description="&lt;p&gt;Modification specifications&lt;/p&gt;" type="array" variable="$entry">
+            <type>array</type>
+          </tag>
+          <tag name="return" line="192" description="" type="\Dreamscapes\Ldap\LinkResourceInterface">
+            <type>\Dreamscapes\Ldap\LinkResourceInterface</type>
+          </tag>
+          <tag name="fluent" description="This method is part of a fluent interface and will return the same instance"/>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$dn</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$entry</name>
+          <default></default>
+          <type>array</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap" line="204" package="Ldap-Core">
+        <name>rename</name>
+        <full_name>\Dreamscapes\Ldap\LinkResourceInterface::rename()</full_name>
+        <docblock line="204">
+          <description>Modify the name of an entry</description>
+          <long-description></long-description>
+          <tag name="param" line="204" description="&lt;p&gt;The distinguished name of an LDAP entity&lt;/p&gt;" type="string" variable="$dn">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="204" description="&lt;p&gt;The new RDN&lt;/p&gt;" type="string" variable="$newRdn">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="204" description="&lt;p&gt;The new parent/superior entry&lt;/p&gt;" type="string" variable="$newParent">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="204" description="&lt;p&gt;If TRUE the old RDN value(s) is removed, else the old RDN value(s) is retained as&lt;/p&gt;&#10;&lt;pre&gt;&lt;code&gt;                         non-distinguished values of the entry&lt;/code&gt;&lt;/pre&gt;" type="bool" variable="$deleteOldRdn">
+            <type>bool</type>
+          </tag>
+          <tag name="return" line="204" description="" type="\Dreamscapes\Ldap\LinkResourceInterface">
+            <type>\Dreamscapes\Ldap\LinkResourceInterface</type>
+          </tag>
+          <tag name="fluent" description="This method is part of a fluent interface and will return the same instance"/>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$dn</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$newRdn</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$newParent</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$deleteOldRdn</name>
+          <default></default>
+          <type>bool</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap" line="218" package="Ldap-Core">
+        <name>saslBind</name>
+        <full_name>\Dreamscapes\Ldap\LinkResourceInterface::saslBind()</full_name>
+        <docblock line="218">
+          <description>Bind to LDAP directory using SASL</description>
+          <long-description></long-description>
+          <tag name="param" line="218" description="" type="string" variable="$bindDn">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="218" description="" type="string" variable="$bindPassword">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="218" description="" type="string" variable="$saslMech">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="218" description="" type="string" variable="$saslRealm">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="218" description="" type="string" variable="$saslAuthcId">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="218" description="" type="string" variable="$saslAuthzId">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="218" description="" type="string" variable="$props">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="218" description="" type="\Dreamscapes\Ldap\LinkResourceInterface">
+            <type>\Dreamscapes\Ldap\LinkResourceInterface</type>
+          </tag>
+          <tag name="fluent" description="This method is part of a fluent interface and will return the same instance"/>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$bindDn</name>
+          <default>null</default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$bindPassword</name>
+          <default>null</default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$saslMech</name>
+          <default>null</default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$saslRealm</name>
+          <default>null</default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$saslAuthcId</name>
+          <default>null</default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$saslAuthzId</name>
+          <default>null</default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$props</name>
+          <default>null</default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap" line="242" package="Ldap-Core">
+        <name>search</name>
+        <full_name>\Dreamscapes\Ldap\LinkResourceInterface::search()</full_name>
+        <docblock line="242">
+          <description>Search LDAP tree</description>
+          <long-description></long-description>
+          <tag name="param" line="242" description="&lt;p&gt;The base DN for the directory&lt;/p&gt;" type="string" variable="$baseDn">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="242" description="&lt;p&gt;Ldap query filter ( an empty filter is not allowed )&lt;/p&gt;" type="string" variable="$filter">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="242" description="&lt;p&gt;An array of the required attributes, e.g. array(&quot;mail&quot;, &quot;sn&quot;, &quot;cn&quot;)&lt;/p&gt;" type="array" variable="$attributes">
+            <type>array</type>
+          </tag>
+          <tag name="param" line="242" description="&lt;p&gt;Subtree, one-level or base&lt;/p&gt;" type="string" variable="$scope">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="242" description="&lt;p&gt;Should be set to 1 if only attribute types are wanted&lt;/p&gt;" type="boolean" variable="$attrsOnly">
+            <type>boolean</type>
+          </tag>
+          <tag name="param" line="242" description="&lt;p&gt;Enables you to limit the count of entries fetched. Setting this to 0 means no limit&lt;/p&gt;" type="integer" variable="$sizeLimit">
+            <type>integer</type>
+          </tag>
+          <tag name="param" line="242" description="&lt;p&gt;Sets the number of seconds how long is spend on the search.&#10;                            Setting this to 0 means no limit.&lt;/p&gt;" type="integer" variable="$timeLimit">
+            <type>integer</type>
+          </tag>
+          <tag name="param" line="242" description="&lt;p&gt;Specifies how aliases should be handled during the search&lt;/p&gt;" type="integer" variable="$deref">
+            <type>integer</type>
+          </tag>
+          <tag name="return" line="242" description="" type="\Dreamscapes\Ldap\ResultResource">
+            <type>\Dreamscapes\Ldap\ResultResource</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$baseDn</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$filter</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$attributes</name>
+          <default></default>
+          <type>array</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$scope</name>
+          <default>self::SCOPE_SUBTREE</default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$attrsOnly</name>
+          <default>false</default>
+          <type>boolean</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$sizeLimit</name>
+          <default>0</default>
+          <type>integer</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$timeLimit</name>
+          <default>0</default>
+          <type>integer</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$deref</name>
+          <default>LDAP_DEREF_NEVER</default>
+          <type>integer</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap" line="259" package="Ldap-Core">
+        <name>setOption</name>
+        <full_name>\Dreamscapes\Ldap\LinkResourceInterface::setOption()</full_name>
+        <docblock line="259">
+          <description>Set the value of the given option</description>
+          <long-description></long-description>
+          <tag name="param" line="259" description="&lt;p&gt;An lDAP option constant&lt;/p&gt;" type="integer" variable="$option">
+            <type>integer</type>
+          </tag>
+          <tag name="param" line="259" description="&lt;p&gt;The new value for the option&lt;/p&gt;" type="mixed" variable="$newVal">
+            <type>mixed</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$option</name>
+          <default></default>
+          <type>integer</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$newVal</name>
+          <default></default>
+          <type>mixed</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap" line="267" package="Ldap-Core">
+        <name>setRebindProcedure</name>
+        <full_name>\Dreamscapes\Ldap\LinkResourceInterface::setRebindProcedure()</full_name>
+        <docblock line="267">
+          <description>Set a callback function to do re-binds on referral chasing</description>
+          <long-description></long-description>
+          <tag name="param" line="267" description="" type="callable" variable="$callback">
+            <type>callable</type>
+          </tag>
+          <tag name="return" line="267" description="" type="\Dreamscapes\Ldap\LinkResourceInterface">
+            <type>\Dreamscapes\Ldap\LinkResourceInterface</type>
+          </tag>
+          <tag name="fluent" description="This method is part of a fluent interface and will return the same instance"/>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$callback</name>
+          <default></default>
+          <type>callable</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap" line="270" package="Ldap-Core">
+        <name>setRebindProc</name>
+        <full_name>\Dreamscapes\Ldap\LinkResourceInterface::setRebindProc()</full_name>
+        <docblock line="270">
+          <description>Compatibility alias of self::setRebindProcedure()</description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$callback</name>
+          <default></default>
+          <type>callable</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap" line="275" package="Ldap-Core">
+        <name>startTls</name>
+        <full_name>\Dreamscapes\Ldap\LinkResourceInterface::startTls()</full_name>
+        <docblock line="275">
+          <description>Start TLS</description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap" line="280" package="Ldap-Core">
+        <name>unbind</name>
+        <full_name>\Dreamscapes\Ldap\LinkResourceInterface::unbind()</full_name>
+        <docblock line="280">
+          <description>Unbind from LDAP directory</description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+    </interface>
+    <source>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</source>
+  </file>
+  <file path="LdapException.php" generated-path="LdapException.html" hash="87109d3ce2474a85bdce8b469c1751f3" package="global">
+    <docblock line="0">
+      <description>Dreamscapes/Ldap-Core</description>
+      <long-description>Licensed under the BSD (3-Clause) license
+For full copyright and license information, please see the LICENSE file</long-description>
+      <tag name="author" line="0" description="Robert Rossmann" link="mailto:rr.rossmann@me.com"/>
+      <tag name="copyright" line="0" description="2014 Robert Rossmann"/>
+      <tag name="link" line="0" description="https://github.com/Dreamscapes/Ldap-Core" link="https://github.com/Dreamscapes/Ldap-Core"/>
+      <tag name="license" line="0" description="BSD (3-Clause) License" link="http://choosealicense.com/licenses/bsd-3-clause"/>
+    </docblock>
+    <class final="false" abstract="false" namespace="Dreamscapes\Ldap" line="23" package="Ldap-Core">
+      <extends>\Exception</extends>
+      <name>LdapException</name>
+      <full_name>\Dreamscapes\Ldap\LdapException</full_name>
+      <docblock line="23">
+        <description>Custom exception that represents an error from PHP's native ldap interface</description>
+        <long-description></long-description>
+        <tag name="package" line="23" description="Ldap-Core"/>
+      </docblock>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap" line="32" package="Ldap-Core">
+        <name>__construct</name>
+        <full_name>\Dreamscapes\Ldap\LdapException::__construct()</full_name>
+        <docblock line="32">
+          <description>Custom constructor method</description>
+          <long-description>The error code and message are extracted from the LinkResource instance.</long-description>
+          <tag name="param" line="32" description="" type="\Dreamscapes\Ldap\LinkResourceInterface" variable="$res">
+            <type>\Dreamscapes\Ldap\LinkResourceInterface</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$res</name>
+          <default></default>
+          <type>\Dreamscapes\Ldap\LinkResourceInterface</type>
+        </argument>
+      </method>
+    </class>
+    <source>eJx1Uk1v2zAMvetX8DBgcVBH27pTWnTF0gwrEAxFu2OBQpGZ2KgtCaQ8dBj630cptpcFqC76eo/ke+Tll1AHpfR8rmAON4SmY2sCst5UJpQrTygf6W/TWHSMFfSuQoJYI3x9uIHZeblqTc9YQHtAJPA3T7Dr2xasD7+p2dcRjKtGBDRu56kzsfHuDEKLRt4YMQfd3K7WPx7WsGvaMfW16WMtEfO691ukKBtzZ5yDS6IFDZfrDhfWd1eZ9C81wKcPHz+fMjOobdwzDKuOMfBS630T636bAum3DEnEg5SRKDxbe89ohp/MH86st1yV56XNTgnjxLnN5JxWSjnTIQdj8bgfjyn9xdSpVc/Rd4AvFkOyUawzEQgDIaOLLHYDEqU2kODuvt+9Z3Di+C+EViJJCyLSTpKMHkvCZ7MX/49kaiUVM+e39ZQKXyK6iuFxelJ/VPIh15bWVJ/1jiP1NkohHUoTqwEw4n5Kxw91Wl9hHhIRz6kQQ5hSkbFRpi7LyPMhHbtH9j3ZNEgcjbO4OAkrash0/2FvR8HwTjwagDrvod9Ko2Rgnc0Cn56mumdvhygy96A8R5GCXVwuj9kJV15lgbPiDKar87OiuMjUV/Wq/gKt9yBD</source>
+  </file>
+  <file path="Core/ResultResource.php" generated-path="Core.ResultResource.html" hash="3ef8f1d59b7fd7628ea069afb35a2fc2" package="global">
+    <docblock line="0">
+      <description>Dreamscapes/Ldap-Core</description>
+      <long-description>Licensed under the BSD (3-Clause) license
+For full copyright and license information, please see the LICENSE file</long-description>
+      <tag name="author" line="0" description="Robert Rossmann" link="mailto:rr.rossmann@me.com"/>
+      <tag name="copyright" line="0" description="2014 Robert Rossmann"/>
       <tag name="link" line="0" description="https://github.com/Dreamscapes/Ldap-Core" link="https://github.com/Dreamscapes/Ldap-Core"/>
       <tag name="license" line="0" description="BSD (3-Clause) License" link="http://choosealicense.com/licenses/bsd-3-clause"/>
     </docblock>
@@ -146,15 +1046,15 @@ is called automatically when the instance is released from memory.</long-descrip
         </argument>
       </method>
     </class>
-    <source>eJylVltv2zYUftevOA8BYgdxvC1vTZOlc5KtQNAGyd7aIqClY5uLRAoklcwY+t/3kZRkWb51mB7iSPzO7Ts3vv+1XJRJMj45SeiEbgyLwqaiZDu+z0Q5mmjDOPBn9zJlZTmjSmVsyC2Yfnu6ocH5aJKLyvKQ8ojw4DttaFblOaW6XBo5XzgSKmsQJNVMm0I4qdUplTkLfLPMQen9x8ntp6dbmsm8MX0tKreAxvA86ikbhx9rC6EUvTfmzNQv1wWfpbq4CkIr00S//PTzeV8ygHKpXqh+Fs6V9t14PJduUU29ovEuQrxgDKURhFy60NqyqE+CfP2/HU9tNjofpYEpSPSYu2+ZGydJokTBthQpd/Px1Zv/6s1fJIlXsnF2j1Ae2erKpPxROTYzqLjYjgWuyt0WdFMJn6d/ceqIFYQADakiPQsZMrXYIIcq/wZVQ1LAvDLpINgkDlG8iDmS2uFunIAGa2ndB5IFCqFg5fonrXfJP4lnO3jonxN6+OPh2DaWgzchn42DrTMRff0qzOps0OKHNWAcfkujHYRQ6Ef+EJQcNPof7NVs7bLYoGG1b3aCHDomQYrf0EDWCQVK4mFrsRRGFLS1EmI4PWTr3dpzFL1cd7KaopjR1CoNtfD8nGo4YarUDfbYO22UxZBjBoMNt5B2dBXydRmxo6s5t1kfDC/62NbZy0ZphHzf4OqRnZH8Wg+Umw8PVIq5VLGKU61f5AZzhl1lFAljxNJ/+hD+ecMoIPem6YWX9h0dR9njMMyO2TqJIcbZ8V6mYJqztqRLsIbg+mxExYhMYWp2Im9ttEft2bUvKJ8FZ3T+HKw8R1r8T7TTYfm0T+NpY/W0Y2bYMVBT8qX94J+WgsurVn4dsKIlYNrXFezbrrxNdKVcSJqqCgxrP3EwEZBLi5JH7WO8mnSxI3dSuaj/0zbhenIdquvUu3AbxTbSVBuqiQfwuTawl+jhrnDvDDc+UcGFNsteZJ/R4h3HSVqaQSbDX13UIuG8mQe00Hkm1bwrVFTWkdKOpkyVX+BCLRGvAcSc0Z9wFZqwX7PGKj6kIs89snLar2n/imZYsFq3BqThsL7XXDrbkaBXLbO95PvgYqdsUB849+d1jQ9+lOTfGXcP3ERqNuqEHWr/ifbryK2YX91YYiUW+CpHmcTGsvgo8ii7NzyMtx+pLMD+X13d/u2MSNedFlNdOZiZMdzMLQ3krDaK3E2X6Czzyma4j5dDsT02yjfH28ruxhgLIWMbWZ9ZoHDlODi3WnVbxtXqcBc9Txq3wLAV9tdEXJGEJec76shC7E7mWG9oGixih+/TCiXitO8rEhZlgT3RDBuP7/NoOZ/tpdELDTqmtrZBBO2nqKNiC0cevnt5xgv5Wqd3urtPk/QbHw1w4LqQcX1b2HET6PZ+49r35F8rCtSG</source>
+    <source>eJylVltv2zYUftevOA8BYgdxvK17aposnZNsBYI2SPbWFgEtHVtcJFIgqaTG0P++j6Qky/cO00Mcid+5fefGd79VeZUk45OThE7o2rAobSoqtuO7TFSjiTaMA392J1NWljOqVcaGXM70++M1Dd6MJoWoLQ+piAgPvtWGZnVRUKqrhZHz3JFQWYsgqWbalMJJrU6pKljgm2UOSu8+TG4+Pt7QTBat6StRuxwaw/Ogp2wcfqwthVL0zpgz07xclXyW6vIyCC1NE/3y08+/rksGUCHVMzVP7lxl347Hc+nyeuoVjXcR4gVjKK0g5NJca8uiOQnyzf92PLXZ6M0oDUxBYo25u465cZIkSpRsK5FyPx9fvPkv3vx5knglG2d3COWBra5Nyh+UYzODivPtWODqwm1Bt5Xwafo3p45YQQjQkCrSs5Ah04gNCqjyb1A1JAXMC5MOgm3iEMWzmCOpPe7GCWiwllZ9IFmiEEpWbv2k8y75J/FsBw/9c0L3f94f29Zy8Cbks3Wwcyair16EWZ4NOvywAYzDb2W0gxAK/cgfgpKDRv+DvYatXRZbNKyum50gh45JkOJXNJB1QoGSeNhZrIQRJW2thBjOGrLzbuU5il6uOllPUcxoapWGWnh6SjWcMHXqBnvsnbbKYsgxg8GGy6UdXYZ8XUTs6HLOXdYHw/N1bOfsRas0Qr5vcPXAzkh+aQbK9ft7qsRcqljFqdbPcoM5w642ioQxYuE/vQ//vGIUkHvV9MwL+5aOo+xxGGbHbJ3EEOPseC9TMM1ZV9IVWENw62xExYhMYWr2Iu9sdEfd2ZUvKJ8FZ3TxFKw8RVr8T7TTY/l0ncbT1uppz8ywZ6Ch5HP3wT8dBReXnfwqYElLwHSvS9jXXXmb6Fq5kDRVlxjWfuJgIiCXFiWP2sd4NWm+I3dSuaj/4zbhZnIdquvUu3ATxTbS1BhqiAfwqTGwl+jhrnBvDbc+UcmlNou1yD6hxXuOk7Q0g0yGv7psRMJ5Ow8o10Um1bwvVNbWkdKOpky1X+BCLRCvAcSc0V9wFZqwX7PWKj6koig8snbar2n/imbIWa1aA9JwWN8rLp3tSNCLltle8n1wsVM2qA+c+/Omxgc/SvIfjLsHbiING03CDrX/RPt15JbML28ssRJLfJWjTGJjWXwURZTdGx7G249UFmD/r65uvjkj0lWnxVTXDmZmDDcLSwM5a4wid9MFOsu8sBnu4+VQbA+t8s3xtrS7McZCyNhG1mcWKFw5Ds6tTt2WcbU83EXPo8YtMGyF/TURVyRhyfmOOrIQu5UF1huaBovY4fu0Rok47fuKhEVZYE+0w8bj13m0XMz20uiFBj1TW9sggvZT1FOxhSMP370844V8pdN73b1Ok/QbHw1w4LqQcXNb2HET6Pd+69r35F82wNSH</source>
   </file>
-  <file path="Core/LinkResource.php" generated-path="Core.LinkResource.html" hash="69a75a77518ab6024ae957b87a2caeea" package="global">
+  <file path="Core/LinkResource.php" generated-path="Core.LinkResource.html" hash="7835097a09bfd8d040c9a41367e97a94" package="global">
     <docblock line="0">
       <description>Dreamscapes/Ldap-Core</description>
       <long-description>Licensed under the BSD (3-Clause) license
 For full copyright and license information, please see the LICENSE file</long-description>
       <tag name="author" line="0" description="Robert Rossmann" link="mailto:rr.rossmann@me.com"/>
-      <tag name="copyright" line="0" description="2013 Robert Rossmann"/>
+      <tag name="copyright" line="0" description="2014 Robert Rossmann"/>
       <tag name="link" line="0" description="https://github.com/Dreamscapes/Ldap-Core" link="https://github.com/Dreamscapes/Ldap-Core"/>
       <tag name="license" line="0" description="BSD (3-Clause) License" link="http://choosealicense.com/licenses/bsd-3-clause"/>
     </docblock>
@@ -645,52 +1545,214 @@ For full copyright and license information, please see the LICENSE file</long-de
           <long-description></long-description>
         </docblock>
       </constant>
-      <property static="false" visibility="protected" namespace="Dreamscapes\Ldap\Core" line="91" package="Ldap-Core">
+      <constant namespace="Dreamscapes\Ldap\Core" line="86" package="Ldap-Core">
+        <name>OPT_DEREF</name>
+        <full_name>\Dreamscapes\Ldap\Core\LinkResource::OPT_DEREF</full_name>
+        <value>LDAP_OPT_DEREF</value>
+        <docblock line="86">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </constant>
+      <constant namespace="Dreamscapes\Ldap\Core" line="87" package="Ldap-Core">
+        <name>OPT_SIZELIMIT</name>
+        <full_name>\Dreamscapes\Ldap\Core\LinkResource::OPT_SIZELIMIT</full_name>
+        <value>LDAP_OPT_SIZELIMIT</value>
+        <docblock line="87">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </constant>
+      <constant namespace="Dreamscapes\Ldap\Core" line="88" package="Ldap-Core">
+        <name>OPT_TIMELIMIT</name>
+        <full_name>\Dreamscapes\Ldap\Core\LinkResource::OPT_TIMELIMIT</full_name>
+        <value>LDAP_OPT_TIMELIMIT</value>
+        <docblock line="88">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </constant>
+      <constant namespace="Dreamscapes\Ldap\Core" line="89" package="Ldap-Core">
+        <name>OPT_NETWORK_TIMEOUT</name>
+        <full_name>\Dreamscapes\Ldap\Core\LinkResource::OPT_NETWORK_TIMEOUT</full_name>
+        <value>LDAP_OPT_NETWORK_TIMEOUT</value>
+        <docblock line="89">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </constant>
+      <constant namespace="Dreamscapes\Ldap\Core" line="90" package="Ldap-Core">
+        <name>OPT_PROTOCOL_VERSION</name>
+        <full_name>\Dreamscapes\Ldap\Core\LinkResource::OPT_PROTOCOL_VERSION</full_name>
+        <value>LDAP_OPT_PROTOCOL_VERSION</value>
+        <docblock line="90">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </constant>
+      <constant namespace="Dreamscapes\Ldap\Core" line="91" package="Ldap-Core">
+        <name>OPT_ERROR_NUMBER</name>
+        <full_name>\Dreamscapes\Ldap\Core\LinkResource::OPT_ERROR_NUMBER</full_name>
+        <value>LDAP_OPT_ERROR_NUMBER</value>
+        <docblock line="91">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </constant>
+      <constant namespace="Dreamscapes\Ldap\Core" line="92" package="Ldap-Core">
+        <name>OPT_REFERRALS</name>
+        <full_name>\Dreamscapes\Ldap\Core\LinkResource::OPT_REFERRALS</full_name>
+        <value>LDAP_OPT_REFERRALS</value>
+        <docblock line="92">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </constant>
+      <constant namespace="Dreamscapes\Ldap\Core" line="93" package="Ldap-Core">
+        <name>OPT_RESTART</name>
+        <full_name>\Dreamscapes\Ldap\Core\LinkResource::OPT_RESTART</full_name>
+        <value>LDAP_OPT_RESTART</value>
+        <docblock line="93">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </constant>
+      <constant namespace="Dreamscapes\Ldap\Core" line="94" package="Ldap-Core">
+        <name>OPT_HOST_NAME</name>
+        <full_name>\Dreamscapes\Ldap\Core\LinkResource::OPT_HOST_NAME</full_name>
+        <value>LDAP_OPT_HOST_NAME</value>
+        <docblock line="94">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </constant>
+      <constant namespace="Dreamscapes\Ldap\Core" line="95" package="Ldap-Core">
+        <name>OPT_ERROR_STRING</name>
+        <full_name>\Dreamscapes\Ldap\Core\LinkResource::OPT_ERROR_STRING</full_name>
+        <value>LDAP_OPT_ERROR_STRING</value>
+        <docblock line="95">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </constant>
+      <constant namespace="Dreamscapes\Ldap\Core" line="96" package="Ldap-Core">
+        <name>OPT_MATCHED_DN</name>
+        <full_name>\Dreamscapes\Ldap\Core\LinkResource::OPT_MATCHED_DN</full_name>
+        <value>LDAP_OPT_MATCHED_DN</value>
+        <docblock line="96">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </constant>
+      <constant namespace="Dreamscapes\Ldap\Core" line="97" package="Ldap-Core">
+        <name>OPT_SERVER_CONTROLS</name>
+        <full_name>\Dreamscapes\Ldap\Core\LinkResource::OPT_SERVER_CONTROLS</full_name>
+        <value>LDAP_OPT_SERVER_CONTROLS</value>
+        <docblock line="97">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </constant>
+      <constant namespace="Dreamscapes\Ldap\Core" line="98" package="Ldap-Core">
+        <name>OPT_CLIENT_CONTROLS</name>
+        <full_name>\Dreamscapes\Ldap\Core\LinkResource::OPT_CLIENT_CONTROLS</full_name>
+        <value>LDAP_OPT_CLIENT_CONTROLS</value>
+        <docblock line="98">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </constant>
+      <constant namespace="Dreamscapes\Ldap\Core" line="99" package="Ldap-Core">
+        <name>OPT_DEBUG_LEVEL</name>
+        <full_name>\Dreamscapes\Ldap\Core\LinkResource::OPT_DEBUG_LEVEL</full_name>
+        <value>LDAP_OPT_DEBUG_LEVEL</value>
+        <docblock line="99">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </constant>
+      <constant namespace="Dreamscapes\Ldap\Core" line="113" package="Ldap-Core">
+        <name>MODIFY_BATCH_ADD</name>
+        <full_name>\Dreamscapes\Ldap\Core\LinkResource::MODIFY_BATCH_ADD</full_name>
+        <value>LDAP_MODIFY_BATCH_ADD</value>
+        <docblock line="113">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </constant>
+      <constant namespace="Dreamscapes\Ldap\Core" line="114" package="Ldap-Core">
+        <name>MODIFY_BATCH_REMOVE</name>
+        <full_name>\Dreamscapes\Ldap\Core\LinkResource::MODIFY_BATCH_REMOVE</full_name>
+        <value>LDAP_MODIFY_BATCH_REMOVE</value>
+        <docblock line="114">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </constant>
+      <constant namespace="Dreamscapes\Ldap\Core" line="115" package="Ldap-Core">
+        <name>MODIFY_BATCH_REMOVE_ALL</name>
+        <full_name>\Dreamscapes\Ldap\Core\LinkResource::MODIFY_BATCH_REMOVE_ALL</full_name>
+        <value>LDAP_MODIFY_BATCH_REMOVE_ALL</value>
+        <docblock line="115">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </constant>
+      <constant namespace="Dreamscapes\Ldap\Core" line="116" package="Ldap-Core">
+        <name>MODIFY_BATCH_REPLACE</name>
+        <full_name>\Dreamscapes\Ldap\Core\LinkResource::MODIFY_BATCH_REPLACE</full_name>
+        <value>LDAP_MODIFY_BATCH_REPLACE</value>
+        <docblock line="116">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </constant>
+      <property static="false" visibility="protected" namespace="Dreamscapes\Ldap\Core" line="123" package="Ldap-Core">
         <name>$resource</name>
         <full_name>\Dreamscapes\Ldap\Core\LinkResource::resource</full_name>
         <default></default>
-        <docblock line="91">
+        <docblock line="123">
           <description>PHP's native ldap resource object</description>
           <long-description></long-description>
-          <tag name="var" line="91" description="&lt;p&gt;(ldap link)&lt;/p&gt;" type="resource" variable="">
+          <tag name="var" line="123" description="&lt;p&gt;(ldap link)&lt;/p&gt;" type="resource" variable="">
             <type>resource</type>
           </tag>
         </docblock>
       </property>
-      <property static="false" visibility="protected" namespace="Dreamscapes\Ldap\Core" line="96" package="Ldap-Core">
+      <property static="false" visibility="protected" namespace="Dreamscapes\Ldap\Core" line="128" package="Ldap-Core">
         <name>$code</name>
         <full_name>\Dreamscapes\Ldap\Core\LinkResource::code</full_name>
         <default></default>
-        <docblock line="96">
+        <docblock line="128">
           <description></description>
           <long-description></long-description>
-          <tag name="var" line="96" description="&lt;p&gt;The status code of the last executed ldap operation&lt;/p&gt;" type="integer" variable="">
+          <tag name="var" line="128" description="&lt;p&gt;The status code of the last executed ldap operation&lt;/p&gt;" type="integer" variable="">
             <type>integer</type>
           </tag>
         </docblock>
       </property>
-      <property static="false" visibility="protected" namespace="Dreamscapes\Ldap\Core" line="101" package="Ldap-Core">
+      <property static="false" visibility="protected" namespace="Dreamscapes\Ldap\Core" line="133" package="Ldap-Core">
         <name>$message</name>
         <full_name>\Dreamscapes\Ldap\Core\LinkResource::message</full_name>
         <default></default>
-        <docblock line="101">
+        <docblock line="133">
           <description></description>
           <long-description></long-description>
-          <tag name="var" line="101" description="&lt;p&gt;The status message of the last executed ldap operation&lt;/p&gt;" type="string" variable="">
+          <tag name="var" line="133" description="&lt;p&gt;The status message of the last executed ldap operation&lt;/p&gt;" type="string" variable="">
             <type>string</type>
           </tag>
         </docblock>
       </property>
-      <method final="false" abstract="false" static="true" visibility="public" namespace="Dreamscapes\Ldap\Core" line="110" package="Ldap-Core">
+      <method final="false" abstract="false" static="true" visibility="public" namespace="Dreamscapes\Ldap\Core" line="142" package="Ldap-Core">
         <name>dnToUfn</name>
         <full_name>\Dreamscapes\Ldap\Core\LinkResource::dnToUfn()</full_name>
-        <docblock line="110">
+        <docblock line="142">
           <description>Convert DN to User Friendly Naming format</description>
           <long-description></long-description>
-          <tag name="param" line="110" description="&lt;p&gt;The distinguished name of an LDAP entity&lt;/p&gt;" type="string" variable="$dn">
+          <tag name="param" line="142" description="&lt;p&gt;The distinguished name of an LDAP entity&lt;/p&gt;" type="string" variable="$dn">
             <type>string</type>
           </tag>
-          <tag name="return" line="110" description="The user friendly name" type="string">
+          <tag name="return" line="142" description="The user friendly name" type="string">
             <type>string</type>
           </tag>
         </docblock>
@@ -700,16 +1762,16 @@ For full copyright and license information, please see the LICENSE file</long-de
           <type>string</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="true" visibility="public" namespace="Dreamscapes\Ldap\Core" line="121" package="Ldap-Core">
+      <method final="false" abstract="false" static="true" visibility="public" namespace="Dreamscapes\Ldap\Core" line="153" package="Ldap-Core">
         <name>errToStr</name>
         <full_name>\Dreamscapes\Ldap\Core\LinkResource::errToStr()</full_name>
-        <docblock line="121">
+        <docblock line="153">
           <description>Convert LDAP error number into string error message</description>
           <long-description></long-description>
-          <tag name="param" line="121" description="&lt;p&gt;The error number&lt;/p&gt;" type="integer" variable="$errno">
+          <tag name="param" line="153" description="&lt;p&gt;The error number&lt;/p&gt;" type="integer" variable="$errno">
             <type>integer</type>
           </tag>
-          <tag name="return" line="121" description="The error message, as a string" type="string">
+          <tag name="return" line="153" description="The error message, as a string" type="string">
             <type>string</type>
           </tag>
         </docblock>
@@ -719,19 +1781,19 @@ For full copyright and license information, please see the LICENSE file</long-de
           <type>integer</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="true" visibility="public" namespace="Dreamscapes\Ldap\Core" line="133" package="Ldap-Core">
+      <method final="false" abstract="false" static="true" visibility="public" namespace="Dreamscapes\Ldap\Core" line="165" package="Ldap-Core">
         <name>explodeDn</name>
         <full_name>\Dreamscapes\Ldap\Core\LinkResource::explodeDn()</full_name>
-        <docblock line="133">
+        <docblock line="165">
           <description>Splits DN into its component parts</description>
           <long-description></long-description>
-          <tag name="param" line="133" description="&lt;p&gt;The distinguished name of an LDAP entity&lt;/p&gt;" type="string" variable="$dn">
+          <tag name="param" line="165" description="&lt;p&gt;The distinguished name of an LDAP entity&lt;/p&gt;" type="string" variable="$dn">
             <type>string</type>
           </tag>
-          <tag name="param" line="133" description="&lt;p&gt;Used to request if the RDNs are returned with only values or their attributes as well&lt;/p&gt;" type="integer" variable="$withAttrib">
+          <tag name="param" line="165" description="&lt;p&gt;Used to request if the RDNs are returned with only values or their attributes as well&lt;/p&gt;" type="integer" variable="$withAttrib">
             <type>integer</type>
           </tag>
-          <tag name="return" line="133" description="Returns an array of all DN components" type="array">
+          <tag name="return" line="165" description="Returns an array of all DN components" type="array">
             <type>array</type>
           </tag>
         </docblock>
@@ -746,13 +1808,13 @@ For full copyright and license information, please see the LICENSE file</long-de
           <type>integer</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap\Core" line="146" package="Ldap-Core">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap\Core" line="178" package="Ldap-Core">
         <name>__construct</name>
         <full_name>\Dreamscapes\Ldap\Core\LinkResource::__construct()</full_name>
-        <docblock line="146">
+        <docblock line="178">
           <description>Create a new instance</description>
           <long-description>If $ldapUrl is provided, it will also open connection to the ldap server by calling self::connect()</long-description>
-          <tag name="param" line="146" description="&lt;p&gt;Optional ldap URI string of the ldap server&lt;/p&gt;" type="string" variable="$ldapUrl">
+          <tag name="param" line="178" description="&lt;p&gt;Optional ldap URI string of the ldap server&lt;/p&gt;" type="string" variable="$ldapUrl">
             <type>string</type>
           </tag>
         </docblock>
@@ -762,30 +1824,41 @@ For full copyright and license information, please see the LICENSE file</long-de
           <type>string</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap\Core" line="156" package="Ldap-Core">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap\Core" line="188" package="Ldap-Core">
+        <name>__toString</name>
+        <full_name>\Dreamscapes\Ldap\Core\LinkResource::__toString()</full_name>
+        <docblock line="188">
+          <description>Allow resource's string representation to be ldap URI string</description>
+          <long-description></long-description>
+          <tag name="return" line="188" description="Ldap server and port of this connection (i.e. example.com:389)" type="string">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap\Core" line="198" package="Ldap-Core">
         <name>getResource</name>
         <full_name>\Dreamscapes\Ldap\Core\LinkResource::getResource()</full_name>
-        <docblock line="156">
+        <docblock line="198">
           <description>Get the PHP's native ldap resource object</description>
           <long-description></long-description>
-          <tag name="return" line="156" description="(ldap link)" type="resource">
+          <tag name="return" line="198" description="(ldap link)" type="resource">
             <type>resource</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap\Core" line="168" package="Ldap-Core">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap\Core" line="210" package="Ldap-Core">
         <name>add</name>
         <full_name>\Dreamscapes\Ldap\Core\LinkResource::add()</full_name>
-        <docblock line="168">
+        <docblock line="210">
           <description>Add entries to LDAP directory</description>
           <long-description></long-description>
-          <tag name="param" line="168" description="&lt;p&gt;The distinguished name of an LDAP entity&lt;/p&gt;" type="string" variable="$dn">
+          <tag name="param" line="210" description="&lt;p&gt;The distinguished name of an LDAP entity&lt;/p&gt;" type="string" variable="$dn">
             <type>string</type>
           </tag>
-          <tag name="param" line="168" description="&lt;p&gt;An array that specifies the information about the entry&lt;/p&gt;" type="array" variable="$entry">
+          <tag name="param" line="210" description="&lt;p&gt;An array that specifies the information about the entry&lt;/p&gt;" type="array" variable="$entry">
             <type>array</type>
           </tag>
-          <tag name="return" line="168" description="" type="\Dreamscapes\Ldap\Core\LinkResource">
+          <tag name="return" line="210" description="" type="\Dreamscapes\Ldap\Core\LinkResource">
             <type>\Dreamscapes\Ldap\Core\LinkResource</type>
           </tag>
           <tag name="fluent" description="This method is part of a fluent interface and will return the same instance"/>
@@ -801,30 +1874,30 @@ For full copyright and license information, please see the LICENSE file</long-de
           <type>array</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap\Core" line="177" package="Ldap-Core">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap\Core" line="219" package="Ldap-Core">
         <name>close</name>
         <full_name>\Dreamscapes\Ldap\Core\LinkResource::close()</full_name>
-        <docblock line="177">
+        <docblock line="219">
           <description>Alias of self::unbind()</description>
           <long-description></long-description>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap\Core" line="190" package="Ldap-Core">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap\Core" line="232" package="Ldap-Core">
         <name>compare</name>
         <full_name>\Dreamscapes\Ldap\Core\LinkResource::compare()</full_name>
-        <docblock line="190">
+        <docblock line="232">
           <description>Compare value of attribute found in entry specified with DN</description>
           <long-description></long-description>
-          <tag name="param" line="190" description="&lt;p&gt;The distinguished name of an LDAP entity&lt;/p&gt;" type="string" variable="$dn">
+          <tag name="param" line="232" description="&lt;p&gt;The distinguished name of an LDAP entity&lt;/p&gt;" type="string" variable="$dn">
             <type>string</type>
           </tag>
-          <tag name="param" line="190" description="&lt;p&gt;The attribute name&lt;/p&gt;" type="string" variable="$attribute">
+          <tag name="param" line="232" description="&lt;p&gt;The attribute name&lt;/p&gt;" type="string" variable="$attribute">
             <type>string</type>
           </tag>
-          <tag name="param" line="190" description="&lt;p&gt;The compared value&lt;/p&gt;" type="string" variable="$value">
+          <tag name="param" line="232" description="&lt;p&gt;The compared value&lt;/p&gt;" type="string" variable="$value">
             <type>string</type>
           </tag>
-          <tag name="return" line="190" description="Returns TRUE if value matches otherwise returns FALSE" type="bool">
+          <tag name="return" line="232" description="Returns TRUE if value matches otherwise returns FALSE" type="bool">
             <type>bool</type>
           </tag>
         </docblock>
@@ -844,16 +1917,16 @@ For full copyright and license information, please see the LICENSE file</long-de
           <type>string</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap\Core" line="204" package="Ldap-Core">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap\Core" line="246" package="Ldap-Core">
         <name>delete</name>
         <full_name>\Dreamscapes\Ldap\Core\LinkResource::delete()</full_name>
-        <docblock line="204">
+        <docblock line="246">
           <description>Delete an entry from a directory</description>
           <long-description></long-description>
-          <tag name="param" line="204" description="&lt;p&gt;The distinguished name of an LDAP entity&lt;/p&gt;" type="string" variable="$dn">
+          <tag name="param" line="246" description="&lt;p&gt;The distinguished name of an LDAP entity&lt;/p&gt;" type="string" variable="$dn">
             <type>string</type>
           </tag>
-          <tag name="return" line="204" description="" type="\Dreamscapes\Ldap\Core\LinkResource">
+          <tag name="return" line="246" description="" type="\Dreamscapes\Ldap\Core\LinkResource">
             <type>\Dreamscapes\Ldap\Core\LinkResource</type>
           </tag>
           <tag name="fluent" description="This method is part of a fluent interface and will return the same instance"/>
@@ -864,16 +1937,16 @@ For full copyright and license information, please see the LICENSE file</long-de
           <type>string</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap\Core" line="218" package="Ldap-Core">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap\Core" line="260" package="Ldap-Core">
         <name>connect</name>
         <full_name>\Dreamscapes\Ldap\Core\LinkResource::connect()</full_name>
-        <docblock line="218">
+        <docblock line="260">
           <description>Open connection to an ldap server</description>
           <long-description></long-description>
-          <tag name="param" line="218" description="&lt;p&gt;Ldap URI string of the ldap server (i.e. ldap://my.server.com:389)&lt;/p&gt;" type="string" variable="$ldapUrl">
+          <tag name="param" line="260" description="&lt;p&gt;Ldap URI string of the ldap server (i.e. ldap://my.server.com:389)&lt;/p&gt;" type="string" variable="$ldapUrl">
             <type>string</type>
           </tag>
-          <tag name="return" line="218" description="" type="\Dreamscapes\Ldap\Core\LinkResource">
+          <tag name="return" line="260" description="" type="\Dreamscapes\Ldap\Core\LinkResource">
             <type>\Dreamscapes\Ldap\Core\LinkResource</type>
           </tag>
           <tag name="fluent" description="This method is part of a fluent interface and will return the same instance"/>
@@ -884,22 +1957,22 @@ For full copyright and license information, please see the LICENSE file</long-de
           <type>string</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap\Core" line="240" package="Ldap-Core">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap\Core" line="282" package="Ldap-Core">
         <name>pagedResult</name>
         <full_name>\Dreamscapes\Ldap\Core\LinkResource::pagedResult()</full_name>
-        <docblock line="240">
+        <docblock line="282">
           <description>Send LDAP pagination control</description>
           <long-description></long-description>
-          <tag name="param" line="240" description="&lt;p&gt;The number of entries by page&lt;/p&gt;" type="integer" variable="$pageSize">
+          <tag name="param" line="282" description="&lt;p&gt;The number of entries by page&lt;/p&gt;" type="integer" variable="$pageSize">
             <type>integer</type>
           </tag>
-          <tag name="param" line="240" description="&lt;p&gt;Indicates whether the pagination is critical of not&lt;/p&gt;" type="boolean" variable="$isCritical">
+          <tag name="param" line="282" description="&lt;p&gt;Indicates whether the pagination is critical of not&lt;/p&gt;" type="boolean" variable="$isCritical">
             <type>boolean</type>
           </tag>
-          <tag name="param" line="240" description="&lt;p&gt;An opaque structure sent by the server&lt;/p&gt;" type="string" variable="$cookie">
+          <tag name="param" line="282" description="&lt;p&gt;An opaque structure sent by the server&lt;/p&gt;" type="string" variable="$cookie">
             <type>string</type>
           </tag>
-          <tag name="return" line="240" description="" type="\Dreamscapes\Ldap\Core\LinkResource">
+          <tag name="return" line="282" description="" type="\Dreamscapes\Ldap\Core\LinkResource">
             <type>\Dreamscapes\Ldap\Core\LinkResource</type>
           </tag>
           <tag name="fluent" description="This method is part of a fluent interface and will return the same instance"/>
@@ -920,19 +1993,19 @@ For full copyright and license information, please see the LICENSE file</long-de
           <type>string</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap\Core" line="254" package="Ldap-Core">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap\Core" line="296" package="Ldap-Core">
         <name>bind</name>
         <full_name>\Dreamscapes\Ldap\Core\LinkResource::bind()</full_name>
-        <docblock line="254">
+        <docblock line="296">
           <description>Bind to LDAP directory</description>
           <long-description></long-description>
-          <tag name="param" line="254" description="&lt;p&gt;Username for the bind&lt;/p&gt;" type="string" variable="$bindDn">
+          <tag name="param" line="296" description="&lt;p&gt;Username for the bind&lt;/p&gt;" type="string" variable="$bindDn">
             <type>string</type>
           </tag>
-          <tag name="param" line="254" description="&lt;p&gt;Password for the username&lt;/p&gt;" type="string" variable="$bindPassword">
+          <tag name="param" line="296" description="&lt;p&gt;Password for the username&lt;/p&gt;" type="string" variable="$bindPassword">
             <type>string</type>
           </tag>
-          <tag name="return" line="254" description="" type="\Dreamscapes\Ldap\Core\LinkResource">
+          <tag name="return" line="296" description="" type="\Dreamscapes\Ldap\Core\LinkResource">
             <type>\Dreamscapes\Ldap\Core\LinkResource</type>
           </tag>
           <tag name="fluent" description="This method is part of a fluent interface and will return the same instance"/>
@@ -948,38 +2021,38 @@ For full copyright and license information, please see the LICENSE file</long-de
           <type>string</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap\Core" line="267" package="Ldap-Core">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap\Core" line="309" package="Ldap-Core">
         <name>error</name>
         <full_name>\Dreamscapes\Ldap\Core\LinkResource::error()</full_name>
-        <docblock line="267">
+        <docblock line="309">
           <description>Return the LDAP error message of the last LDAP command</description>
           <long-description></long-description>
-          <tag name="return" line="267" description="" type="string">
+          <tag name="return" line="309" description="" type="string">
             <type>string</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap\Core" line="277" package="Ldap-Core">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap\Core" line="319" package="Ldap-Core">
         <name>errno</name>
         <full_name>\Dreamscapes\Ldap\Core\LinkResource::errno()</full_name>
-        <docblock line="277">
+        <docblock line="319">
           <description>Return the LDAP error number of the last LDAP command</description>
           <long-description></long-description>
-          <tag name="return" line="277" description="" type="integer">
+          <tag name="return" line="319" description="" type="integer">
             <type>integer</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap\Core" line="288" package="Ldap-Core">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap\Core" line="330" package="Ldap-Core">
         <name>getOption</name>
         <full_name>\Dreamscapes\Ldap\Core\LinkResource::getOption()</full_name>
-        <docblock line="288">
+        <docblock line="330">
           <description>Get the current value for given option</description>
           <long-description></long-description>
-          <tag name="param" line="288" description="&lt;p&gt;The option to be returned&lt;/p&gt;" type="integer" variable="$option">
+          <tag name="param" line="330" description="&lt;p&gt;The option to be returned&lt;/p&gt;" type="integer" variable="$option">
             <type>integer</type>
           </tag>
-          <tag name="return" line="288" description="" type="mixed">
+          <tag name="return" line="330" description="" type="mixed">
             <type>mixed</type>
           </tag>
         </docblock>
@@ -989,19 +2062,19 @@ For full copyright and license information, please see the LICENSE file</long-de
           <type>integer</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap\Core" line="303" package="Ldap-Core">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap\Core" line="345" package="Ldap-Core">
         <name>modAdd</name>
         <full_name>\Dreamscapes\Ldap\Core\LinkResource::modAdd()</full_name>
-        <docblock line="303">
+        <docblock line="345">
           <description>Add attribute values to current attributes</description>
           <long-description></long-description>
-          <tag name="param" line="303" description="&lt;p&gt;The distinguished name of an LDAP entity&lt;/p&gt;" type="string" variable="$dn">
+          <tag name="param" line="345" description="&lt;p&gt;The distinguished name of an LDAP entity&lt;/p&gt;" type="string" variable="$dn">
             <type>string</type>
           </tag>
-          <tag name="param" line="303" description="&lt;p&gt;Values to be added to the specified attributes&lt;/p&gt;" type="array" variable="$entry">
+          <tag name="param" line="345" description="&lt;p&gt;Values to be added to the specified attributes&lt;/p&gt;" type="array" variable="$entry">
             <type>array</type>
           </tag>
-          <tag name="return" line="303" description="" type="\Dreamscapes\Ldap\Core\LinkResource">
+          <tag name="return" line="345" description="" type="\Dreamscapes\Ldap\Core\LinkResource">
             <type>\Dreamscapes\Ldap\Core\LinkResource</type>
           </tag>
           <tag name="fluent" description="This method is part of a fluent interface and will return the same instance"/>
@@ -1017,19 +2090,19 @@ For full copyright and license information, please see the LICENSE file</long-de
           <type>array</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap\Core" line="318" package="Ldap-Core">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap\Core" line="360" package="Ldap-Core">
         <name>modDelete</name>
         <full_name>\Dreamscapes\Ldap\Core\LinkResource::modDelete()</full_name>
-        <docblock line="318">
+        <docblock line="360">
           <description>Delete attribute values from current attributes</description>
           <long-description></long-description>
-          <tag name="param" line="318" description="&lt;p&gt;The distinguished name of an LDAP entity&lt;/p&gt;" type="string" variable="$dn">
+          <tag name="param" line="360" description="&lt;p&gt;The distinguished name of an LDAP entity&lt;/p&gt;" type="string" variable="$dn">
             <type>string</type>
           </tag>
-          <tag name="param" line="318" description="&lt;p&gt;Values to be deleted from the specified attributes&lt;/p&gt;" type="array" variable="$entry">
+          <tag name="param" line="360" description="&lt;p&gt;Values to be deleted from the specified attributes&lt;/p&gt;" type="array" variable="$entry">
             <type>array</type>
           </tag>
-          <tag name="return" line="318" description="" type="\Dreamscapes\Ldap\Core\LinkResource">
+          <tag name="return" line="360" description="" type="\Dreamscapes\Ldap\Core\LinkResource">
             <type>\Dreamscapes\Ldap\Core\LinkResource</type>
           </tag>
           <tag name="fluent" description="This method is part of a fluent interface and will return the same instance"/>
@@ -1045,10 +2118,10 @@ For full copyright and license information, please see the LICENSE file</long-de
           <type>array</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap\Core" line="327" package="Ldap-Core">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap\Core" line="369" package="Ldap-Core">
         <name>modDel</name>
         <full_name>\Dreamscapes\Ldap\Core\LinkResource::modDel()</full_name>
-        <docblock line="327">
+        <docblock line="369">
           <description>Compatibility alias for self::modDelete()</description>
           <long-description></long-description>
         </docblock>
@@ -1063,19 +2136,19 @@ For full copyright and license information, please see the LICENSE file</long-de
           <type>array</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap\Core" line="339" package="Ldap-Core">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap\Core" line="381" package="Ldap-Core">
         <name>modReplace</name>
         <full_name>\Dreamscapes\Ldap\Core\LinkResource::modReplace()</full_name>
-        <docblock line="339">
+        <docblock line="381">
           <description>Replace attribute values with new ones</description>
           <long-description></long-description>
-          <tag name="param" line="339" description="&lt;p&gt;The distinguished name of an LDAP entity&lt;/p&gt;" type="string" variable="$dn">
+          <tag name="param" line="381" description="&lt;p&gt;The distinguished name of an LDAP entity&lt;/p&gt;" type="string" variable="$dn">
             <type>string</type>
           </tag>
-          <tag name="param" line="339" description="&lt;p&gt;Attributes and their values to be replaced&lt;/p&gt;" type="array" variable="$entry">
+          <tag name="param" line="381" description="&lt;p&gt;Attributes and their values to be replaced&lt;/p&gt;" type="array" variable="$entry">
             <type>array</type>
           </tag>
-          <tag name="return" line="339" description="" type="\Dreamscapes\Ldap\Core\LinkResource">
+          <tag name="return" line="381" description="" type="\Dreamscapes\Ldap\Core\LinkResource">
             <type>\Dreamscapes\Ldap\Core\LinkResource</type>
           </tag>
           <tag name="fluent" description="This method is part of a fluent interface and will return the same instance"/>
@@ -1091,19 +2164,19 @@ For full copyright and license information, please see the LICENSE file</long-de
           <type>array</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap\Core" line="354" package="Ldap-Core">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap\Core" line="396" package="Ldap-Core">
         <name>modify</name>
         <full_name>\Dreamscapes\Ldap\Core\LinkResource::modify()</full_name>
-        <docblock line="354">
+        <docblock line="396">
           <description>Modify an LDAP entry</description>
           <long-description></long-description>
-          <tag name="param" line="354" description="&lt;p&gt;The distinguished name of an LDAP entity&lt;/p&gt;" type="string" variable="$dn">
+          <tag name="param" line="396" description="&lt;p&gt;The distinguished name of an LDAP entity&lt;/p&gt;" type="string" variable="$dn">
             <type>string</type>
           </tag>
-          <tag name="param" line="354" description="&lt;p&gt;Attributes with their modified values&lt;/p&gt;" type="array" variable="$entry">
+          <tag name="param" line="396" description="&lt;p&gt;Attributes with their modified values&lt;/p&gt;" type="array" variable="$entry">
             <type>array</type>
           </tag>
-          <tag name="return" line="354" description="" type="\Dreamscapes\Ldap\Core\LinkResource">
+          <tag name="return" line="396" description="" type="\Dreamscapes\Ldap\Core\LinkResource">
             <type>\Dreamscapes\Ldap\Core\LinkResource</type>
           </tag>
           <tag name="fluent" description="This method is part of a fluent interface and will return the same instance"/>
@@ -1119,25 +2192,65 @@ For full copyright and license information, please see the LICENSE file</long-de
           <type>array</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap\Core" line="372" package="Ldap-Core">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap\Core" line="426" package="Ldap-Core">
+        <name>modifyBatch</name>
+        <full_name>\Dreamscapes\Ldap\Core\LinkResource::modifyBatch()</full_name>
+        <docblock line="426">
+          <description>Modify an existing entry in the LDAP directory</description>
+          <long-description>Allows detailed specification of the modifications to perform.
+
+Example:
+
+$modifs = array(
+    array(
+        "attrib"  =&gt; "telephoneNumber",
+        "modtype" =&gt; LinkResource::MODIFY_BATCH_ADD,
+        "values"  =&gt; array("+420 777 111 222")
+    )
+);
+$linkResource-&gt;modifyBatch("cn=Robert Rossmann,dc=example,dc=com", $modifs);</long-description>
+          <tag name="param" line="426" description="&lt;p&gt;The distinguished name of an LDAP entity&lt;/p&gt;" type="string" variable="$dn">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="426" description="&lt;p&gt;Modification specifications&lt;/p&gt;" type="array" variable="$entry">
+            <type>array</type>
+          </tag>
+          <tag name="return" line="426" description="" type="\Dreamscapes\Ldap\Core\LinkResource">
+            <type>\Dreamscapes\Ldap\Core\LinkResource</type>
+          </tag>
+          <tag name="see" line="426" description="" link="\Dreamscapes\Ldap\Core\https://wiki.php.net/rfc/ldap_modify_batch"/>
+          <tag name="fluent" description="This method is part of a fluent interface and will return the same instance"/>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$dn</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$entry</name>
+          <default></default>
+          <type>array</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap\Core" line="444" package="Ldap-Core">
         <name>rename</name>
         <full_name>\Dreamscapes\Ldap\Core\LinkResource::rename()</full_name>
-        <docblock line="372">
+        <docblock line="444">
           <description>Modify the name of an entry</description>
           <long-description></long-description>
-          <tag name="param" line="372" description="&lt;p&gt;The distinguished name of an LDAP entity&lt;/p&gt;" type="string" variable="$dn">
+          <tag name="param" line="444" description="&lt;p&gt;The distinguished name of an LDAP entity&lt;/p&gt;" type="string" variable="$dn">
             <type>string</type>
           </tag>
-          <tag name="param" line="372" description="&lt;p&gt;The new RDN&lt;/p&gt;" type="string" variable="$newRdn">
+          <tag name="param" line="444" description="&lt;p&gt;The new RDN&lt;/p&gt;" type="string" variable="$newRdn">
             <type>string</type>
           </tag>
-          <tag name="param" line="372" description="&lt;p&gt;The new parent/superior entry&lt;/p&gt;" type="string" variable="$newParent">
+          <tag name="param" line="444" description="&lt;p&gt;The new parent/superior entry&lt;/p&gt;" type="string" variable="$newParent">
             <type>string</type>
           </tag>
-          <tag name="param" line="372" description="&lt;p&gt;If TRUE the old RDN value(s) is removed, else the old RDN value(s) is retained as&lt;/p&gt;&#10;&lt;pre&gt;&lt;code&gt;                         non-distinguished values of the entry&lt;/code&gt;&lt;/pre&gt;" type="bool" variable="$deleteOldRdn">
+          <tag name="param" line="444" description="&lt;p&gt;If TRUE the old RDN value(s) is removed, else the old RDN value(s) is retained as&lt;/p&gt;&#10;&lt;pre&gt;&lt;code&gt;                         non-distinguished values of the entry&lt;/code&gt;&lt;/pre&gt;" type="bool" variable="$deleteOldRdn">
             <type>bool</type>
           </tag>
-          <tag name="return" line="372" description="" type="\Dreamscapes\Ldap\Core\LinkResource">
+          <tag name="return" line="444" description="" type="\Dreamscapes\Ldap\Core\LinkResource">
             <type>\Dreamscapes\Ldap\Core\LinkResource</type>
           </tag>
           <tag name="fluent" description="This method is part of a fluent interface and will return the same instance"/>
@@ -1163,34 +2276,34 @@ For full copyright and license information, please see the LICENSE file</long-de
           <type>bool</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap\Core" line="392" package="Ldap-Core">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap\Core" line="464" package="Ldap-Core">
         <name>saslBind</name>
         <full_name>\Dreamscapes\Ldap\Core\LinkResource::saslBind()</full_name>
-        <docblock line="392">
+        <docblock line="464">
           <description>Bind to LDAP directory using SASL</description>
           <long-description></long-description>
-          <tag name="param" line="392" description="" type="string" variable="$bindDn">
+          <tag name="param" line="464" description="" type="string" variable="$bindDn">
             <type>string</type>
           </tag>
-          <tag name="param" line="392" description="" type="string" variable="$bindPassword">
+          <tag name="param" line="464" description="" type="string" variable="$bindPassword">
             <type>string</type>
           </tag>
-          <tag name="param" line="392" description="" type="string" variable="$saslMech">
+          <tag name="param" line="464" description="" type="string" variable="$saslMech">
             <type>string</type>
           </tag>
-          <tag name="param" line="392" description="" type="string" variable="$saslRealm">
+          <tag name="param" line="464" description="" type="string" variable="$saslRealm">
             <type>string</type>
           </tag>
-          <tag name="param" line="392" description="" type="string" variable="$saslAuthcId">
+          <tag name="param" line="464" description="" type="string" variable="$saslAuthcId">
             <type>string</type>
           </tag>
-          <tag name="param" line="392" description="" type="string" variable="$saslAuthzId">
+          <tag name="param" line="464" description="" type="string" variable="$saslAuthzId">
             <type>string</type>
           </tag>
-          <tag name="param" line="392" description="" type="string" variable="$props">
+          <tag name="param" line="464" description="" type="string" variable="$props">
             <type>string</type>
           </tag>
-          <tag name="return" line="392" description="" type="\Dreamscapes\Ldap\Core\LinkResource">
+          <tag name="return" line="464" description="" type="\Dreamscapes\Ldap\Core\LinkResource">
             <type>\Dreamscapes\Ldap\Core\LinkResource</type>
           </tag>
           <tag name="fluent" description="This method is part of a fluent interface and will return the same instance"/>
@@ -1231,10 +2344,10 @@ For full copyright and license information, please see the LICENSE file</long-de
           <type>string</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap\Core" line="437" package="Ldap-Core">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap\Core" line="509" package="Ldap-Core">
         <name>search</name>
         <full_name>\Dreamscapes\Ldap\Core\LinkResource::search()</full_name>
-        <docblock line="437">
+        <docblock line="509">
           <description>Search LDAP tree</description>
           <long-description>This method deviates from the native PHP implementation - there is only one method to perform search, list and
 read operations. The scope of the operation is controlled by the $scope parameter, which can be one of:
@@ -1242,31 +2355,31 @@ read operations. The scope of the operation is controlled by the $scope paramete
 self::SCOPE_SUBTREE - equivalent of ldap_search() ( default )
 self::SCOPE_ONELEVEL - equivalent of ldap_list()
 self::SCOPE_BASE - equivalent of ldap_read()</long-description>
-          <tag name="param" line="437" description="&lt;p&gt;The base DN for the directory&lt;/p&gt;" type="string" variable="$baseDn">
+          <tag name="param" line="509" description="&lt;p&gt;The base DN for the directory&lt;/p&gt;" type="string" variable="$baseDn">
             <type>string</type>
           </tag>
-          <tag name="param" line="437" description="&lt;p&gt;Ldap query filter ( an empty filter is not allowed )&lt;/p&gt;" type="string" variable="$filter">
+          <tag name="param" line="509" description="&lt;p&gt;Ldap query filter ( an empty filter is not allowed )&lt;/p&gt;" type="string" variable="$filter">
             <type>string</type>
           </tag>
-          <tag name="param" line="437" description="&lt;p&gt;An array of the required attributes, e.g. array(&quot;mail&quot;, &quot;sn&quot;, &quot;cn&quot;)&lt;/p&gt;" type="array" variable="$attributes">
+          <tag name="param" line="509" description="&lt;p&gt;An array of the required attributes, e.g. array(&quot;mail&quot;, &quot;sn&quot;, &quot;cn&quot;)&lt;/p&gt;" type="array" variable="$attributes">
             <type>array</type>
           </tag>
-          <tag name="param" line="437" description="&lt;p&gt;One of self::SCOPE_SUBTREE, self::SCOPE_ONELEVEL or self::SCOPE_BASE&lt;/p&gt;" type="string" variable="$scope">
+          <tag name="param" line="509" description="&lt;p&gt;One of self::SCOPE_SUBTREE, self::SCOPE_ONELEVEL or self::SCOPE_BASE&lt;/p&gt;" type="string" variable="$scope">
             <type>string</type>
           </tag>
-          <tag name="param" line="437" description="&lt;p&gt;Should be set to 1 if only attribute types are wanted&lt;/p&gt;" type="boolean" variable="$attrsOnly">
+          <tag name="param" line="509" description="&lt;p&gt;Should be set to 1 if only attribute types are wanted&lt;/p&gt;" type="boolean" variable="$attrsOnly">
             <type>boolean</type>
           </tag>
-          <tag name="param" line="437" description="&lt;p&gt;Enables you to limit the count of entries fetched. Setting this to 0 means no limit&lt;/p&gt;" type="integer" variable="$sizeLimit">
+          <tag name="param" line="509" description="&lt;p&gt;Enables you to limit the count of entries fetched. Setting this to 0 means no limit&lt;/p&gt;" type="integer" variable="$sizeLimit">
             <type>integer</type>
           </tag>
-          <tag name="param" line="437" description="&lt;p&gt;Sets the number of seconds how long is spend on the search.&#10;                            Setting this to 0 means no limit.&lt;/p&gt;" type="integer" variable="$timeLimit">
+          <tag name="param" line="509" description="&lt;p&gt;Sets the number of seconds how long is spend on the search.&#10;                            Setting this to 0 means no limit.&lt;/p&gt;" type="integer" variable="$timeLimit">
             <type>integer</type>
           </tag>
-          <tag name="param" line="437" description="&lt;p&gt;Specifies how aliases should be handled during the search&lt;/p&gt;" type="integer" variable="$deref">
+          <tag name="param" line="509" description="&lt;p&gt;Specifies how aliases should be handled during the search&lt;/p&gt;" type="integer" variable="$deref">
             <type>integer</type>
           </tag>
-          <tag name="return" line="437" description="" type="\Dreamscapes\Ldap\Core\ResultResource">
+          <tag name="return" line="509" description="" type="\Dreamscapes\Ldap\Core\ResultResource">
             <type>\Dreamscapes\Ldap\Core\ResultResource</type>
           </tag>
         </docblock>
@@ -1311,16 +2424,16 @@ self::SCOPE_BASE - equivalent of ldap_read()</long-description>
           <type>integer</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap\Core" line="459" package="Ldap-Core">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap\Core" line="531" package="Ldap-Core">
         <name>setOption</name>
         <full_name>\Dreamscapes\Ldap\Core\LinkResource::setOption()</full_name>
-        <docblock line="459">
+        <docblock line="531">
           <description>Set the value of the given option</description>
           <long-description></long-description>
-          <tag name="param" line="459" description="&lt;p&gt;An lDAP option constant&lt;/p&gt;" type="integer" variable="$option">
+          <tag name="param" line="531" description="&lt;p&gt;An lDAP option constant&lt;/p&gt;" type="integer" variable="$option">
             <type>integer</type>
           </tag>
-          <tag name="param" line="459" description="&lt;p&gt;The new value for the option&lt;/p&gt;" type="mixed" variable="$newVal">
+          <tag name="param" line="531" description="&lt;p&gt;The new value for the option&lt;/p&gt;" type="mixed" variable="$newVal">
             <type>mixed</type>
           </tag>
         </docblock>
@@ -1335,16 +2448,16 @@ self::SCOPE_BASE - equivalent of ldap_read()</long-description>
           <type>mixed</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap\Core" line="473" package="Ldap-Core">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap\Core" line="545" package="Ldap-Core">
         <name>setRebindProcedure</name>
         <full_name>\Dreamscapes\Ldap\Core\LinkResource::setRebindProcedure()</full_name>
-        <docblock line="473">
+        <docblock line="545">
           <description>Set a callback function to do re-binds on referral chasing</description>
           <long-description></long-description>
-          <tag name="param" line="473" description="" type="callable" variable="$callback">
+          <tag name="param" line="545" description="" type="callable" variable="$callback">
             <type>callable</type>
           </tag>
-          <tag name="return" line="473" description="" type="\Dreamscapes\Ldap\Core\LinkResource">
+          <tag name="return" line="545" description="" type="\Dreamscapes\Ldap\Core\LinkResource">
             <type>\Dreamscapes\Ldap\Core\LinkResource</type>
           </tag>
           <tag name="fluent" description="This method is part of a fluent interface and will return the same instance"/>
@@ -1355,10 +2468,10 @@ self::SCOPE_BASE - equivalent of ldap_read()</long-description>
           <type>callable</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap\Core" line="482" package="Ldap-Core">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap\Core" line="554" package="Ldap-Core">
         <name>setRebindProc</name>
         <full_name>\Dreamscapes\Ldap\Core\LinkResource::setRebindProc()</full_name>
-        <docblock line="482">
+        <docblock line="554">
           <description>Compatibility alias of self::setRebindProcedure()</description>
           <long-description></long-description>
         </docblock>
@@ -1368,914 +2481,42 @@ self::SCOPE_BASE - equivalent of ldap_read()</long-description>
           <type>callable</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap\Core" line="492" package="Ldap-Core">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap\Core" line="564" package="Ldap-Core">
         <name>startTls</name>
         <full_name>\Dreamscapes\Ldap\Core\LinkResource::startTls()</full_name>
-        <docblock line="492">
+        <docblock line="564">
           <description>Start TLS</description>
           <long-description></long-description>
-          <tag name="return" line="492" description="" type="\Dreamscapes\Ldap\Core\LinkResource">
+          <tag name="return" line="564" description="" type="\Dreamscapes\Ldap\Core\LinkResource">
             <type>\Dreamscapes\Ldap\Core\LinkResource</type>
           </tag>
           <tag name="fluent" description="This method is part of a fluent interface and will return the same instance"/>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap\Core" line="507" package="Ldap-Core">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap\Core" line="579" package="Ldap-Core">
         <name>unbind</name>
         <full_name>\Dreamscapes\Ldap\Core\LinkResource::unbind()</full_name>
-        <docblock line="507">
+        <docblock line="579">
           <description>Unbind from LDAP directory</description>
           <long-description>Once unbound the instance holding the link resource must not be used any further.</long-description>
-          <tag name="return" line="507" description="" type="void">
+          <tag name="return" line="579" description="" type="void">
             <type>void</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="protected" namespace="Dreamscapes\Ldap\Core" line="518" package="Ldap-Core">
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="Dreamscapes\Ldap\Core" line="590" package="Ldap-Core">
         <name>verifyOperation</name>
         <full_name>\Dreamscapes\Ldap\Core\LinkResource::verifyOperation()</full_name>
-        <docblock line="518">
+        <docblock line="590">
           <description>Check the ldap status code and throw exception on error</description>
           <long-description></long-description>
-          <tag name="return" line="518" description="" type="void">
+          <tag name="return" line="590" description="" type="void">
             <type>void</type>
           </tag>
         </docblock>
       </method>
     </class>
-    <source>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</source>
-  </file>
-  <file path="LdapException.php" generated-path="LdapException.html" hash="c246dd1ca4c2690259c0ad3a610f85c2" package="global">
-    <docblock line="0">
-      <description>Dreamscapes/Ldap-Core</description>
-      <long-description>Licensed under the BSD (3-Clause) license
-For full copyright and license information, please see the LICENSE file</long-description>
-      <tag name="author" line="0" description="Robert Rossmann" link="mailto:rr.rossmann@me.com"/>
-      <tag name="copyright" line="0" description="2013 Robert Rossmann"/>
-      <tag name="link" line="0" description="https://github.com/Dreamscapes/Ldap-Core" link="https://github.com/Dreamscapes/Ldap-Core"/>
-      <tag name="license" line="0" description="BSD (3-Clause) License" link="http://choosealicense.com/licenses/bsd-3-clause"/>
-    </docblock>
-    <class final="false" abstract="false" namespace="Dreamscapes\Ldap" line="23" package="Ldap-Core">
-      <extends>\Exception</extends>
-      <name>LdapException</name>
-      <full_name>\Dreamscapes\Ldap\LdapException</full_name>
-      <docblock line="23">
-        <description>Custom exception that represents an error from PHP's native ldap interface</description>
-        <long-description></long-description>
-        <tag name="package" line="23" description="Ldap-Core"/>
-      </docblock>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap" line="32" package="Ldap-Core">
-        <name>__construct</name>
-        <full_name>\Dreamscapes\Ldap\LdapException::__construct()</full_name>
-        <docblock line="32">
-          <description>Custom constructor method</description>
-          <long-description>The error code and message are extracted from the LinkResource instance.</long-description>
-          <tag name="param" line="32" description="" type="\Dreamscapes\Ldap\LinkResourceInterface" variable="$res">
-            <type>\Dreamscapes\Ldap\LinkResourceInterface</type>
-          </tag>
-        </docblock>
-        <argument line="0" by_reference="false">
-          <name>$res</name>
-          <default></default>
-          <type>\Dreamscapes\Ldap\LinkResourceInterface</type>
-        </argument>
-      </method>
-    </class>
-    <source>eJx1Uk1P4zAQvftXzGGlbSrSwPZWEIsoXS1StUKwRyTkOtMmIrGtGQeBEP99x24SupXwxV/vzcx7Mxc/feWVKqZTBVO4IdQtG+2Ri3Wpfb50hPIR/9a1QctYQmdLJAgVwvXDDUzm+bLRHWMGzR4Rwb8cwbZrGjDOv1G9qwJoWw4IqO3WUatD7ewJ+Aa1vDFiCrq+Xa7+PKxgWzdD6ivdhUoipnXvNkhBNuZWWwsXRDPqL1ctzoxrLxPpMzXAj9Oz+TEzgZraPkO/qhA8L4piV4eq28RAxVeGROJeykAUnqmcY9T9T+L3Zy42XObz3CSnhHHk3Hp0rlBKWd0ie23wsB+PMf352Kllx8G1gK8GfbRRrNMBCD0how0sdgMSxTaQ4O5+331nsOL4C0IjkaQFAWkrSQaPJeGz3on/BzILJRUzp7fVmApfA9qS4XF8Uu8q+pBqi2uszzjLgToTpJAWpYllDxhwf6Xj+zqNKzENiYjnWIgmjKlImyBTl2Sk+ZCO3SO7jkwcJA7aGpwdhRU1pNv/sLeDYPgmHvXAIu2+20ijZGCtSQKfnsa6J1+HyBJ3rzxFkYJtWCwO2RGXXyaBk+wExqt1kyw7T9QP9aH+AatbIEI=</source>
-  </file>
-  <file path="ResultResourceInterface.php" generated-path="ResultResourceInterface.html" hash="e2cfe61799bb1550441f028a57c0779a" package="global">
-    <docblock line="0">
-      <description>Dreamscapes/Ldap-Core</description>
-      <long-description>Licensed under the BSD (3-Clause) license
-For full copyright and license information, please see the LICENSE file</long-description>
-      <tag name="author" line="0" description="Robert Rossmann" link="mailto:rr.rossmann@me.com"/>
-      <tag name="copyright" line="0" description="2013 Robert Rossmann"/>
-      <tag name="link" line="0" description="https://github.com/Dreamscapes/Ldap-Core" link="https://github.com/Dreamscapes/Ldap-Core"/>
-      <tag name="license" line="0" description="BSD (3-Clause) License" link="http://choosealicense.com/licenses/bsd-3-clause"/>
-    </docblock>
-    <interface namespace="Dreamscapes\Ldap" line="24" package="Ldap-Core">
-      <name>ResultResourceInterface</name>
-      <full_name>\Dreamscapes\Ldap\ResultResourceInterface</full_name>
-      <docblock line="24">
-        <description>This interface prescribes which methods a class must implement to serve as object encapsulation of PHP's native ldap
-result resource and related functions.</description>
-        <long-description></long-description>
-        <tag name="package" line="24" description="Ldap-Core"/>
-      </docblock>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap" line="32" package="Ldap-Core">
-        <name>__construct</name>
-        <full_name>\Dreamscapes\Ldap\ResultResourceInterface::__construct()</full_name>
-        <docblock line="32">
-          <description>Create a new instance</description>
-          <long-description></long-description>
-          <tag name="param" line="32" description="" type="\Dreamscapes\Ldap\LinkResourceInterface" variable="$link">
-            <type>\Dreamscapes\Ldap\LinkResourceInterface</type>
-          </tag>
-          <tag name="param" line="32" description="" type="resource" variable="$result">
-            <type>resource</type>
-          </tag>
-        </docblock>
-        <argument line="0" by_reference="false">
-          <name>$link</name>
-          <default></default>
-          <type>\Dreamscapes\Ldap\LinkResourceInterface</type>
-        </argument>
-        <argument line="0" by_reference="false">
-          <name>$result</name>
-          <default></default>
-          <type>resource</type>
-        </argument>
-      </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap" line="39" package="Ldap-Core">
-        <name>pagedResultResponse</name>
-        <full_name>\Dreamscapes\Ldap\ResultResourceInterface::pagedResultResponse()</full_name>
-        <docblock line="39">
-          <description>Retrieve the LDAP pagination cookie</description>
-          <long-description></long-description>
-          <tag name="return" line="39" description="Array with two keys: 'cookie' and 'estimated'" type="array">
-            <type>array</type>
-          </tag>
-        </docblock>
-      </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap" line="46" package="Ldap-Core">
-        <name>countEntries</name>
-        <full_name>\Dreamscapes\Ldap\ResultResourceInterface::countEntries()</full_name>
-        <docblock line="46">
-          <description>Count the number of entries in a search</description>
-          <long-description></long-description>
-          <tag name="return" line="46" description="Number of entries in the result" type="int">
-            <type>int</type>
-          </tag>
-        </docblock>
-      </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap" line="56" package="Ldap-Core">
-        <name>freeResult</name>
-        <full_name>\Dreamscapes\Ldap\ResultResourceInterface::freeResult()</full_name>
-        <docblock line="56">
-          <description>Free result memory</description>
-          <long-description>Once the result is freed from memory the instance holding the result must not be used any further. This method
-must be called automatically when the instance is released from memory.</long-description>
-          <tag name="return" line="56" description="" type="void">
-            <type>void</type>
-          </tag>
-        </docblock>
-      </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap" line="63" package="Ldap-Core">
-        <name>getEntries</name>
-        <full_name>\Dreamscapes\Ldap\ResultResourceInterface::getEntries()</full_name>
-        <docblock line="63">
-          <description>Get all result entries</description>
-          <long-description></long-description>
-          <tag name="return" line="63" description="Complete result information in a multi-dimensional array" type="array">
-            <type>array</type>
-          </tag>
-        </docblock>
-      </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap" line="70" package="Ldap-Core">
-        <name>getReferrals</name>
-        <full_name>\Dreamscapes\Ldap\ResultResourceInterface::getReferrals()</full_name>
-        <docblock line="70">
-          <description>Extract information about referrals (if returned by server)</description>
-          <long-description></long-description>
-          <tag name="return" line="70" description="" type="array">
-            <type>array</type>
-          </tag>
-        </docblock>
-      </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap" line="78" package="Ldap-Core">
-        <name>sort</name>
-        <full_name>\Dreamscapes\Ldap\ResultResourceInterface::sort()</full_name>
-        <docblock line="78">
-          <description>Sort LDAP result entries</description>
-          <long-description></long-description>
-          <tag name="param" line="78" description="&lt;p&gt;The attribute to use as a key in the sort&lt;/p&gt;" type="string" variable="$sortFilter">
-            <type>string</type>
-          </tag>
-          <tag name="return" line="78" description="" type="\Dreamscapes\Ldap\ResultResourceInterface">
-            <type>\Dreamscapes\Ldap\ResultResourceInterface</type>
-          </tag>
-          <tag name="fluent" description="This method is part of a fluent interface and will return the same instance"/>
-        </docblock>
-        <argument line="0" by_reference="false">
-          <name>$sortFilter</name>
-          <default></default>
-          <type>string</type>
-        </argument>
-      </method>
-    </interface>
-    <source>eJyNVdtu2zgQfddXzEMAO0FttZu3btFt6yS7BYI2cPaxQEBRI4s1RQq8JGsU/fce6uI4juOuXmSRc+bMnLn43V9t3WZZfnaW0RldOBaNl6Jln1+Xop0trGNcpLtrJdl4Limakh2FmunT7QVNz2cLLaLnU9K9RTK+so6qqDVJ226cWtWBhClHC1Kmsq4RQVnzilrNAmeeuXN6/Xlx+eX2kiqlR+oPIoYaHrtnaQt2AS/vG2EMvXNu7oaPDw3PpW3ed6BHaqI/Xr8530d2RlqZNQ1PHULr3+b5SoU6FslR/pIgCdinMgKBk7W1nsVw0+GH3z4vfDk7n8lOKSD2lLveKpdnWWZEw74Vknfr8S3R/7mt1L+18pAxsKuSYevYS6cK9vRQK1lTw1Cs9CQInN5TE30g1UDrhk2gYKG3u2cSnmzxnWUgNuDxUXdVIVvRzT83E08G37DTYE+84Ik6pJeNDsSpqo4BQmNU0cgE9vOxbkhiLVao6Y50efYY9rLzthycfR7Psx9ZkrVLNT1ntIAQAWxk+AFp+yAMzPrL0QZsTjTQ0qyfeaSTVOg9y20ST56TPsXBNu/ebSxQyW2CdHcnkWZwUYbpEb5Xo7NTFG4voyUHp/h+6PmLjzfUipUyvfrS2rV6lp/jEJ0h4ZzYpKOP3Y8HdCuFB0tr3vi3NOmxk64yE/ZBNak4k6P5gJrLbTFa5MbTAzEvbEy9g4BNbDBLqUvQTcgj9SKqg+53sn4hbpS9V/jLIXDy+j+UlymEyx52KMQrx6MfzEBj3WYvmq9onB0ywhhVwKB7nW0GSHc/dhnVVpfKrHZB3TQZG6hgimknCrNBjA4mbt7PZj+AI2sHgLEUWifzGGxaf+kTFazZPKUEHkOV1uKTuOYvKHtvVXlUtZRhX95Dmv3N2M7Y1UNyQ1F+130Lm7ZJeBTycaf3zdDgVM1KhYXjcSh0jz0a6IqPFffyv+CEfEolChvTPqoYzrWnqaqoDxXaFZt+zbnTY9n8LqLl6PxQTLcWfynd/B6Xr185hKWReunEA3alNNYF2gWLLeC8iFATmzn9RYi0ujHR42gk+/3gPevqaOwJNN2hQvg/s19GWnpM</source>
-  </file>
-  <file path="LinkResourceInterface.php" generated-path="LinkResourceInterface.html" hash="fbf9a09bedb09a6e3e51e316082efabe" package="global">
-    <docblock line="0">
-      <description>Dreamscapes/Ldap-Core</description>
-      <long-description>Licensed under the BSD (3-Clause) license
-For full copyright and license information, please see the LICENSE file</long-description>
-      <tag name="author" line="0" description="Robert Rossmann" link="mailto:rr.rossmann@me.com"/>
-      <tag name="copyright" line="0" description="2013 Robert Rossmann"/>
-      <tag name="link" line="0" description="https://github.com/Dreamscapes/Ldap-Core" link="https://github.com/Dreamscapes/Ldap-Core"/>
-      <tag name="license" line="0" description="BSD (3-Clause) License" link="http://choosealicense.com/licenses/bsd-3-clause"/>
-    </docblock>
-    <interface namespace="Dreamscapes\Ldap" line="24" package="Ldap-Core">
-      <name>LinkResourceInterface</name>
-      <full_name>\Dreamscapes\Ldap\LinkResourceInterface</full_name>
-      <docblock line="24">
-        <description>This interface prescribes which methods a class must implement to serve as object encapsulation of PHP's native ldap
-link resource and related functions.</description>
-        <long-description></long-description>
-        <tag name="package" line="24" description="Ldap-Core"/>
-      </docblock>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap" line="33" package="Ldap-Core">
-        <name>__construct</name>
-        <full_name>\Dreamscapes\Ldap\LinkResourceInterface::__construct()</full_name>
-        <docblock line="33">
-          <description>Create a new instance</description>
-          <long-description>If $ldapUrl is provided, it should also open connection to the ldap server by calling self::connect()</long-description>
-          <tag name="param" line="33" description="&lt;p&gt;Optional ldap URI string of the ldap server&lt;/p&gt;" type="string" variable="$ldapUrl">
-            <type>string</type>
-          </tag>
-        </docblock>
-        <argument line="0" by_reference="false">
-          <name>$ldapUrl</name>
-          <default>null</default>
-          <type>string</type>
-        </argument>
-      </method>
-      <method final="false" abstract="false" static="true" visibility="public" namespace="Dreamscapes\Ldap" line="41" package="Ldap-Core">
-        <name>dnToUfn</name>
-        <full_name>\Dreamscapes\Ldap\LinkResourceInterface::dnToUfn()</full_name>
-        <docblock line="41">
-          <description>Convert DN to User Friendly Naming format</description>
-          <long-description></long-description>
-          <tag name="param" line="41" description="&lt;p&gt;The distinguished name of an LDAP entity&lt;/p&gt;" type="string" variable="$dn">
-            <type>string</type>
-          </tag>
-          <tag name="return" line="41" description="The user friendly name" type="string">
-            <type>string</type>
-          </tag>
-        </docblock>
-        <argument line="0" by_reference="false">
-          <name>$dn</name>
-          <default></default>
-          <type>string</type>
-        </argument>
-      </method>
-      <method final="false" abstract="false" static="true" visibility="public" namespace="Dreamscapes\Ldap" line="49" package="Ldap-Core">
-        <name>errToStr</name>
-        <full_name>\Dreamscapes\Ldap\LinkResourceInterface::errToStr()</full_name>
-        <docblock line="49">
-          <description>Convert LDAP error number into string error message</description>
-          <long-description></long-description>
-          <tag name="param" line="49" description="&lt;p&gt;The error number&lt;/p&gt;" type="integer" variable="$errno">
-            <type>integer</type>
-          </tag>
-          <tag name="return" line="49" description="The error message, as a string" type="string">
-            <type>string</type>
-          </tag>
-        </docblock>
-        <argument line="0" by_reference="false">
-          <name>$errno</name>
-          <default></default>
-          <type>integer</type>
-        </argument>
-      </method>
-      <method final="false" abstract="false" static="true" visibility="public" namespace="Dreamscapes\Ldap" line="58" package="Ldap-Core">
-        <name>explodeDn</name>
-        <full_name>\Dreamscapes\Ldap\LinkResourceInterface::explodeDn()</full_name>
-        <docblock line="58">
-          <description>Splits DN into its component parts</description>
-          <long-description></long-description>
-          <tag name="param" line="58" description="&lt;p&gt;The distinguished name of an LDAP entity&lt;/p&gt;" type="string" variable="$dn">
-            <type>string</type>
-          </tag>
-          <tag name="param" line="58" description="&lt;p&gt;Used to request if the RDNs are returned with only values or their attributes as well&lt;/p&gt;" type="integer" variable="$withAttrib">
-            <type>integer</type>
-          </tag>
-          <tag name="return" line="58" description="Returns an array of all DN components" type="array">
-            <type>array</type>
-          </tag>
-        </docblock>
-        <argument line="0" by_reference="false">
-          <name>$dn</name>
-          <default></default>
-          <type>string</type>
-        </argument>
-        <argument line="0" by_reference="false">
-          <name>$withAttrib</name>
-          <default>0</default>
-          <type>integer</type>
-        </argument>
-      </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap" line="66" package="Ldap-Core">
-        <name>getResource</name>
-        <full_name>\Dreamscapes\Ldap\LinkResourceInterface::getResource()</full_name>
-        <docblock line="66">
-          <description>Get the PHP's native ldap resource object</description>
-          <long-description></long-description>
-          <tag name="return" line="66" description="(ldap link)" type="resource">
-            <type>resource</type>
-          </tag>
-        </docblock>
-      </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap" line="75" package="Ldap-Core">
-        <name>add</name>
-        <full_name>\Dreamscapes\Ldap\LinkResourceInterface::add()</full_name>
-        <docblock line="75">
-          <description>Add entries to LDAP directory</description>
-          <long-description></long-description>
-          <tag name="param" line="75" description="&lt;p&gt;The distinguished name of an LDAP entity&lt;/p&gt;" type="string" variable="$dn">
-            <type>string</type>
-          </tag>
-          <tag name="param" line="75" description="&lt;p&gt;An array that specifies the information about the entry&lt;/p&gt;" type="array" variable="$entry">
-            <type>array</type>
-          </tag>
-          <tag name="return" line="75" description="" type="\Dreamscapes\Ldap\LinkResourceInterface">
-            <type>\Dreamscapes\Ldap\LinkResourceInterface</type>
-          </tag>
-          <tag name="fluent" description="This method is part of a fluent interface and will return the same instance"/>
-        </docblock>
-        <argument line="0" by_reference="false">
-          <name>$dn</name>
-          <default></default>
-          <type>string</type>
-        </argument>
-        <argument line="0" by_reference="false">
-          <name>$entry</name>
-          <default></default>
-          <type>array</type>
-        </argument>
-      </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap" line="85" package="Ldap-Core">
-        <name>compare</name>
-        <full_name>\Dreamscapes\Ldap\LinkResourceInterface::compare()</full_name>
-        <docblock line="85">
-          <description>Compare value of attribute found in entry specified with DN</description>
-          <long-description></long-description>
-          <tag name="param" line="85" description="&lt;p&gt;The distinguished name of an LDAP entity&lt;/p&gt;" type="string" variable="$dn">
-            <type>string</type>
-          </tag>
-          <tag name="param" line="85" description="&lt;p&gt;The attribute name&lt;/p&gt;" type="string" variable="$attribute">
-            <type>string</type>
-          </tag>
-          <tag name="param" line="85" description="&lt;p&gt;The compared value&lt;/p&gt;" type="string" variable="$value">
-            <type>string</type>
-          </tag>
-          <tag name="return" line="85" description="Returns TRUE if value matches otherwise returns FALSE" type="bool">
-            <type>bool</type>
-          </tag>
-        </docblock>
-        <argument line="0" by_reference="false">
-          <name>$dn</name>
-          <default></default>
-          <type>string</type>
-        </argument>
-        <argument line="0" by_reference="false">
-          <name>$attribute</name>
-          <default></default>
-          <type>string</type>
-        </argument>
-        <argument line="0" by_reference="false">
-          <name>$value</name>
-          <default></default>
-          <type>string</type>
-        </argument>
-      </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap" line="93" package="Ldap-Core">
-        <name>delete</name>
-        <full_name>\Dreamscapes\Ldap\LinkResourceInterface::delete()</full_name>
-        <docblock line="93">
-          <description>Delete an entry from a directory</description>
-          <long-description></long-description>
-          <tag name="param" line="93" description="&lt;p&gt;The distinguished name of an LDAP entity&lt;/p&gt;" type="string" variable="$dn">
-            <type>string</type>
-          </tag>
-          <tag name="return" line="93" description="" type="\Dreamscapes\Ldap\LinkResourceInterface">
-            <type>\Dreamscapes\Ldap\LinkResourceInterface</type>
-          </tag>
-          <tag name="fluent" description="This method is part of a fluent interface and will return the same instance"/>
-        </docblock>
-        <argument line="0" by_reference="false">
-          <name>$dn</name>
-          <default></default>
-          <type>string</type>
-        </argument>
-      </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap" line="101" package="Ldap-Core">
-        <name>connect</name>
-        <full_name>\Dreamscapes\Ldap\LinkResourceInterface::connect()</full_name>
-        <docblock line="101">
-          <description>Open connection to an ldap server</description>
-          <long-description></long-description>
-          <tag name="param" line="101" description="&lt;p&gt;Ldap URI string of the ldap server (i.e. ldap://my.server.com:389)&lt;/p&gt;" type="string" variable="$ldapUrl">
-            <type>string</type>
-          </tag>
-          <tag name="return" line="101" description="" type="\Dreamscapes\Ldap\LinkResourceInterface">
-            <type>\Dreamscapes\Ldap\LinkResourceInterface</type>
-          </tag>
-          <tag name="fluent" description="This method is part of a fluent interface and will return the same instance"/>
-        </docblock>
-        <argument line="0" by_reference="false">
-          <name>$ldapUrl</name>
-          <default></default>
-          <type>string</type>
-        </argument>
-      </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap" line="111" package="Ldap-Core">
-        <name>pagedResult</name>
-        <full_name>\Dreamscapes\Ldap\LinkResourceInterface::pagedResult()</full_name>
-        <docblock line="111">
-          <description>Send LDAP pagination control</description>
-          <long-description></long-description>
-          <tag name="param" line="111" description="&lt;p&gt;The number of entries by page&lt;/p&gt;" type="integer" variable="$pageSize">
-            <type>integer</type>
-          </tag>
-          <tag name="param" line="111" description="&lt;p&gt;Indicates whether the pagination is critical of not&lt;/p&gt;" type="boolean" variable="$isCritical">
-            <type>boolean</type>
-          </tag>
-          <tag name="param" line="111" description="&lt;p&gt;An opaque structure sent by the server&lt;/p&gt;" type="string" variable="$cookie">
-            <type>string</type>
-          </tag>
-          <tag name="return" line="111" description="" type="\Dreamscapes\Ldap\LinkResourceInterface">
-            <type>\Dreamscapes\Ldap\LinkResourceInterface</type>
-          </tag>
-          <tag name="fluent" description="This method is part of a fluent interface and will return the same instance"/>
-        </docblock>
-        <argument line="0" by_reference="false">
-          <name>$pageSize</name>
-          <default></default>
-          <type>integer</type>
-        </argument>
-        <argument line="0" by_reference="false">
-          <name>$isCritical</name>
-          <default>false</default>
-          <type>boolean</type>
-        </argument>
-        <argument line="0" by_reference="false">
-          <name>$cookie</name>
-          <default>''</default>
-          <type>string</type>
-        </argument>
-      </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap" line="120" package="Ldap-Core">
-        <name>bind</name>
-        <full_name>\Dreamscapes\Ldap\LinkResourceInterface::bind()</full_name>
-        <docblock line="120">
-          <description>Bind to LDAP directory</description>
-          <long-description></long-description>
-          <tag name="param" line="120" description="&lt;p&gt;Username for the bind&lt;/p&gt;" type="string" variable="$bindDn">
-            <type>string</type>
-          </tag>
-          <tag name="param" line="120" description="&lt;p&gt;Password for the username&lt;/p&gt;" type="string" variable="$bindPassword">
-            <type>string</type>
-          </tag>
-          <tag name="return" line="120" description="" type="\Dreamscapes\Ldap\LinkResourceInterface">
-            <type>\Dreamscapes\Ldap\LinkResourceInterface</type>
-          </tag>
-          <tag name="fluent" description="This method is part of a fluent interface and will return the same instance"/>
-        </docblock>
-        <argument line="0" by_reference="false">
-          <name>$bindDn</name>
-          <default>null</default>
-          <type>string</type>
-        </argument>
-        <argument line="0" by_reference="false">
-          <name>$bindPassword</name>
-          <default>null</default>
-          <type>string</type>
-        </argument>
-      </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap" line="127" package="Ldap-Core">
-        <name>error</name>
-        <full_name>\Dreamscapes\Ldap\LinkResourceInterface::error()</full_name>
-        <docblock line="127">
-          <description>Return the LDAP error message of the last LDAP command</description>
-          <long-description></long-description>
-          <tag name="return" line="127" description="" type="string">
-            <type>string</type>
-          </tag>
-        </docblock>
-      </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap" line="134" package="Ldap-Core">
-        <name>errno</name>
-        <full_name>\Dreamscapes\Ldap\LinkResourceInterface::errno()</full_name>
-        <docblock line="134">
-          <description>Return the LDAP error number of the last LDAP command</description>
-          <long-description></long-description>
-          <tag name="return" line="134" description="" type="integer">
-            <type>integer</type>
-          </tag>
-        </docblock>
-      </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap" line="142" package="Ldap-Core">
-        <name>getOption</name>
-        <full_name>\Dreamscapes\Ldap\LinkResourceInterface::getOption()</full_name>
-        <docblock line="142">
-          <description>Get the current value for given option</description>
-          <long-description></long-description>
-          <tag name="param" line="142" description="&lt;p&gt;The option to be returned&lt;/p&gt;" type="integer" variable="$option">
-            <type>integer</type>
-          </tag>
-          <tag name="return" line="142" description="" type="mixed">
-            <type>mixed</type>
-          </tag>
-        </docblock>
-        <argument line="0" by_reference="false">
-          <name>$option</name>
-          <default></default>
-          <type>integer</type>
-        </argument>
-      </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap" line="151" package="Ldap-Core">
-        <name>modAdd</name>
-        <full_name>\Dreamscapes\Ldap\LinkResourceInterface::modAdd()</full_name>
-        <docblock line="151">
-          <description>Add attribute values to current attributes</description>
-          <long-description></long-description>
-          <tag name="param" line="151" description="&lt;p&gt;The distinguished name of an LDAP entity&lt;/p&gt;" type="string" variable="$dn">
-            <type>string</type>
-          </tag>
-          <tag name="param" line="151" description="&lt;p&gt;Values to be added to the specified attributes&lt;/p&gt;" type="array" variable="$entry">
-            <type>array</type>
-          </tag>
-          <tag name="return" line="151" description="" type="\Dreamscapes\Ldap\LinkResourceInterface">
-            <type>\Dreamscapes\Ldap\LinkResourceInterface</type>
-          </tag>
-          <tag name="fluent" description="This method is part of a fluent interface and will return the same instance"/>
-        </docblock>
-        <argument line="0" by_reference="false">
-          <name>$dn</name>
-          <default></default>
-          <type>string</type>
-        </argument>
-        <argument line="0" by_reference="false">
-          <name>$entry</name>
-          <default></default>
-          <type>array</type>
-        </argument>
-      </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap" line="160" package="Ldap-Core">
-        <name>modDelete</name>
-        <full_name>\Dreamscapes\Ldap\LinkResourceInterface::modDelete()</full_name>
-        <docblock line="160">
-          <description>Delete attribute values from current attributes</description>
-          <long-description></long-description>
-          <tag name="param" line="160" description="&lt;p&gt;The distinguished name of an LDAP entity&lt;/p&gt;" type="string" variable="$dn">
-            <type>string</type>
-          </tag>
-          <tag name="param" line="160" description="&lt;p&gt;Values to be deleted from the specified attributes&lt;/p&gt;" type="array" variable="$entry">
-            <type>array</type>
-          </tag>
-          <tag name="return" line="160" description="" type="\Dreamscapes\Ldap\LinkResourceInterface">
-            <type>\Dreamscapes\Ldap\LinkResourceInterface</type>
-          </tag>
-          <tag name="fluent" description="This method is part of a fluent interface and will return the same instance"/>
-        </docblock>
-        <argument line="0" by_reference="false">
-          <name>$dn</name>
-          <default></default>
-          <type>string</type>
-        </argument>
-        <argument line="0" by_reference="false">
-          <name>$entry</name>
-          <default></default>
-          <type>array</type>
-        </argument>
-      </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap" line="163" package="Ldap-Core">
-        <name>modDel</name>
-        <full_name>\Dreamscapes\Ldap\LinkResourceInterface::modDel()</full_name>
-        <docblock line="163">
-          <description>Compatibility alias for self::modDelete()</description>
-          <long-description></long-description>
-        </docblock>
-        <argument line="0" by_reference="false">
-          <name>$dn</name>
-          <default></default>
-          <type/>
-        </argument>
-        <argument line="0" by_reference="false">
-          <name>$entry</name>
-          <default></default>
-          <type>array</type>
-        </argument>
-      </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap" line="172" package="Ldap-Core">
-        <name>modReplace</name>
-        <full_name>\Dreamscapes\Ldap\LinkResourceInterface::modReplace()</full_name>
-        <docblock line="172">
-          <description>Replace attribute values with new ones</description>
-          <long-description></long-description>
-          <tag name="param" line="172" description="&lt;p&gt;The distinguished name of an LDAP entity&lt;/p&gt;" type="string" variable="$dn">
-            <type>string</type>
-          </tag>
-          <tag name="param" line="172" description="&lt;p&gt;Attributes and their values to be replaced&lt;/p&gt;" type="array" variable="$entry">
-            <type>array</type>
-          </tag>
-          <tag name="return" line="172" description="" type="\Dreamscapes\Ldap\LinkResourceInterface">
-            <type>\Dreamscapes\Ldap\LinkResourceInterface</type>
-          </tag>
-          <tag name="fluent" description="This method is part of a fluent interface and will return the same instance"/>
-        </docblock>
-        <argument line="0" by_reference="false">
-          <name>$dn</name>
-          <default></default>
-          <type>string</type>
-        </argument>
-        <argument line="0" by_reference="false">
-          <name>$entry</name>
-          <default></default>
-          <type>array</type>
-        </argument>
-      </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap" line="181" package="Ldap-Core">
-        <name>modify</name>
-        <full_name>\Dreamscapes\Ldap\LinkResourceInterface::modify()</full_name>
-        <docblock line="181">
-          <description>Modify an LDAP entry</description>
-          <long-description></long-description>
-          <tag name="param" line="181" description="&lt;p&gt;The distinguished name of an LDAP entity&lt;/p&gt;" type="string" variable="$dn">
-            <type>string</type>
-          </tag>
-          <tag name="param" line="181" description="&lt;p&gt;Attributes with their modified values&lt;/p&gt;" type="array" variable="$entry">
-            <type>array</type>
-          </tag>
-          <tag name="return" line="181" description="" type="\Dreamscapes\Ldap\LinkResourceInterface">
-            <type>\Dreamscapes\Ldap\LinkResourceInterface</type>
-          </tag>
-          <tag name="fluent" description="This method is part of a fluent interface and will return the same instance"/>
-        </docblock>
-        <argument line="0" by_reference="false">
-          <name>$dn</name>
-          <default></default>
-          <type>string</type>
-        </argument>
-        <argument line="0" by_reference="false">
-          <name>$entry</name>
-          <default></default>
-          <type>array</type>
-        </argument>
-      </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap" line="193" package="Ldap-Core">
-        <name>rename</name>
-        <full_name>\Dreamscapes\Ldap\LinkResourceInterface::rename()</full_name>
-        <docblock line="193">
-          <description>Modify the name of an entry</description>
-          <long-description></long-description>
-          <tag name="param" line="193" description="&lt;p&gt;The distinguished name of an LDAP entity&lt;/p&gt;" type="string" variable="$dn">
-            <type>string</type>
-          </tag>
-          <tag name="param" line="193" description="&lt;p&gt;The new RDN&lt;/p&gt;" type="string" variable="$newRdn">
-            <type>string</type>
-          </tag>
-          <tag name="param" line="193" description="&lt;p&gt;The new parent/superior entry&lt;/p&gt;" type="string" variable="$newParent">
-            <type>string</type>
-          </tag>
-          <tag name="param" line="193" description="&lt;p&gt;If TRUE the old RDN value(s) is removed, else the old RDN value(s) is retained as&lt;/p&gt;&#10;&lt;pre&gt;&lt;code&gt;                         non-distinguished values of the entry&lt;/code&gt;&lt;/pre&gt;" type="bool" variable="$deleteOldRdn">
-            <type>bool</type>
-          </tag>
-          <tag name="return" line="193" description="" type="\Dreamscapes\Ldap\LinkResourceInterface">
-            <type>\Dreamscapes\Ldap\LinkResourceInterface</type>
-          </tag>
-          <tag name="fluent" description="This method is part of a fluent interface and will return the same instance"/>
-        </docblock>
-        <argument line="0" by_reference="false">
-          <name>$dn</name>
-          <default></default>
-          <type>string</type>
-        </argument>
-        <argument line="0" by_reference="false">
-          <name>$newRdn</name>
-          <default></default>
-          <type>string</type>
-        </argument>
-        <argument line="0" by_reference="false">
-          <name>$newParent</name>
-          <default></default>
-          <type>string</type>
-        </argument>
-        <argument line="0" by_reference="false">
-          <name>$deleteOldRdn</name>
-          <default></default>
-          <type>bool</type>
-        </argument>
-      </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap" line="207" package="Ldap-Core">
-        <name>saslBind</name>
-        <full_name>\Dreamscapes\Ldap\LinkResourceInterface::saslBind()</full_name>
-        <docblock line="207">
-          <description>Bind to LDAP directory using SASL</description>
-          <long-description></long-description>
-          <tag name="param" line="207" description="" type="string" variable="$bindDn">
-            <type>string</type>
-          </tag>
-          <tag name="param" line="207" description="" type="string" variable="$bindPassword">
-            <type>string</type>
-          </tag>
-          <tag name="param" line="207" description="" type="string" variable="$saslMech">
-            <type>string</type>
-          </tag>
-          <tag name="param" line="207" description="" type="string" variable="$saslRealm">
-            <type>string</type>
-          </tag>
-          <tag name="param" line="207" description="" type="string" variable="$saslAuthcId">
-            <type>string</type>
-          </tag>
-          <tag name="param" line="207" description="" type="string" variable="$saslAuthzId">
-            <type>string</type>
-          </tag>
-          <tag name="param" line="207" description="" type="string" variable="$props">
-            <type>string</type>
-          </tag>
-          <tag name="return" line="207" description="" type="\Dreamscapes\Ldap\LinkResourceInterface">
-            <type>\Dreamscapes\Ldap\LinkResourceInterface</type>
-          </tag>
-          <tag name="fluent" description="This method is part of a fluent interface and will return the same instance"/>
-        </docblock>
-        <argument line="0" by_reference="false">
-          <name>$bindDn</name>
-          <default>null</default>
-          <type>string</type>
-        </argument>
-        <argument line="0" by_reference="false">
-          <name>$bindPassword</name>
-          <default>null</default>
-          <type>string</type>
-        </argument>
-        <argument line="0" by_reference="false">
-          <name>$saslMech</name>
-          <default>null</default>
-          <type>string</type>
-        </argument>
-        <argument line="0" by_reference="false">
-          <name>$saslRealm</name>
-          <default>null</default>
-          <type>string</type>
-        </argument>
-        <argument line="0" by_reference="false">
-          <name>$saslAuthcId</name>
-          <default>null</default>
-          <type>string</type>
-        </argument>
-        <argument line="0" by_reference="false">
-          <name>$saslAuthzId</name>
-          <default>null</default>
-          <type>string</type>
-        </argument>
-        <argument line="0" by_reference="false">
-          <name>$props</name>
-          <default>null</default>
-          <type>string</type>
-        </argument>
-      </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap" line="231" package="Ldap-Core">
-        <name>search</name>
-        <full_name>\Dreamscapes\Ldap\LinkResourceInterface::search()</full_name>
-        <docblock line="231">
-          <description>Search LDAP tree</description>
-          <long-description></long-description>
-          <tag name="param" line="231" description="&lt;p&gt;The base DN for the directory&lt;/p&gt;" type="string" variable="$baseDn">
-            <type>string</type>
-          </tag>
-          <tag name="param" line="231" description="&lt;p&gt;Ldap query filter ( an empty filter is not allowed )&lt;/p&gt;" type="string" variable="$filter">
-            <type>string</type>
-          </tag>
-          <tag name="param" line="231" description="&lt;p&gt;An array of the required attributes, e.g. array(&quot;mail&quot;, &quot;sn&quot;, &quot;cn&quot;)&lt;/p&gt;" type="array" variable="$attributes">
-            <type>array</type>
-          </tag>
-          <tag name="param" line="231" description="&lt;p&gt;Subtree, one-level or base&lt;/p&gt;" type="string" variable="$scope">
-            <type>string</type>
-          </tag>
-          <tag name="param" line="231" description="&lt;p&gt;Should be set to 1 if only attribute types are wanted&lt;/p&gt;" type="boolean" variable="$attrsOnly">
-            <type>boolean</type>
-          </tag>
-          <tag name="param" line="231" description="&lt;p&gt;Enables you to limit the count of entries fetched. Setting this to 0 means no limit&lt;/p&gt;" type="integer" variable="$sizeLimit">
-            <type>integer</type>
-          </tag>
-          <tag name="param" line="231" description="&lt;p&gt;Sets the number of seconds how long is spend on the search.&#10;                            Setting this to 0 means no limit.&lt;/p&gt;" type="integer" variable="$timeLimit">
-            <type>integer</type>
-          </tag>
-          <tag name="param" line="231" description="&lt;p&gt;Specifies how aliases should be handled during the search&lt;/p&gt;" type="integer" variable="$deref">
-            <type>integer</type>
-          </tag>
-          <tag name="return" line="231" description="" type="\Dreamscapes\Ldap\ResultResource">
-            <type>\Dreamscapes\Ldap\ResultResource</type>
-          </tag>
-        </docblock>
-        <argument line="0" by_reference="false">
-          <name>$baseDn</name>
-          <default></default>
-          <type>string</type>
-        </argument>
-        <argument line="0" by_reference="false">
-          <name>$filter</name>
-          <default></default>
-          <type>string</type>
-        </argument>
-        <argument line="0" by_reference="false">
-          <name>$attributes</name>
-          <default></default>
-          <type>array</type>
-        </argument>
-        <argument line="0" by_reference="false">
-          <name>$scope</name>
-          <default>self::SCOPE_SUBTREE</default>
-          <type>string</type>
-        </argument>
-        <argument line="0" by_reference="false">
-          <name>$attrsOnly</name>
-          <default>false</default>
-          <type>boolean</type>
-        </argument>
-        <argument line="0" by_reference="false">
-          <name>$sizeLimit</name>
-          <default>0</default>
-          <type>integer</type>
-        </argument>
-        <argument line="0" by_reference="false">
-          <name>$timeLimit</name>
-          <default>0</default>
-          <type>integer</type>
-        </argument>
-        <argument line="0" by_reference="false">
-          <name>$deref</name>
-          <default>LDAP_DEREF_NEVER</default>
-          <type>integer</type>
-        </argument>
-      </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap" line="248" package="Ldap-Core">
-        <name>setOption</name>
-        <full_name>\Dreamscapes\Ldap\LinkResourceInterface::setOption()</full_name>
-        <docblock line="248">
-          <description>Set the value of the given option</description>
-          <long-description></long-description>
-          <tag name="param" line="248" description="&lt;p&gt;An lDAP option constant&lt;/p&gt;" type="integer" variable="$option">
-            <type>integer</type>
-          </tag>
-          <tag name="param" line="248" description="&lt;p&gt;The new value for the option&lt;/p&gt;" type="mixed" variable="$newVal">
-            <type>mixed</type>
-          </tag>
-        </docblock>
-        <argument line="0" by_reference="false">
-          <name>$option</name>
-          <default></default>
-          <type>integer</type>
-        </argument>
-        <argument line="0" by_reference="false">
-          <name>$newVal</name>
-          <default></default>
-          <type>mixed</type>
-        </argument>
-      </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap" line="256" package="Ldap-Core">
-        <name>setRebindProcedure</name>
-        <full_name>\Dreamscapes\Ldap\LinkResourceInterface::setRebindProcedure()</full_name>
-        <docblock line="256">
-          <description>Set a callback function to do re-binds on referral chasing</description>
-          <long-description></long-description>
-          <tag name="param" line="256" description="" type="callable" variable="$callback">
-            <type>callable</type>
-          </tag>
-          <tag name="return" line="256" description="" type="\Dreamscapes\Ldap\LinkResourceInterface">
-            <type>\Dreamscapes\Ldap\LinkResourceInterface</type>
-          </tag>
-          <tag name="fluent" description="This method is part of a fluent interface and will return the same instance"/>
-        </docblock>
-        <argument line="0" by_reference="false">
-          <name>$callback</name>
-          <default></default>
-          <type>callable</type>
-        </argument>
-      </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap" line="259" package="Ldap-Core">
-        <name>setRebindProc</name>
-        <full_name>\Dreamscapes\Ldap\LinkResourceInterface::setRebindProc()</full_name>
-        <docblock line="259">
-          <description>Compatibility alias of self::setRebindProcedure()</description>
-          <long-description></long-description>
-        </docblock>
-        <argument line="0" by_reference="false">
-          <name>$callback</name>
-          <default></default>
-          <type>callable</type>
-        </argument>
-      </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap" line="264" package="Ldap-Core">
-        <name>startTls</name>
-        <full_name>\Dreamscapes\Ldap\LinkResourceInterface::startTls()</full_name>
-        <docblock line="264">
-          <description>Start TLS</description>
-          <long-description></long-description>
-        </docblock>
-      </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Dreamscapes\Ldap" line="269" package="Ldap-Core">
-        <name>unbind</name>
-        <full_name>\Dreamscapes\Ldap\LinkResourceInterface::unbind()</full_name>
-        <docblock line="269">
-          <description>Unbind from LDAP directory</description>
-          <long-description></long-description>
-        </docblock>
-      </method>
-    </interface>
-    <source>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</source>
+    <source>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</source>
   </file>
   <package name="Ldap-Core" full_name="Ldap-Core"/>
   <package name="global" full_name="global"/>
