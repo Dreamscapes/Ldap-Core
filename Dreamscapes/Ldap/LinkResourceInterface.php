@@ -181,6 +181,17 @@ interface LinkResourceInterface
     public function modify($dn, array $entry);
 
     /**
+     * Modify an existing entry in the LDAP directory
+     *
+     * Allows detailed specification of the modifications to perform.
+     *
+     * @param  string $dn    The distinguished name of an LDAP entity
+     * @param  array  $entry Modification specifications
+     * @return self
+     */
+    public function modifyBatch($dn, array $entry);
+
+    /**
      * Modify the name of an entry
      *
      * @param  string $dn           The distinguished name of an LDAP entity

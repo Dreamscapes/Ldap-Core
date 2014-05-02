@@ -109,6 +109,13 @@ class LinkResource implements LinkResourceInterface
     // GSLC_SSL_ONEWAY_AUTH;
     // GSLC_SSL_TWOWAY_AUTH;
 
+    // MODIFY OPERATIONS (for self::modifyBatch())
+    const MODIFY_BATCH_ADD                      = LDAP_MODIFY_BATCH_ADD;
+    const MODIFY_BATCH_REMOVE                   = LDAP_MODIFY_BATCH_REMOVE;
+    const MODIFY_BATCH_REMOVE_ALL               = LDAP_MODIFY_BATCH_REMOVE_ALL;
+    const MODIFY_BATCH_REPLACE                  = LDAP_MODIFY_BATCH_REPLACE;
+
+
     /**
      * PHP's native ldap resource object
      * @var resource (ldap link)
@@ -389,6 +396,36 @@ class LinkResource implements LinkResourceInterface
     public function modify($dn, array $entry)
     {
         ldap_modify($this->resource, $dn, $entry);
+        $this->verifyOperation();
+
+        return $this;
+    }
+
+    /**
+     * Modify an existing entry in the LDAP directory
+     *
+     * Allows detailed specification of the modifications to perform.
+     *
+     * Example:
+     *
+     * $modifs = array(
+     *     array(
+     *         "attrib"  => "telephoneNumber",
+     *         "modtype" => LinkResource::MODIFY_BATCH_ADD,
+     *         "values"  => array("+420 777 111 222")
+     *     )
+     * );
+     * $linkResource->modifyBatch("cn=Robert Rossmann,dc=example,dc=com", $modifs);
+     *
+     * @param  string $dn    The distinguished name of an LDAP entity
+     * @param  array  $entry Modification specifications
+     * @return self
+     *
+     * @see https://wiki.php.net/rfc/ldap_modify_batch
+     */
+    public function modifyBatch($dn, array $entry)
+    {
+        ldap_modify_batch($this->resource, $dn, $entry);
         $this->verifyOperation();
 
         return $this;
