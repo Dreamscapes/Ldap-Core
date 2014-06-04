@@ -595,7 +595,7 @@ class LinkResource implements LinkResourceInterface
         // Active Directory conceals some additional error codes in the ErrorMessage of the response
         // that we cannot get to with ldap_errno() in authentication failures - let's try to extract them!
         if ($this->code === 49) {
-            $errorString = $this->getOption(LDAP_OPT_ERROR_STRING);
+            $errorString = $this->getOption(static::OPT_ERROR_STRING);
             if (stripos($errorString, 'AcceptSecurityContext') !== false) {
                 $parts = explode(', ', $errorString);
                 end($parts);
