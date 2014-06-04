@@ -21,6 +21,9 @@ use Dreamscapes\Ldap\LinkResourceInterface;
 /**
  * Object encapsulation of the resource(ldap link) native object
  *
+ * @method  ResultResource read() Perform search operation with SCOPE_BASE - see self::search() for argument list
+ * @method  ResultResource list() Perform search operation with SCOPE_ONELEVEL - see self::search() for argument list
+ *
  * @package Ldap-Core
  */
 class LinkResource implements LinkResourceInterface
@@ -579,6 +582,32 @@ class LinkResource implements LinkResourceInterface
     public function unbind()
     {
         ldap_unbind($this->resource);
+    }
+
+    /**
+     * Magic method to provide read() and list() methods
+     *
+     * @param  string           $method Method name that was called
+     * @param  array            $args   Arguments with which the method was called
+     * @return ResultResource
+     */
+    public function __call($method, $args)
+    {
+        $scopeMap = [
+            'read'      => static::SCOPE_BASE,
+            'list'      => static::SCOPE_ONELEVEL,
+        ];
+
+        // Only the methods above are allowed to be called magically
+        if (! in_array($method, array_keys($scopeMap))) {
+            trigger_error('Call to undefined method '.__CLASS__.'::'.$method.'()', E_USER_ERROR);
+        }
+
+        // Append the search scope to the argument list
+        $args[] = $scopeMap[$method];
+
+        // Do the actual search
+        return call_user_func_array([$this, 'search'], $args);
     }
 
 
