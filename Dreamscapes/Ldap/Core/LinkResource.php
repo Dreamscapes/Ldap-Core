@@ -438,7 +438,7 @@ class LinkResource implements LinkResourceInterface
      * @param  string $newRdn       The new RDN
      * @param  string $newParent    The new parent/superior entry
      * @param  bool   $deleteOldRdn If TRUE the old RDN value(s) is removed, else the old RDN value(s) is retained as
-     *                              non-distinguished values of the entry
+                                    non-distinguished values of the entry
      * @return self
      */
     public function rename($dn, $newRdn, $newParent, $deleteOldRdn)
