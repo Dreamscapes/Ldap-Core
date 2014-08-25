@@ -6,7 +6,7 @@ php:
 install: composer install
 script: './vendor/bin/phpcs --standard=PSR2 --ignore=vendor/*,docs/* -p .'
 after_success:
-- "./vendor/bin/phpdoc.php"
+- "./vendor/bin/phpdoc"
 - "./bin/publish-gh-pages.sh"
 env:
   global:
