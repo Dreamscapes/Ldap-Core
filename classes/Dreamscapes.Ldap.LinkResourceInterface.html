@@ -33,7 +33,7 @@
 <a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
                                     Reports <b class="caret"></b></a><ul class="dropdown-menu">
 <li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
-                <span class="label label-info">0</span></a></li>
+                <span class="label label-info">6</span></a></li>
 <li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
                 <ul></ul></a></li>
 <li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
@@ -51,7 +51,7 @@
                         </div></noscript>
 <div class="row">
 <div class="span4">
-<div class="btn-toolbar">
+<div xmlns:php="http://php.net/xsl" class="btn-toolbar">
 <div class="btn-group visibility" data-toggle="buttons-checkbox">
 <button class="btn public active" title="Show public elements">Public</button><button class="btn protected" title="Show protected elements">Protected</button><button class="btn private" title="Show private elements">Private</button><button class="btn inherited active" title="Show inherited elements">Inherited</button>
 </div>
@@ -59,7 +59,7 @@
 <button class="btn details" title="Show descriptions and method names"><i class="icon-list"></i></button><button class="btn simple" title="Show only method names"><i class="icon-align-justify"></i></button>
 </div>
 </div>
-<ul class="side-nav nav nav-list"><li class="nav-header">
+<ul xmlns:php="http://php.net/xsl" class="side-nav nav nav-list"><li class="nav-header">
 <i title="Methods" class="icon-custom icon-method"></i> Methods
                     <ul>
 <li class="method public "><a href="#method___construct" title="__construct() :: Create a new instance"><span class="description">Create a new instance</span><pre>__construct()</pre></a></li>
@@ -94,7 +94,7 @@
 </li></ul>
 </div>
 <div class="span8">
-<a id="\Dreamscapes\Ldap\LinkResourceInterface"></a><ul class="breadcrumb">
+<a xmlns:php="http://php.net/xsl" id="\Dreamscapes\Ldap\LinkResourceInterface"></a><ul xmlns:php="http://php.net/xsl" class="breadcrumb">
 <li>
 <a href="../index.html"><i title="Classes" class="icon-custom icon-class"></i></a><span class="divider">\</span>
 </li>
@@ -106,7 +106,7 @@
 <span class="divider">\</span><a href="../classes/Dreamscapes.Ldap.LinkResourceInterface.html">LinkResourceInterface</a>
 </li>
 </ul>
-<div class="element interface">
+<div xmlns:php="http://php.net/xsl" class="element interface">
 <p class="short_description">This interface prescribes which methods a class must implement to serve as object encapsulation of PHP's native ldap
 link resource and related functions.</p>
 <div class="details">
@@ -117,19 +117,19 @@ link resource and related functions.</p>
 </tr></table>
 <h3>
 <i title="Methods" class="icon-custom icon-method"></i> Methods</h3>
-<a id="method___construct"></a><div class="element clickable method public method___construct" data-toggle="collapse" data-target=".method___construct .collapse" title="public">
+<a id="method___construct"></a><div class="element clickable method public method___construct " data-toggle="collapse" data-target=".method___construct .collapse" title="public">
 <h2>Create a new instance</h2>
 <pre>__construct(string $ldapUrl<code> = null</code>) </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
-<div class="long_description">If $ldapUrl is provided, it should also open connection to the ldap server by calling self::connect()</div>
+<div class="long_description"><p>If $ldapUrl is provided, it should also open connection to the ldap server by calling self::connect()</p></div>
 <h3>Parameters</h3>
 <div class="subelement argument">
 <h4>$ldapUrl</h4>
 <code>string</code><p>Optional ldap URI string of the ldap server</p></div>
 </div></div>
 </div>
-<a id="method_add"></a><div class="element clickable method public method_add" data-toggle="collapse" data-target=".method_add .collapse" title="public">
+<a id="method_add"></a><div class="element clickable method public method_add " data-toggle="collapse" data-target=".method_add .collapse" title="public">
 <h2>Add entries to LDAP directory</h2>
 <pre>add(string $dn, array $entry) : \Dreamscapes\Ldap\LinkResourceInterface</pre>
 <div class="labels"></div>
@@ -150,7 +150,7 @@ link resource and related functions.</p>
 <div class="subelement response"><code>\Dreamscapes\Ldap\LinkResourceInterface</code></div>
 </div></div>
 </div>
-<a id="method_bind"></a><div class="element clickable method public method_bind" data-toggle="collapse" data-target=".method_bind .collapse" title="public">
+<a id="method_bind"></a><div class="element clickable method public method_bind " data-toggle="collapse" data-target=".method_bind .collapse" title="public">
 <h2>Bind to LDAP directory</h2>
 <pre>bind(string $bindDn<code> = null</code>, string $bindPassword<code> = null</code>) : \Dreamscapes\Ldap\LinkResourceInterface</pre>
 <div class="labels"></div>
@@ -171,9 +171,9 @@ link resource and related functions.</p>
 <div class="subelement response"><code>\Dreamscapes\Ldap\LinkResourceInterface</code></div>
 </div></div>
 </div>
-<a id="method_compare"></a><div class="element clickable method public method_compare" data-toggle="collapse" data-target=".method_compare .collapse" title="public">
+<a id="method_compare"></a><div class="element clickable method public method_compare " data-toggle="collapse" data-target=".method_compare .collapse" title="public">
 <h2>Compare value of attribute found in entry specified with DN</h2>
-<pre>compare(string $dn, string $attribute, string $value) : bool</pre>
+<pre>compare(string $dn, string $attribute, string $value) : boolean</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"></div>
@@ -189,10 +189,10 @@ link resource and related functions.</p>
 <code>string</code><p>The compared value</p></div>
 <h3>Returns</h3>
 <div class="subelement response">
-<code>bool</code>Returns TRUE if value matches otherwise returns FALSE</div>
+<code>boolean</code>Returns TRUE if value matches otherwise returns FALSE</div>
 </div></div>
 </div>
-<a id="method_connect"></a><div class="element clickable method public method_connect" data-toggle="collapse" data-target=".method_connect .collapse" title="public">
+<a id="method_connect"></a><div class="element clickable method public method_connect " data-toggle="collapse" data-target=".method_connect .collapse" title="public">
 <h2>Open connection to an ldap server</h2>
 <pre>connect(string $ldapUrl) : \Dreamscapes\Ldap\LinkResourceInterface</pre>
 <div class="labels"></div>
@@ -210,7 +210,7 @@ link resource and related functions.</p>
 <div class="subelement response"><code>\Dreamscapes\Ldap\LinkResourceInterface</code></div>
 </div></div>
 </div>
-<a id="method_delete"></a><div class="element clickable method public method_delete" data-toggle="collapse" data-target=".method_delete .collapse" title="public">
+<a id="method_delete"></a><div class="element clickable method public method_delete " data-toggle="collapse" data-target=".method_delete .collapse" title="public">
 <h2>Delete an entry from a directory</h2>
 <pre>delete(string $dn) : \Dreamscapes\Ldap\LinkResourceInterface</pre>
 <div class="labels"></div>
@@ -228,7 +228,7 @@ link resource and related functions.</p>
 <div class="subelement response"><code>\Dreamscapes\Ldap\LinkResourceInterface</code></div>
 </div></div>
 </div>
-<a id="method_dnToUfn"></a><div class="element clickable method public method_dnToUfn" data-toggle="collapse" data-target=".method_dnToUfn .collapse" title="public">
+<a id="method_dnToUfn"></a><div class="element clickable method public method_dnToUfn " data-toggle="collapse" data-target=".method_dnToUfn .collapse" title="public">
 <h2>Convert DN to User Friendly Naming format</h2>
 <pre>dnToUfn(string $dn) : string</pre>
 <div class="labels"><span class="label">Static</span></div>
@@ -243,7 +243,7 @@ link resource and related functions.</p>
 <code>string</code>The user friendly name</div>
 </div></div>
 </div>
-<a id="method_errToStr"></a><div class="element clickable method public method_errToStr" data-toggle="collapse" data-target=".method_errToStr .collapse" title="public">
+<a id="method_errToStr"></a><div class="element clickable method public method_errToStr " data-toggle="collapse" data-target=".method_errToStr .collapse" title="public">
 <h2>Convert LDAP error number into string error message</h2>
 <pre>errToStr(integer $errno) : string</pre>
 <div class="labels"><span class="label">Static</span></div>
@@ -258,7 +258,7 @@ link resource and related functions.</p>
 <code>string</code>The error message, as a string</div>
 </div></div>
 </div>
-<a id="method_errno"></a><div class="element clickable method public method_errno" data-toggle="collapse" data-target=".method_errno .collapse" title="public">
+<a id="method_errno"></a><div class="element clickable method public method_errno " data-toggle="collapse" data-target=".method_errno .collapse" title="public">
 <h2>Return the LDAP error number of the last LDAP command</h2>
 <pre>errno() : integer</pre>
 <div class="labels"></div>
@@ -268,7 +268,7 @@ link resource and related functions.</p>
 <div class="subelement response"><code>integer</code></div>
 </div></div>
 </div>
-<a id="method_error"></a><div class="element clickable method public method_error" data-toggle="collapse" data-target=".method_error .collapse" title="public">
+<a id="method_error"></a><div class="element clickable method public method_error " data-toggle="collapse" data-target=".method_error .collapse" title="public">
 <h2>Return the LDAP error message of the last LDAP command</h2>
 <pre>error() : string</pre>
 <div class="labels"></div>
@@ -278,7 +278,7 @@ link resource and related functions.</p>
 <div class="subelement response"><code>string</code></div>
 </div></div>
 </div>
-<a id="method_explodeDn"></a><div class="element clickable method public method_explodeDn" data-toggle="collapse" data-target=".method_explodeDn .collapse" title="public">
+<a id="method_explodeDn"></a><div class="element clickable method public method_explodeDn " data-toggle="collapse" data-target=".method_explodeDn .collapse" title="public">
 <h2>Splits DN into its component parts</h2>
 <pre>explodeDn(string $dn, integer $withAttrib<code> = 0</code>) : array</pre>
 <div class="labels"><span class="label">Static</span></div>
@@ -296,7 +296,7 @@ link resource and related functions.</p>
 <code>array</code>Returns an array of all DN components</div>
 </div></div>
 </div>
-<a id="method_getOption"></a><div class="element clickable method public method_getOption" data-toggle="collapse" data-target=".method_getOption .collapse" title="public">
+<a id="method_getOption"></a><div class="element clickable method public method_getOption " data-toggle="collapse" data-target=".method_getOption .collapse" title="public">
 <h2>Get the current value for given option</h2>
 <pre>getOption(integer $option) : mixed</pre>
 <div class="labels"></div>
@@ -310,7 +310,7 @@ link resource and related functions.</p>
 <div class="subelement response"><code>mixed</code></div>
 </div></div>
 </div>
-<a id="method_getResource"></a><div class="element clickable method public method_getResource" data-toggle="collapse" data-target=".method_getResource .collapse" title="public">
+<a id="method_getResource"></a><div class="element clickable method public method_getResource " data-toggle="collapse" data-target=".method_getResource .collapse" title="public">
 <h2>Get the PHP's native ldap resource object</h2>
 <pre>getResource() : resource</pre>
 <div class="labels"></div>
@@ -321,7 +321,7 @@ link resource and related functions.</p>
 <code>resource</code>(ldap link)</div>
 </div></div>
 </div>
-<a id="method_modAdd"></a><div class="element clickable method public method_modAdd" data-toggle="collapse" data-target=".method_modAdd .collapse" title="public">
+<a id="method_modAdd"></a><div class="element clickable method public method_modAdd " data-toggle="collapse" data-target=".method_modAdd .collapse" title="public">
 <h2>Add attribute values to current attributes</h2>
 <pre>modAdd(string $dn, array $entry) : \Dreamscapes\Ldap\LinkResourceInterface</pre>
 <div class="labels"></div>
@@ -342,7 +342,7 @@ link resource and related functions.</p>
 <div class="subelement response"><code>\Dreamscapes\Ldap\LinkResourceInterface</code></div>
 </div></div>
 </div>
-<a id="method_modDel"></a><div class="element clickable method public method_modDel" data-toggle="collapse" data-target=".method_modDel .collapse" title="public">
+<a id="method_modDel"></a><div class="element clickable method public method_modDel " data-toggle="collapse" data-target=".method_modDel .collapse" title="public">
 <h2>Compatibility alias for self::modDelete()</h2>
 <pre>modDel($dn, array $entry) </pre>
 <div class="labels"></div>
@@ -353,7 +353,7 @@ link resource and related functions.</p>
 <div class="subelement argument"><h4>$entry</h4></div>
 </div></div>
 </div>
-<a id="method_modDelete"></a><div class="element clickable method public method_modDelete" data-toggle="collapse" data-target=".method_modDelete .collapse" title="public">
+<a id="method_modDelete"></a><div class="element clickable method public method_modDelete " data-toggle="collapse" data-target=".method_modDelete .collapse" title="public">
 <h2>Delete attribute values from current attributes</h2>
 <pre>modDelete(string $dn, array $entry) : \Dreamscapes\Ldap\LinkResourceInterface</pre>
 <div class="labels"></div>
@@ -374,7 +374,7 @@ link resource and related functions.</p>
 <div class="subelement response"><code>\Dreamscapes\Ldap\LinkResourceInterface</code></div>
 </div></div>
 </div>
-<a id="method_modReplace"></a><div class="element clickable method public method_modReplace" data-toggle="collapse" data-target=".method_modReplace .collapse" title="public">
+<a id="method_modReplace"></a><div class="element clickable method public method_modReplace " data-toggle="collapse" data-target=".method_modReplace .collapse" title="public">
 <h2>Replace attribute values with new ones</h2>
 <pre>modReplace(string $dn, array $entry) : \Dreamscapes\Ldap\LinkResourceInterface</pre>
 <div class="labels"></div>
@@ -395,7 +395,7 @@ link resource and related functions.</p>
 <div class="subelement response"><code>\Dreamscapes\Ldap\LinkResourceInterface</code></div>
 </div></div>
 </div>
-<a id="method_modify"></a><div class="element clickable method public method_modify" data-toggle="collapse" data-target=".method_modify .collapse" title="public">
+<a id="method_modify"></a><div class="element clickable method public method_modify " data-toggle="collapse" data-target=".method_modify .collapse" title="public">
 <h2>Modify an LDAP entry</h2>
 <pre>modify(string $dn, array $entry) : \Dreamscapes\Ldap\LinkResourceInterface</pre>
 <div class="labels"></div>
@@ -416,12 +416,12 @@ link resource and related functions.</p>
 <div class="subelement response"><code>\Dreamscapes\Ldap\LinkResourceInterface</code></div>
 </div></div>
 </div>
-<a id="method_modifyBatch"></a><div class="element clickable method public method_modifyBatch" data-toggle="collapse" data-target=".method_modifyBatch .collapse" title="public">
+<a id="method_modifyBatch"></a><div class="element clickable method public method_modifyBatch " data-toggle="collapse" data-target=".method_modifyBatch .collapse" title="public">
 <h2>Modify an existing entry in the LDAP directory</h2>
 <pre>modifyBatch(string $dn, array $entry) : \Dreamscapes\Ldap\LinkResourceInterface</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
-<div class="long_description">Allows detailed specification of the modifications to perform.</div>
+<div class="long_description"><p>Allows detailed specification of the modifications to perform.</p></div>
 <table class="table table-bordered"><tr>
 <th>fluent</th>
 <td>This method is part of a fluent interface and will return the same instance</td>
@@ -437,7 +437,7 @@ link resource and related functions.</p>
 <div class="subelement response"><code>\Dreamscapes\Ldap\LinkResourceInterface</code></div>
 </div></div>
 </div>
-<a id="method_pagedResult"></a><div class="element clickable method public method_pagedResult" data-toggle="collapse" data-target=".method_pagedResult .collapse" title="public">
+<a id="method_pagedResult"></a><div class="element clickable method public method_pagedResult " data-toggle="collapse" data-target=".method_pagedResult .collapse" title="public">
 <h2>Send LDAP pagination control</h2>
 <pre>pagedResult(integer $pageSize, boolean $isCritical<code> = false</code>, string $cookie<code> = ''</code>) : \Dreamscapes\Ldap\LinkResourceInterface</pre>
 <div class="labels"></div>
@@ -461,9 +461,9 @@ link resource and related functions.</p>
 <div class="subelement response"><code>\Dreamscapes\Ldap\LinkResourceInterface</code></div>
 </div></div>
 </div>
-<a id="method_rename"></a><div class="element clickable method public method_rename" data-toggle="collapse" data-target=".method_rename .collapse" title="public">
+<a id="method_rename"></a><div class="element clickable method public method_rename " data-toggle="collapse" data-target=".method_rename .collapse" title="public">
 <h2>Modify the name of an entry</h2>
-<pre>rename(string $dn, string $newRdn, string $newParent, bool $deleteOldRdn) : \Dreamscapes\Ldap\LinkResourceInterface</pre>
+<pre>rename(string $dn, string $newRdn, string $newParent, boolean $deleteOldRdn) : \Dreamscapes\Ldap\LinkResourceInterface</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"></div>
@@ -483,13 +483,13 @@ link resource and related functions.</p>
 <code>string</code><p>The new parent/superior entry</p></div>
 <div class="subelement argument">
 <h4>$deleteOldRdn</h4>
-<code>bool</code><p>If TRUE the old RDN value(s) is removed, else the old RDN value(s) is retained as</p>
+<code>boolean</code><p>If TRUE the old RDN value(s) is removed, else the old RDN value(s) is retained as</p>
 <pre><code>                         non-distinguished values of the entry</code></pre></div>
 <h3>Returns</h3>
 <div class="subelement response"><code>\Dreamscapes\Ldap\LinkResourceInterface</code></div>
 </div></div>
 </div>
-<a id="method_saslBind"></a><div class="element clickable method public method_saslBind" data-toggle="collapse" data-target=".method_saslBind .collapse" title="public">
+<a id="method_saslBind"></a><div class="element clickable method public method_saslBind " data-toggle="collapse" data-target=".method_saslBind .collapse" title="public">
 <h2>Bind to LDAP directory using SASL</h2>
 <pre>saslBind(string $bindDn<code> = null</code>, string $bindPassword<code> = null</code>, string $saslMech<code> = null</code>, string $saslRealm<code> = null</code>, string $saslAuthcId<code> = null</code>, string $saslAuthzId<code> = null</code>, string $props<code> = null</code>) : \Dreamscapes\Ldap\LinkResourceInterface</pre>
 <div class="labels"></div>
@@ -532,7 +532,7 @@ link resource and related functions.</p>
 <div class="subelement response"><code>\Dreamscapes\Ldap\LinkResourceInterface</code></div>
 </div></div>
 </div>
-<a id="method_search"></a><div class="element clickable method public method_search" data-toggle="collapse" data-target=".method_search .collapse" title="public">
+<a id="method_search"></a><div class="element clickable method public method_search " data-toggle="collapse" data-target=".method_search .collapse" title="public">
 <h2>Search LDAP tree</h2>
 <pre>search(string $baseDn, string $filter, array $attributes, string $scope<code> = self::SCOPE_SUBTREE</code>, boolean $attrsOnly<code> = false</code>, integer $sizeLimit<code> = 0</code>, integer $timeLimit<code> = 0</code>, integer $deref<code> = LDAP_DEREF_NEVER</code>) : \Dreamscapes\Ldap\ResultResource</pre>
 <div class="labels"></div>
@@ -568,7 +568,7 @@ link resource and related functions.</p>
 <div class="subelement response"><code>\Dreamscapes\Ldap\ResultResource</code></div>
 </div></div>
 </div>
-<a id="method_setOption"></a><div class="element clickable method public method_setOption" data-toggle="collapse" data-target=".method_setOption .collapse" title="public">
+<a id="method_setOption"></a><div class="element clickable method public method_setOption " data-toggle="collapse" data-target=".method_setOption .collapse" title="public">
 <h2>Set the value of the given option</h2>
 <pre>setOption(integer $option, mixed $newVal) </pre>
 <div class="labels"></div>
@@ -583,7 +583,7 @@ link resource and related functions.</p>
 <code>mixed</code><p>The new value for the option</p></div>
 </div></div>
 </div>
-<a id="method_setRebindProc"></a><div class="element clickable method public method_setRebindProc" data-toggle="collapse" data-target=".method_setRebindProc .collapse" title="public">
+<a id="method_setRebindProc"></a><div class="element clickable method public method_setRebindProc " data-toggle="collapse" data-target=".method_setRebindProc .collapse" title="public">
 <h2>Compatibility alias of self::setRebindProcedure()</h2>
 <pre>setRebindProc(callable $callback) </pre>
 <div class="labels"></div>
@@ -593,7 +593,7 @@ link resource and related functions.</p>
 <div class="subelement argument"><h4>$callback</h4></div>
 </div></div>
 </div>
-<a id="method_setRebindProcedure"></a><div class="element clickable method public method_setRebindProcedure" data-toggle="collapse" data-target=".method_setRebindProcedure .collapse" title="public">
+<a id="method_setRebindProcedure"></a><div class="element clickable method public method_setRebindProcedure " data-toggle="collapse" data-target=".method_setRebindProcedure .collapse" title="public">
 <h2>Set a callback function to do re-binds on referral chasing</h2>
 <pre>setRebindProcedure(callable $callback) : \Dreamscapes\Ldap\LinkResourceInterface</pre>
 <div class="labels"></div>
@@ -612,13 +612,13 @@ link resource and related functions.</p>
 <div class="subelement response"><code>\Dreamscapes\Ldap\LinkResourceInterface</code></div>
 </div></div>
 </div>
-<a id="method_startTls"></a><div class="element clickable method public method_startTls" data-toggle="collapse" data-target=".method_startTls .collapse" title="public">
+<a id="method_startTls"></a><div class="element clickable method public method_startTls " data-toggle="collapse" data-target=".method_startTls .collapse" title="public">
 <h2>Start TLS</h2>
 <pre>startTls() </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="method_unbind"></a><div class="element clickable method public method_unbind" data-toggle="collapse" data-target=".method_unbind .collapse" title="public">
+<a id="method_unbind"></a><div class="element clickable method public method_unbind " data-toggle="collapse" data-target=".method_unbind .collapse" title="public">
 <h2>Unbind from LDAP directory</h2>
 <pre>unbind() </pre>
 <div class="labels"></div>
@@ -630,9 +630,8 @@ link resource and related functions.</p>
 </div>
 <div class="row"><footer class="span12">
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
-            Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.4.0
-</a> and<br>
-            generated on 2014-05-02T14:11:40Z.<br></footer></div>
+            Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.7.0</a> and<br>
+            generated on 2014-08-25T22:16:43Z.<br></footer></div>
 </div>
 </body>
 </html>
