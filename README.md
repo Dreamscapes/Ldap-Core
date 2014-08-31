@@ -29,7 +29,6 @@ All methods are named as close to the original functions as possible, although w
 1. Ldap v3 protocol is used by default
 1. The *ldap_* prefix is removed from all method names
 1. The method names are **camelCased** instead of **underscore_based**
-1. There is only one method that performs lookup operations instead of three separate functions ( `ldap_read`, `ldap_list`, `ldap_search` => `LinkResource::search` )
 1. All methods return data by returning them and not by populating variables passed as function arguments
 1. Some functions are not implemented ( usually because they are redundant )
 1. Exceptions are thrown if the ldap protocol encounters an error, although standard PHP warnings and errors are not suppressed ( still considering this )
@@ -48,8 +47,7 @@ $con = new LinkResource('ldap://example.com');
 $con->bind('admin@example.com', 'my pass'); // Example AD credentials
 
 // Read the rootDSE entry
-// Note the scope definition in the method call
-$res = $con->search('', 'objectclass=*', ['*'], LinkResource::SCOPE_BASE);
+$res = $con->read('', 'objectclass=*', ['*']);
 
 // $res is now instance of ResultResource class
 echo "Number of entries in resultset: " . $res->countEntries();
