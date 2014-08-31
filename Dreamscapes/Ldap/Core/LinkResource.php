@@ -368,7 +368,13 @@ class LinkResource implements LinkResourceInterface
         return $this;
     }
 
-    /** Compatibility alias for self::modDelete() */
+    /**
+     * Compatibility alias for self::modDelete()
+     *
+     * @param  string $dn    The distinguished name of an LDAP entity
+     * @param  array  $entry Values to be deleted from the specified attributes
+     * @return self
+     */
     public function modDel($dn, array $entry)
     {
         return $this->modDelete($dn, $entry);
@@ -440,7 +446,7 @@ class LinkResource implements LinkResourceInterface
      * @param  string $dn           The distinguished name of an LDAP entity
      * @param  string $newRdn       The new RDN
      * @param  string $newParent    The new parent/superior entry
-     * @param  bool   $deleteOldRdn If TRUE the old RDN value(s) is removed, else the old RDN value(s) is retained as
+     * @param  bool   $deleteOldRdn If TRUE the old RDN value(s) are removed, else the old RDN value(s) are retained as
                                     non-distinguished values of the entry
      * @return self
      */
@@ -553,7 +559,12 @@ class LinkResource implements LinkResourceInterface
         return $this;
     }
 
-    /** Compatibility alias of self::setRebindProcedure() */
+    /**
+     * Compatibility alias of self::setRebindProcedure()
+     *
+     * @param callable $callback
+     * @return self
+     */
     public function setRebindProc(callable $callback)
     {
         return $this->setRebindProcedure($callback);

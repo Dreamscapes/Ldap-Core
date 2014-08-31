@@ -159,7 +159,13 @@ interface LinkResourceInterface
      */
     public function modDelete($dn, array $entry);
 
-    /** Compatibility alias for self::modDelete() */
+    /**
+     * Compatibility alias for self::modDelete()
+     *
+     * @param  string $dn    The distinguished name of an LDAP entity
+     * @param  array  $entry Values to be deleted from the specified attributes
+     * @return self
+     */
     public function modDel($dn, array $entry);
 
     /**
@@ -266,16 +272,25 @@ interface LinkResourceInterface
      */
     public function setRebindProcedure(callable $callback);
 
-    /** Compatibility alias of self::setRebindProcedure() */
+    /**
+     * Compatibility alias of self::setRebindProcedure()
+     *
+     * @param callable $callback
+     * @return self
+     */
     public function setRebindProc(callable $callback);
 
     /**
      * Start TLS
+     *
+     * @return self
      */
     public function startTls();
 
     /**
      * Unbind from LDAP directory
+     *
+     * @return void
      */
     public function unbind();
 }
