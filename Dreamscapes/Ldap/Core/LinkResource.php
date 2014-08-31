@@ -600,7 +600,7 @@ class LinkResource implements LinkResourceInterface
 
         // Only the methods above are allowed to be called magically
         if (! in_array($method, array_keys($scopeMap))) {
-            trigger_error('Call to undefined method '.__CLASS__.'::'.$method.'()', E_USER_ERROR);
+            trigger_error(sprintf('Call to undefined method %s::%s()', __CLASS__, $method), E_USER_ERROR);
         }
 
         // Append the search scope to the argument list
