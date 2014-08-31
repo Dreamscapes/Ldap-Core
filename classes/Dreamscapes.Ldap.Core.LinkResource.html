@@ -33,7 +33,7 @@
 <a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
                                     Reports <b class="caret"></b></a><ul class="dropdown-menu">
 <li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
-                <span class="label label-info">6</span></a></li>
+                <span class="label label-info">0</span></a></li>
 <li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
                 <ul></ul></a></li>
 <li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
@@ -549,17 +549,29 @@
 </div>
 <a id="method_modDel"></a><div class="element clickable method public method_modDel " data-toggle="collapse" data-target=".method_modDel .collapse" title="public">
 <h2>Compatibility alias for self::modDelete()</h2>
-<pre>modDel($dn, array $entry) </pre>
+<pre>modDel(string $dn, array $entry) : \Dreamscapes\Ldap\Core\LinkResource</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"></div>
-<table class="table table-bordered"><tr>
+<table class="table table-bordered">
+<tr>
 <th>inherited_from</th>
 <td>\Dreamscapes\Ldap\LinkResourceInterface::modDel()</td>
-</tr></table>
+</tr>
+<tr>
+<th>fluent</th>
+<td>This method is part of a fluent interface and will return the same instance</td>
+</tr>
+</table>
 <h3>Parameters</h3>
-<div class="subelement argument"><h4>$dn</h4></div>
-<div class="subelement argument"><h4>$entry</h4></div>
+<div class="subelement argument">
+<h4>$dn</h4>
+<code>string</code><p>The distinguished name of an LDAP entity</p></div>
+<div class="subelement argument">
+<h4>$entry</h4>
+<code>array</code><p>Values to be deleted from the specified attributes</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>\Dreamscapes\Ldap\Core\LinkResource</code></div>
 </div></div>
 </div>
 <a id="method_modDelete"></a><div class="element clickable method public method_modDelete " data-toggle="collapse" data-target=".method_modDelete .collapse" title="public">
@@ -761,7 +773,7 @@ $linkResource->modifyBatch("cn=Robert Rossmann,dc=example,dc=com", $modifs);</p>
 <code>string</code><p>The new parent/superior entry</p></div>
 <div class="subelement argument">
 <h4>$deleteOldRdn</h4>
-<code>boolean</code><p>If TRUE the old RDN value(s) is removed, else the old RDN value(s) is retained as
+<code>boolean</code><p>If TRUE the old RDN value(s) are removed, else the old RDN value(s) are retained as
 non-distinguished values of the entry</p></div>
 <h3>Returns</h3>
 <div class="subelement response"><code>\Dreamscapes\Ldap\Core\LinkResource</code></div>
@@ -881,16 +893,27 @@ self::SCOPE_BASE - equivalent of ldap_read()</p></div>
 </div>
 <a id="method_setRebindProc"></a><div class="element clickable method public method_setRebindProc " data-toggle="collapse" data-target=".method_setRebindProc .collapse" title="public">
 <h2>Compatibility alias of self::setRebindProcedure()</h2>
-<pre>setRebindProc(callable $callback) </pre>
+<pre>setRebindProc(callable $callback) : \Dreamscapes\Ldap\Core\LinkResource</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"></div>
-<table class="table table-bordered"><tr>
+<table class="table table-bordered">
+<tr>
 <th>inherited_from</th>
 <td>\Dreamscapes\Ldap\LinkResourceInterface::setRebindProc()</td>
-</tr></table>
+</tr>
+<tr>
+<th>fluent</th>
+<td>This method is part of a fluent interface and will return the same instance</td>
+</tr>
+</table>
 <h3>Parameters</h3>
-<div class="subelement argument"><h4>$callback</h4></div>
+<div class="subelement argument">
+<h4>$callback</h4>
+<code>callable</code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code>\Dreamscapes\Ldap\Core\LinkResource</code></div>
 </div></div>
 </div>
 <a id="method_setRebindProcedure"></a><div class="element clickable method public method_setRebindProcedure " data-toggle="collapse" data-target=".method_setRebindProcedure .collapse" title="public">
@@ -1385,7 +1408,7 @@ self::SCOPE_BASE - equivalent of ldap_read()</p></div>
 <div class="row"><footer class="span12">
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.7.0</a> and<br>
-            generated on 2014-08-25T22:16:43Z.<br></footer></div>
+            generated on 2014-08-31T12:49:56Z.<br></footer></div>
 </div>
 </body>
 </html>
