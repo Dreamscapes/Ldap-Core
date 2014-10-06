@@ -38,10 +38,10 @@ class ResultResource
     /**
      * Create a new instance
      *
-     * @param LinkResourceInterface $link
-     * @param resource              $result
+     * @param Ldap      $link
+     * @param resource  $result
      */
-    public function __construct(LinkResource $link, $result)
+    public function __construct(Ldap $link, $result)
     {
         $this->link = $link->getResource();
         $this->resource = $result;

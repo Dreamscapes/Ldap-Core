@@ -25,7 +25,7 @@ use Dreamscapes\Ldap\LdapException;
  *
  * @package Ldap-Core
  */
-class LinkResource
+class Ldap
 {
     // LDAP RESPONSE CODES
     const SUCCESS                               = 0;
@@ -419,11 +419,11 @@ class LinkResource
      * $modifs = array(
      *     array(
      *         "attrib"  => "telephoneNumber",
-     *         "modtype" => LinkResource::MODIFY_BATCH_ADD,
+     *         "modtype" => Ldap::MODIFY_BATCH_ADD,
      *         "values"  => array("+420 777 111 222")
      *     )
      * );
-     * $linkResource->modifyBatch("cn=Robert Rossmann,dc=example,dc=com", $modifs);
+     * $ldap->modifyBatch("cn=Robert Rossmann,dc=example,dc=com", $modifs);
      *
      * @param  string $dn    The distinguished name of an LDAP entity
      * @param  array  $entry Modification specifications
