@@ -115,12 +115,12 @@ class ResultResource
     /**
      * Sort LDAP result entries
      *
-     * @param  string $sortFilter The attribute to use as a key in the sort
+     * @param  string $by The attribute to use as a key in the sort
      * @return self
      */
-    public function sort($sortFilter)
+    public function sort($by)
     {
-        ldap_sort($this->link, $this->resource, $sortFilter);
+        ldap_sort($this->link, $this->resource, $by);
 
         return $this;
     }
