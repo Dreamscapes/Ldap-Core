@@ -103,7 +103,7 @@ class ResultResource
      *
      * @return array
      */
-    public function getReferrals()
+    public function parseReference()
     {
         $referrals = null;
 
