@@ -15,6 +15,8 @@
 
 namespace Dreamscapes\Ldap;
 
+use Dreamscapes\Ldap\Core\LinkResource;
+
 /**
  * Custom exception that represents an error from PHP's native ldap interface
  *
@@ -29,7 +31,7 @@ class LdapException extends \Exception
      *
      * @param LinkResourceInterface $res
      */
-    public function __construct(LinkResourceInterface $res)
+    public function __construct(LinkResource $res)
     {
         parent::__construct($res->error(), $res->errno());
     }

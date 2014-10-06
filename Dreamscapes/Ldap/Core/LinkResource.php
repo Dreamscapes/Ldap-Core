@@ -16,7 +16,6 @@
 namespace Dreamscapes\Ldap\Core;
 
 use Dreamscapes\Ldap\LdapException;
-use Dreamscapes\Ldap\LinkResourceInterface;
 
 /**
  * Object encapsulation of the resource(ldap link) native object
@@ -26,7 +25,7 @@ use Dreamscapes\Ldap\LinkResourceInterface;
  *
  * @package Ldap-Core
  */
-class LinkResource implements LinkResourceInterface
+class LinkResource
 {
     // LDAP RESPONSE CODES
     const SUCCESS                               = 0;

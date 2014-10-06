@@ -15,15 +15,12 @@
 
 namespace Dreamscapes\Ldap\Core;
 
-use Dreamscapes\Ldap\LinkResourceInterface;
-use Dreamscapes\Ldap\ResultResourceInterface;
-
 /**
  * Object encapsulation of the resource(ldap result) native object
  *
  * @package Ldap-Core
  */
-class ResultResource implements ResultResourceInterface
+class ResultResource
 {
     /**
      * PHP's native ldap link resource object
@@ -44,7 +41,7 @@ class ResultResource implements ResultResourceInterface
      * @param LinkResourceInterface $link
      * @param resource              $result
      */
-    public function __construct(LinkResourceInterface $link, $result)
+    public function __construct(LinkResource $link, $result)
     {
         $this->link = $link->getResource();
         $this->resource = $result;
