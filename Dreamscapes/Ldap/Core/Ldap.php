@@ -17,6 +17,18 @@ namespace Dreamscapes\Ldap\Core;
 
 use Dreamscapes\Ldap\LdapException;
 
+// Backwards-compatibility with pre-5.6
+if (! defined('LDAP_ESCAPE_FILTER')) {
+    /** @internal */
+    define('LDAP_ESCAPE_FILTER', 0x01);
+}
+
+// Backwards-compatibility with pre-5.6
+if (! defined('LDAP_ESCAPE_DN')) {
+    /** @internal */
+    define('LDAP_ESCAPE_DN', 0x02);
+}
+
 /**
  * Object encapsulation of the resource(ldap link) native object
  *
@@ -117,6 +129,10 @@ class Ldap
     const MODIFY_BATCH_REMOVE_ALL               = LDAP_MODIFY_BATCH_REMOVE_ALL;
     const MODIFY_BATCH_REPLACE                  = LDAP_MODIFY_BATCH_REPLACE;
 
+    // Escaping options (available since PHP 5.6)
+    const ESCAPE_FILTER                         = LDAP_ESCAPE_FILTER;
+    const ESCAPE_DN                             = LDAP_ESCAPE_DN;
+
 
     /**
      * PHP's native ldap resource object
@@ -167,6 +183,27 @@ class Ldap
     public static function explodeDn($dn, $withAttrib = 0)
     {
         return ldap_explode_dn($dn, $withAttrib);
+    }
+
+    /**
+     * Escape a string for use in an LDAP filter or DN
+     *
+     * `$flags` may be one of: `Ldap::ESCAPE_FILTER`, `Ldap::ESCAPE_DN`
+     *
+     * @since  PHP 5.6
+     * @param  string   $value  The value to escape
+     * @param  string   $ignore Characters to ignore when escaping
+     * @param  integer  $flags  The context the escaped string will be used in
+     * @return string           Returns the escaped string
+     */
+    public static function escape($value, $ignore = null, $flags = null)
+    {
+        if (! function_exists('ldap_escape')) {
+            // Bail out, can't work our magic!
+            trigger_error('ldap_escape() is only available in PHP 5.6 or newer', E_USER_ERROR);
+        }
+
+        return ldap_escape($value, $ignore, $flags);
     }
 
 
