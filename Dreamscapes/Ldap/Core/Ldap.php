@@ -743,19 +743,16 @@ class Ldap
         if ($this->code === 49) {
             $errorString = $this->getOption(static::OPT_ERROR_STRING);
 
-            if (stripos($errorString, 'AcceptSecurityContext') !== false) {
-                $parts = explode(', ', $errorString);
-                end($parts);
-                $parts = prev($parts);
+            // "LDAP: error code 49 - 80090308: LdapErr: DSID-0C090334, comment:
+            // AcceptSecurityContext error, data 775, vece"
+            //                                   ^^^
+            // Note for my future self - the code '52e' will not be matched. But that's alright -
+            // you would have replaced it with '49' anyway.
+            preg_match('/(?<=data )[0-9]{2,3}/', $errorString, $matches);
 
-                $this->code = explode(' ', $parts);
-
-                // For compatibility reasons with standard ldap, if the error code is 52e let's
-                // replace it with 49 (their meanings are equal, it's just Microsoft doing it its
-                // own way again)
-                if ($this->code === '52e') {
-                    $this->code = static::INVALID_CREDENTIALS;
-                }
+            // Have we found it?
+            if (count($matches) === 1) {
+                $this->code = $matches[0];
             }
         }
 
