@@ -5,16 +5,18 @@ Ldap Core [![Build Status](https://travis-ci.org/Dreamscapes/Ldap-Core.svg)](htt
 
 ## About
 
-This small library provides access to ldap functions in a nice, object-oriented implementation. In addition, several interfaces are provided which will make testing your code much more simple.
+This small library provides access to ldap functions in a nice, object-oriented implementation. Additionally, you can use some mocking library to actually test your ldap interactions.
 
 ## Installation
 
 ### Requirements
 
- - PHP 5.4.26 and newer with LDAP support ([setup instructions](http://www.php.net/manual/en/ldap.installation.php))
+ - PHP 5.4 and newer with LDAP support ([setup instructions](http://www.php.net/manual/en/ldap.installation.php))
  - OpenSSL module for SSL / TLS connections ([setup instructions](http://www.php.net/manual/en/openssl.installation.php))
 
-> Support for `ldap_modify_batch` and `ldap_escape` are also available as long as they are present in your current PHP version (`ldap_modify_batch` is available since PHP 5.4.26 and `ldap_escape` since PHP 5.6.0).
+> Support for `ldap_modify_batch` and `ldap_escape` are also available as long as they are present in your current PHP version.
+ - `ldap_modify_batch` - available in PHP 5.4 branch since 5.4.26 and in higher versions of PHP since 5.5.10
+ - `ldap_escape` -  available since PHP 5.6.0
 
 ### Via Composer
 

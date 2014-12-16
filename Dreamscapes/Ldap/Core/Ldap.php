@@ -17,17 +17,62 @@ namespace Dreamscapes\Ldap\Core;
 
 use Dreamscapes\Ldap\LdapException;
 
-// Backwards-compatibility with pre-5.6
+// Backwards-compatibility for ldap_escape (available since PHP 5.6)
+
 if (! defined('LDAP_ESCAPE_FILTER')) {
     /** @internal */
-    define('LDAP_ESCAPE_FILTER', 0x01);
+    define('LDAP_ESCAPE_FILTER', 0x1);
 }
 
-// Backwards-compatibility with pre-5.6
 if (! defined('LDAP_ESCAPE_DN')) {
     /** @internal */
-    define('LDAP_ESCAPE_DN', 0x02);
+    define('LDAP_ESCAPE_DN', 0x2);
 }
+
+// LDAP-SASL constants (not present if ldap-sasl module is not installed)
+
+if (! defined('LDAP_OPT_X_SASL_MECH')) {
+    /** @internal */
+    define('LDAP_OPT_X_SASL_MECH', 0x6100);
+}
+
+if (! defined('LDAP_OPT_X_SASL_REALM')) {
+    /** @internal */
+    define('LDAP_OPT_X_SASL_REALM', 0x6101);
+}
+
+if (! defined('LDAP_OPT_X_SASL_AUTHCID')) {
+    /** @internal */
+    define('LDAP_OPT_X_SASL_AUTHCID', 0x6102);
+}
+
+if (! defined('LDAP_OPT_X_SASL_AUTHZID')) {
+    /** @internal */
+    define('LDAP_OPT_X_SASL_AUTHZID', 0x6103);
+}
+
+// Backwards-compatibility for ldap_modify_batch (available in PHP ~5.4.26, >=5.5.10)
+
+if (! defined('LDAP_MODIFY_BATCH_ADD')) {
+    /** @internal */
+    define('LDAP_MODIFY_BATCH_ADD', 0x1);
+}
+
+if (! defined('LDAP_MODIFY_BATCH_REMOVE')) {
+    /** @internal */
+    define('LDAP_MODIFY_BATCH_REMOVE', 0x2);
+}
+
+if (! defined('LDAP_MODIFY_BATCH_REPLACE')) {
+    /** @internal */
+    define('LDAP_MODIFY_BATCH_REPLACE', 0x3);
+}
+
+if (! defined('LDAP_MODIFY_BATCH_REMOVE_ALL')) {
+    /** @internal */
+    define('LDAP_MODIFY_BATCH_REMOVE_ALL', 0x12);
+}
+
 
 /**
  * Object encapsulation of the resource(ldap link) native object
@@ -97,6 +142,7 @@ class Ldap
     const SCOPE_ONELEVEL                        = 'ldap_list';
     const SCOPE_SUBTREE                         = 'ldap_search';
 
+    // LDAP OPTIONS
     const OPT_DEREF                             = LDAP_OPT_DEREF;
     const OPT_SIZELIMIT                         = LDAP_OPT_SIZELIMIT;
     const OPT_TIMELIMIT                         = LDAP_OPT_TIMELIMIT;
@@ -113,15 +159,10 @@ class Ldap
     const OPT_DEBUG_LEVEL                       = LDAP_OPT_DEBUG_LEVEL;
 
     // Available constants if ldap-sasl is present
-    // LDAP_OPT_X_SASL_MECH;
-    // LDAP_OPT_X_SASL_REALM;
-    // LDAP_OPT_X_SASL_AUTHCID;
-    // LDAP_OPT_X_SASL_AUTHZID;
-    //
-    // Available constants if Oracle LDAP libraries are used instead of OpenLDAP
-    // GSLC_SSL_NO_AUTH;
-    // GSLC_SSL_ONEWAY_AUTH;
-    // GSLC_SSL_TWOWAY_AUTH;
+    const OPT_X_SASL_MECH                       = LDAP_OPT_X_SASL_MECH;
+    const OPT_X_SASL_REALM                      = LDAP_OPT_X_SASL_REALM;
+    const OPT_X_SASL_AUTHCID                    = LDAP_OPT_X_SASL_AUTHCID;
+    const OPT_X_SASL_AUTHZID                    = LDAP_OPT_X_SASL_AUTHZID;
 
     // MODIFY OPERATIONS (for self::modifyBatch())
     const MODIFY_BATCH_ADD                      = LDAP_MODIFY_BATCH_ADD;
@@ -462,6 +503,7 @@ class Ldap
      * );
      * $ldap->modifyBatch("cn=Robert Rossmann,dc=example,dc=com", $modifs);
      *
+     * @since  PHP ~5.4.26, >=5.5.10
      * @param  string $dn    The distinguished name of an LDAP entity
      * @param  array  $entry Modification specifications
      * @return self
@@ -470,6 +512,14 @@ class Ldap
      */
     public function modifyBatch($dn, array $entry)
     {
+        if (! function_exists('ldap_modify_batch')) {
+            // Bail out, can't work our magic!
+            trigger_error(
+                'ldap_modify_batch() is only available in PHP ~5.4.26 or >=5.5.10',
+                E_USER_ERROR
+            );
+        }
+
         ldap_modify_batch($this->resource, $dn, $entry);
         $this->verifyOperation();
 
