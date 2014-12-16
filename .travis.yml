@@ -11,6 +11,3 @@ after_success:
 env:
   global:
     secure: fZXPsnwuJ+OXyWoGmpltUcPbcWdNAic9S8fWuaGIvbSbyrN+blEEnnZzyGTCKabBG7k3yEMgP9URGxrzVv4gIB8l1K9GK2mH82RqBbpaRL/5S3Zn7eN9VCgcN2t5ihMSh9dtDSOdW7zc5j+asQSmppieTLa0UQ5wBPhKbHpixKk=
-matrix:
-  allow_failures:
-  - php: 5.6
