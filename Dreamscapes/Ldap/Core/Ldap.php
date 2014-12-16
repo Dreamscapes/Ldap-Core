@@ -77,8 +77,10 @@ if (! defined('LDAP_MODIFY_BATCH_REMOVE_ALL')) {
 /**
  * Object encapsulation of the resource(ldap link) native object
  *
- * @method  ResultResource read() Perform search operation with SCOPE_BASE - see self::search() for argument list
- * @method  ResultResource list() Perform search operation with SCOPE_ONELEVEL - see self::search() for argument list
+ * @method  ResultResource read()   Perform search operation with SCOPE_BASE - see self::search()
+ *                                  for argument list
+ * @method  ResultResource list()   Perform search operation with SCOPE_ONELEVEL - see
+ *                                  self::search() for argument list
  *
  * @package Ldap-Core
  */
@@ -217,9 +219,10 @@ class Ldap
     /**
      * Splits DN into its component parts
      *
-     * @param  string  $dn         The distinguished name of an LDAP entity
-     * @param  integer $withAttrib Used to request if the RDNs are returned with only values or their attributes as well
-     * @return array               Returns an array of all DN components
+     * @param  string  $dn          The distinguished name of an LDAP entity
+     * @param  integer $withAttrib  Used to request if the RDNs are returned with only values or
+     *                              their attributes as well
+     * @return array                Returns an array of all DN components
      */
     public static function explodeDn($dn, $withAttrib = 0)
     {
@@ -251,7 +254,8 @@ class Ldap
     /**
      * Create a new instance
      *
-     * If $ldapUrl is provided, it will also open connection to the ldap server by calling self::connect()
+     * If $ldapUrl is provided, it will also open connection to the ldap server by calling
+     * self::connect().
      *
      * @param string $ldapUrl Optional ldap URI string of the ldap server
      */
@@ -334,7 +338,8 @@ class Ldap
     /**
      * Open connection to an ldap server
      *
-     * @param  string       $ldapUrl    Ldap URI string of the ldap server (i.e. ldap://my.server.com:389)
+     * @param  string       $ldapUrl    Ldap URI string of the ldap server (i.e.
+     *                                  ldap://my.server.com:389)
      * @return self
      */
     public function connect($ldapUrl)
@@ -532,8 +537,8 @@ class Ldap
      * @param  string $dn           The distinguished name of an LDAP entity
      * @param  string $newRdn       The new RDN
      * @param  string $newParent    The new parent/superior entry
-     * @param  bool   $deleteOldRdn If TRUE the old RDN value(s) are removed, else the old RDN value(s) are retained as
-                                    non-distinguished values of the entry
+     * @param  bool   $deleteOldRdn If TRUE the old RDN value(s) are removed, else the old RDN
+     *                              value(s) are retained as non-distinguished values of the entry
      * @return self
      */
     public function rename($dn, $newRdn, $newParent, $deleteOldRdn)
@@ -583,22 +588,24 @@ class Ldap
     /**
      * Search LDAP tree
      *
-     * This method deviates from the native PHP implementation - there is only one method to perform search, list and
-     * read operations. The scope of the operation is controlled by the $scope parameter, which can be one of:
+     * The scope of the operation is controlled by the $scope parameter, which can be one of:
      *
-     * self::SCOPE_SUBTREE - equivalent of ldap_search() ( default )
+     * self::SCOPE_SUBTREE - equivalent of ldap_search() (default)
      * self::SCOPE_ONELEVEL - equivalent of ldap_list()
      * self::SCOPE_BASE - equivalent of ldap_read()
      *
-     * @param  string  $baseDn     The base DN for the directory
-     * @param  string  $filter     Ldap query filter ( an empty filter is not allowed )
-     * @param  array   $attributes An array of the required attributes, e.g. array("mail", "sn", "cn")
-     * @param  string  $scope      One of self::SCOPE_SUBTREE, self::SCOPE_ONELEVEL or self::SCOPE_BASE
-     * @param  boolean $attrsOnly  Should be set to 1 if only attribute types are wanted
-     * @param  integer $sizeLimit  Enables you to limit the count of entries fetched. Setting this to 0 means no limit
-     * @param  integer $timeLimit  Sets the number of seconds how long is spend on the search.
-     *                             Setting this to 0 means no limit.
-     * @param  integer $deref      Specifies how aliases should be handled during the search
+     * @param  string  $baseDn      The base DN for the directory
+     * @param  string  $filter      Ldap query filter (an empty filter is not allowed)
+     * @param  array   $attributes  An array of the required attributes, e.g. array("mail", "sn",
+     *                              "cn")
+     * @param  string  $scope       One of self::SCOPE_SUBTREE, self::SCOPE_ONELEVEL or
+     *                              self::SCOPE_BASE
+     * @param  boolean $attrsOnly   Should be set to 1 if only attribute types are wanted
+     * @param  integer $sizeLimit   Enables you to limit the count of entries fetched. Setting this
+     *                              to 0 means no limit
+     * @param  integer $timeLimit   Sets the number of seconds how long is spend on the search.
+     *                              Setting this to 0 means no limit.
+     * @param  integer $deref       Specifies how aliases should be handled during the search
      * @return ResultResource
      */
     public function search(
@@ -611,7 +618,16 @@ class Ldap
         $timeLimit = 0,
         $deref = LDAP_DEREF_NEVER
     ) {
-        $result = $scope($this->resource, $baseDn, $filter, $attributes, $attrsOnly, $sizeLimit, $timeLimit, $deref);
+        $result = $scope(
+            $this->resource,
+            $baseDn,
+            $filter,
+            $attributes,
+            $attrsOnly,
+            $sizeLimit,
+            $timeLimit,
+            $deref
+        );
         $this->verifyOperation();
 
         return new ResultResource($this, $result);
@@ -691,13 +707,16 @@ class Ldap
     public function __call($method, $args)
     {
         $scopeMap = [
-            'read'      => static::SCOPE_BASE,
-            'list'      => static::SCOPE_ONELEVEL,
+            'read' => static::SCOPE_BASE,
+            'list' => static::SCOPE_ONELEVEL,
         ];
 
         // Only the methods above are allowed to be called magically
         if (! in_array($method, array_keys($scopeMap))) {
-            trigger_error(sprintf('Call to undefined method %s::%s()', __CLASS__, $method), E_USER_ERROR);
+            trigger_error(
+                sprintf('Call to undefined method %s::%s()', __CLASS__, $method),
+                E_USER_ERROR
+            );
         }
 
         // Append the search scope to the argument list
@@ -719,9 +738,11 @@ class Ldap
         $this->message = ldap_error($this->resource);
 
         // Active Directory conceals some additional error codes in the ErrorMessage of the response
-        // that we cannot get to with ldap_errno() in authentication failures - let's try to extract them!
+        // that we cannot get to with ldap_errno() in authentication failures - let's try to extract
+        // them!
         if ($this->code === 49) {
             $errorString = $this->getOption(static::OPT_ERROR_STRING);
+
             if (stripos($errorString, 'AcceptSecurityContext') !== false) {
                 $parts = explode(', ', $errorString);
                 end($parts);
@@ -729,12 +750,12 @@ class Ldap
 
                 $this->code = explode(' ', $parts);
 
-                // For compatibility reasons with standard ldap, if the error code is 52e let's replace it with 49
-                // ( their meanings are equal, it's just Microsoft doing it its own way again )
+                // For compatibility reasons with standard ldap, if the error code is 52e let's
+                // replace it with 49 (their meanings are equal, it's just Microsoft doing it its
+                // own way again)
                 if ($this->code === '52e') {
                     $this->code = static::INVALID_CREDENTIALS;
                 }
-
             }
         }
 

@@ -29,7 +29,7 @@ class ResultResource
     protected $link;
 
     /**
-     * PHP's native ldap resource object
+     * PHP's native ldap result resource object
      * @var resource (ldap result)
      */
     protected $resource;
@@ -78,8 +78,8 @@ class ResultResource
     /**
      * Free result memory
      *
-     * Once the result is freed from memory the instance holding the result must not be used any further. This method
-     * is called automatically when the instance is released from memory.
+     * Once the result is freed from memory the instance holding the result must not be used any
+     * further. This method is called automatically when the instance is released from memory.
      *
      * @return void
      */
