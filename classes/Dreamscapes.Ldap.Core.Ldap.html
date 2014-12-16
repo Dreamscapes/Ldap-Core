@@ -1,0 +1,1355 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+<meta charset="utf-8">
+<title>Dreamscapes - Ldap Core » \Dreamscapes\Ldap\Core\Ldap</title>
+<meta name="author" content="Mike van Riel">
+<meta name="description" content="">
+<link href="../css/template.css" rel="stylesheet" media="all">
+<script src="../js/jquery-1.7.1.min.js" type="text/javascript"></script><script src="../js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script><script src="../js/jquery.mousewheel.min.js" type="text/javascript"></script><script src="../js/bootstrap.js" type="text/javascript"></script><script src="../js/template.js" type="text/javascript"></script><script src="../js/prettify/prettify.min.js" type="text/javascript"></script><link rel="shortcut icon" href="../img/favicon.ico">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="../img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="../img/apple-touch-icon-114x114.png">
+</head>
+<body>
+<div class="navbar navbar-fixed-top">
+<div class="navbar-inner"><div class="container">
+<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a class="brand" href="../index.html">Dreamscapes - Ldap Core</a><div class="nav-collapse"><ul class="nav">
+<li class="dropdown">
+<a href="#api" class="dropdown-toggle" data-toggle="dropdown">
+                                    API Documentation <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a>Namespaces</a></li>
+<li><a href="../namespaces/Dreamscapes.html"><i class="icon-th"></i> Dreamscapes</a></li>
+<li><a>Packages</a></li>
+<li><a href="../packages/Ldap-Core.html"><i class="icon-folder-open"></i> Ldap-Core</a></li>
+</ul>
+</li>
+<li class="dropdown" id="charts-menu">
+<a href="#charts" class="dropdown-toggle" data-toggle="dropdown">
+                                    Charts <b class="caret"></b></a><ul class="dropdown-menu"><li><a href="../graph_class.html"><i class="icon-list-alt"></i> Class hierarchy diagram</a></li></ul>
+</li>
+<li class="dropdown" id="reports-menu">
+<a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
+                                    Reports <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
+                <span class="label label-info">28</span></a></li>
+<li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
+                <ul></ul></a></li>
+<li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
+                <span class="label label-info">0</span></a></li>
+</ul>
+</li>
+</ul></div>
+</div></div>
+<div class="go_to_top"><a href="#___" style="color: inherit">Back to top  <i class="icon-upload icon-white"></i></a></div>
+</div>
+<div id="___" class="container">
+<noscript><div class="alert alert-warning">
+                            Javascript is disabled; several features are only available
+                            if Javascript is enabled.
+                        </div></noscript>
+<div class="row">
+<div class="span4">
+<div xmlns:php="http://php.net/xsl" class="btn-toolbar">
+<div class="btn-group visibility" data-toggle="buttons-checkbox">
+<button class="btn public active" title="Show public elements">Public</button><button class="btn protected" title="Show protected elements">Protected</button><button class="btn private" title="Show private elements">Private</button><button class="btn inherited active" title="Show inherited elements">Inherited</button>
+</div>
+<div class="btn-group view pull-right" data-toggle="buttons-radio">
+<button class="btn details" title="Show descriptions and method names"><i class="icon-list"></i></button><button class="btn simple" title="Show only method names"><i class="icon-align-justify"></i></button>
+</div>
+</div>
+<ul xmlns:php="http://php.net/xsl" class="side-nav nav nav-list">
+<li class="nav-header">
+<i title="Methods" class="icon-custom icon-method"></i> Methods
+                    <ul>
+<li class="method public "><a href="#method___call" title="__call() :: Magic method to provide read() and list() methods"><span class="description">Magic method to provide read() and list() methods</span><pre>__call()</pre></a></li>
+<li class="method public "><a href="#method___construct" title="__construct() :: Create a new instance"><span class="description">Create a new instance</span><pre>__construct()</pre></a></li>
+<li class="method public "><a href="#method___toString" title="__toString() :: Allow resource's string representation to be ldap URI string"><span class="description">Allow resource's string representation to be ldap URI string</span><pre>__toString()</pre></a></li>
+<li class="method public "><a href="#method_add" title="add() :: Add entries to LDAP directory"><span class="description">Add entries to LDAP directory</span><pre>add()</pre></a></li>
+<li class="method public "><a href="#method_bind" title="bind() :: Bind to LDAP directory"><span class="description">Bind to LDAP directory</span><pre>bind()</pre></a></li>
+<li class="method public "><a href="#method_close" title="close() :: Alias of self::unbind()"><span class="description">Alias of self::unbind()</span><pre>close()</pre></a></li>
+<li class="method public "><a href="#method_compare" title="compare() :: Compare value of attribute found in entry specified with DN"><span class="description">Compare value of attribute found in entry specified with DN</span><pre>compare()</pre></a></li>
+<li class="method public "><a href="#method_connect" title="connect() :: Open connection to an ldap server"><span class="description">Open connection to an ldap server</span><pre>connect()</pre></a></li>
+<li class="method public "><a href="#method_delete" title="delete() :: Delete an entry from a directory"><span class="description">Delete an entry from a directory</span><pre>delete()</pre></a></li>
+<li class="method public "><a href="#method_dnToUfn" title="dnToUfn() :: Convert DN to User Friendly Naming format"><span class="description">Convert DN to User Friendly Naming format</span><pre>dnToUfn()</pre></a></li>
+<li class="method public "><a href="#method_errToStr" title="errToStr() :: Convert LDAP error number into string error message"><span class="description">Convert LDAP error number into string error message</span><pre>errToStr()</pre></a></li>
+<li class="method public "><a href="#method_errno" title="errno() :: Return the LDAP error number of the last LDAP command"><span class="description">Return the LDAP error number of the last LDAP command</span><pre>errno()</pre></a></li>
+<li class="method public "><a href="#method_error" title="error() :: Return the LDAP error message of the last LDAP command"><span class="description">Return the LDAP error message of the last LDAP command</span><pre>error()</pre></a></li>
+<li class="method public "><a href="#method_escape" title="escape() :: Escape a string for use in an LDAP filter or DN"><span class="description">Escape a string for use in an LDAP filter or DN</span><pre>escape()</pre></a></li>
+<li class="method public "><a href="#method_explodeDn" title="explodeDn() :: Splits DN into its component parts"><span class="description">Splits DN into its component parts</span><pre>explodeDn()</pre></a></li>
+<li class="method public "><a href="#method_getOption" title="getOption() :: Get the current value for given option"><span class="description">Get the current value for given option</span><pre>getOption()</pre></a></li>
+<li class="method public "><a href="#method_getResource" title="getResource() :: Get the PHP's native ldap resource object"><span class="description">Get the PHP's native ldap resource object</span><pre>getResource()</pre></a></li>
+<li class="method public "><a href="#method_list" title="list() :: Perform search operation with SCOPE_ONELEVEL - see
+                                 self::search() for argument list"><span class="description">Perform search operation with SCOPE_ONELEVEL - see
+                                 self::search() for argument list</span><pre>list()</pre></a></li>
+<li class="method public "><a href="#method_modAdd" title="modAdd() :: Add attribute values to current attributes"><span class="description">Add attribute values to current attributes</span><pre>modAdd()</pre></a></li>
+<li class="method public "><a href="#method_modDel" title="modDel() :: Compatibility alias for self::modDelete()"><span class="description">Compatibility alias for self::modDelete()</span><pre>modDel()</pre></a></li>
+<li class="method public "><a href="#method_modDelete" title="modDelete() :: Delete attribute values from current attributes"><span class="description">Delete attribute values from current attributes</span><pre>modDelete()</pre></a></li>
+<li class="method public "><a href="#method_modReplace" title="modReplace() :: Replace attribute values with new ones"><span class="description">Replace attribute values with new ones</span><pre>modReplace()</pre></a></li>
+<li class="method public "><a href="#method_modify" title="modify() :: Modify an LDAP entry"><span class="description">Modify an LDAP entry</span><pre>modify()</pre></a></li>
+<li class="method public "><a href="#method_modifyBatch" title="modifyBatch() :: Modify an existing entry in the LDAP directory"><span class="description">Modify an existing entry in the LDAP directory</span><pre>modifyBatch()</pre></a></li>
+<li class="method public "><a href="#method_pagedResult" title="pagedResult() :: Send LDAP pagination control"><span class="description">Send LDAP pagination control</span><pre>pagedResult()</pre></a></li>
+<li class="method public "><a href="#method_read" title="read() :: Perform search operation with SCOPE_BASE - see self::search()
+                                 for argument list"><span class="description">Perform search operation with SCOPE_BASE - see self::search()
+                                 for argument list</span><pre>read()</pre></a></li>
+<li class="method public "><a href="#method_rename" title="rename() :: Modify the name of an entry"><span class="description">Modify the name of an entry</span><pre>rename()</pre></a></li>
+<li class="method public "><a href="#method_saslBind" title="saslBind() :: Bind to LDAP directory using SASL"><span class="description">Bind to LDAP directory using SASL</span><pre>saslBind()</pre></a></li>
+<li class="method public "><a href="#method_search" title="search() :: Search LDAP tree"><span class="description">Search LDAP tree</span><pre>search()</pre></a></li>
+<li class="method public "><a href="#method_setOption" title="setOption() :: Set the value of the given option"><span class="description">Set the value of the given option</span><pre>setOption()</pre></a></li>
+<li class="method public "><a href="#method_setRebindProc" title="setRebindProc() :: Compatibility alias of self::setRebindProcedure()"><span class="description">Compatibility alias of self::setRebindProcedure()</span><pre>setRebindProc()</pre></a></li>
+<li class="method public "><a href="#method_setRebindProcedure" title="setRebindProcedure() :: Set a callback function to do re-binds on referral chasing"><span class="description">Set a callback function to do re-binds on referral chasing</span><pre>setRebindProcedure()</pre></a></li>
+<li class="method public "><a href="#method_startTls" title="startTls() :: Start TLS"><span class="description">Start TLS</span><pre>startTls()</pre></a></li>
+<li class="method public "><a href="#method_unbind" title="unbind() :: Unbind from LDAP directory"><span class="description">Unbind from LDAP directory</span><pre>unbind()</pre></a></li>
+</ul>
+</li>
+<li class="nav-header">
+<i title="Constants" class="icon-custom icon-constant"></i> Constants
+                    <ul>
+<li class="constant  "><a href="#constant_ACCOUNT_DISABLED" title="ACCOUNT_DISABLED() :: "><span class="description">ACCOUNT_DISABLED</span><pre>ACCOUNT_DISABLED</pre></a></li>
+<li class="constant  "><a href="#constant_ACCOUNT_EXPIRED" title="ACCOUNT_EXPIRED() :: "><span class="description">ACCOUNT_EXPIRED</span><pre>ACCOUNT_EXPIRED</pre></a></li>
+<li class="constant  "><a href="#constant_ADMINLIMIT_EXCEEDED" title="ADMINLIMIT_EXCEEDED() :: "><span class="description">ADMINLIMIT_EXCEEDED</span><pre>ADMINLIMIT_EXCEEDED</pre></a></li>
+<li class="constant  "><a href="#constant_AFFECTS_MULTIPLE_DSAS" title="AFFECTS_MULTIPLE_DSAS() :: "><span class="description">AFFECTS_MULTIPLE_DSAS</span><pre>AFFECTS_MULTIPLE_DSAS</pre></a></li>
+<li class="constant  "><a href="#constant_ALIAS_DEREF_PROBLEM" title="ALIAS_DEREF_PROBLEM() :: "><span class="description">ALIAS_DEREF_PROBLEM</span><pre>ALIAS_DEREF_PROBLEM</pre></a></li>
+<li class="constant  "><a href="#constant_ALIAS_PROBLEM" title="ALIAS_PROBLEM() :: "><span class="description">ALIAS_PROBLEM</span><pre>ALIAS_PROBLEM</pre></a></li>
+<li class="constant  "><a href="#constant_ALREADY_EXISTS" title="ALREADY_EXISTS() :: "><span class="description">ALREADY_EXISTS</span><pre>ALREADY_EXISTS</pre></a></li>
+<li class="constant  "><a href="#constant_AUTH_METHOD_NOT_SUPPORTED" title="AUTH_METHOD_NOT_SUPPORTED() :: "><span class="description">AUTH_METHOD_NOT_SUPPORTED</span><pre>AUTH_METHOD_NOT_SUPPORTED</pre></a></li>
+<li class="constant  "><a href="#constant_BUSY" title="BUSY() :: "><span class="description">BUSY</span><pre>BUSY</pre></a></li>
+<li class="constant  "><a href="#constant_COMPARE_FALSE" title="COMPARE_FALSE() :: "><span class="description">COMPARE_FALSE</span><pre>COMPARE_FALSE</pre></a></li>
+<li class="constant  "><a href="#constant_COMPARE_TRUE" title="COMPARE_TRUE() :: "><span class="description">COMPARE_TRUE</span><pre>COMPARE_TRUE</pre></a></li>
+<li class="constant  "><a href="#constant_CONFIDENTIALITY_REQUIRED" title="CONFIDENTIALITY_REQUIRED() :: "><span class="description">CONFIDENTIALITY_REQUIRED</span><pre>CONFIDENTIALITY_REQUIRED</pre></a></li>
+<li class="constant  "><a href="#constant_CONSTRAINT_VIOLATION" title="CONSTRAINT_VIOLATION() :: "><span class="description">CONSTRAINT_VIOLATION</span><pre>CONSTRAINT_VIOLATION</pre></a></li>
+<li class="constant  "><a href="#constant_ERROR_TOO_MANY_CONTEXT_IDS" title="ERROR_TOO_MANY_CONTEXT_IDS() :: "><span class="description">ERROR_TOO_MANY_CONTEXT_IDS</span><pre>ERROR_TOO_MANY_CONTEXT_IDS</pre></a></li>
+<li class="constant  "><a href="#constant_ESCAPE_DN" title="ESCAPE_DN() :: "><span class="description">ESCAPE_DN</span><pre>ESCAPE_DN</pre></a></li>
+<li class="constant  "><a href="#constant_ESCAPE_FILTER" title="ESCAPE_FILTER() :: "><span class="description">ESCAPE_FILTER</span><pre>ESCAPE_FILTER</pre></a></li>
+<li class="constant  "><a href="#constant_INAPPROPRIATE_AUTH" title="INAPPROPRIATE_AUTH() :: "><span class="description">INAPPROPRIATE_AUTH</span><pre>INAPPROPRIATE_AUTH</pre></a></li>
+<li class="constant  "><a href="#constant_INAPPROPRIATE_MATCHING" title="INAPPROPRIATE_MATCHING() :: "><span class="description">INAPPROPRIATE_MATCHING</span><pre>INAPPROPRIATE_MATCHING</pre></a></li>
+<li class="constant  "><a href="#constant_INSUFFICIENT_ACCESS" title="INSUFFICIENT_ACCESS() :: "><span class="description">INSUFFICIENT_ACCESS</span><pre>INSUFFICIENT_ACCESS</pre></a></li>
+<li class="constant  "><a href="#constant_INVALID_CREDENTIALS" title="INVALID_CREDENTIALS() :: "><span class="description">INVALID_CREDENTIALS</span><pre>INVALID_CREDENTIALS</pre></a></li>
+<li class="constant  "><a href="#constant_INVALID_DN_SYNTAX" title="INVALID_DN_SYNTAX() :: "><span class="description">INVALID_DN_SYNTAX</span><pre>INVALID_DN_SYNTAX</pre></a></li>
+<li class="constant  "><a href="#constant_INVALID_SYNTAX" title="INVALID_SYNTAX() :: "><span class="description">INVALID_SYNTAX</span><pre>INVALID_SYNTAX</pre></a></li>
+<li class="constant  "><a href="#constant_IS_LEAF" title="IS_LEAF() :: "><span class="description">IS_LEAF</span><pre>IS_LEAF</pre></a></li>
+<li class="constant  "><a href="#constant_LOOP_DETECT" title="LOOP_DETECT() :: "><span class="description">LOOP_DETECT</span><pre>LOOP_DETECT</pre></a></li>
+<li class="constant  "><a href="#constant_MODIFY_BATCH_ADD" title="MODIFY_BATCH_ADD() :: "><span class="description">MODIFY_BATCH_ADD</span><pre>MODIFY_BATCH_ADD</pre></a></li>
+<li class="constant  "><a href="#constant_MODIFY_BATCH_REMOVE" title="MODIFY_BATCH_REMOVE() :: "><span class="description">MODIFY_BATCH_REMOVE</span><pre>MODIFY_BATCH_REMOVE</pre></a></li>
+<li class="constant  "><a href="#constant_MODIFY_BATCH_REMOVE_ALL" title="MODIFY_BATCH_REMOVE_ALL() :: "><span class="description">MODIFY_BATCH_REMOVE_ALL</span><pre>MODIFY_BATCH_REMOVE_ALL</pre></a></li>
+<li class="constant  "><a href="#constant_MODIFY_BATCH_REPLACE" title="MODIFY_BATCH_REPLACE() :: "><span class="description">MODIFY_BATCH_REPLACE</span><pre>MODIFY_BATCH_REPLACE</pre></a></li>
+<li class="constant  "><a href="#constant_NAMING_VIOLATION" title="NAMING_VIOLATION() :: "><span class="description">NAMING_VIOLATION</span><pre>NAMING_VIOLATION</pre></a></li>
+<li class="constant  "><a href="#constant_NOT_ALLOWED_ON_NONLEAF" title="NOT_ALLOWED_ON_NONLEAF() :: "><span class="description">NOT_ALLOWED_ON_NONLEAF</span><pre>NOT_ALLOWED_ON_NONLEAF</pre></a></li>
+<li class="constant  "><a href="#constant_NOT_ALLOWED_ON_RDN" title="NOT_ALLOWED_ON_RDN() :: "><span class="description">NOT_ALLOWED_ON_RDN</span><pre>NOT_ALLOWED_ON_RDN</pre></a></li>
+<li class="constant  "><a href="#constant_NOT_PERMITTED_TO_LOGON_AT_THIS_TIME" title="NOT_PERMITTED_TO_LOGON_AT_THIS_TIME() :: "><span class="description">NOT_PERMITTED_TO_LOGON_AT_THIS_TIME</span><pre>NOT_PERMITTED_TO_LOGON_AT_THIS_TIME</pre></a></li>
+<li class="constant  "><a href="#constant_NO_OBJECT_CLASS_MODS" title="NO_OBJECT_CLASS_MODS() :: "><span class="description">NO_OBJECT_CLASS_MODS</span><pre>NO_OBJECT_CLASS_MODS</pre></a></li>
+<li class="constant  "><a href="#constant_NO_SUCH_ATTRIBUTE" title="NO_SUCH_ATTRIBUTE() :: "><span class="description">NO_SUCH_ATTRIBUTE</span><pre>NO_SUCH_ATTRIBUTE</pre></a></li>
+<li class="constant  "><a href="#constant_NO_SUCH_OBJECT" title="NO_SUCH_OBJECT() :: "><span class="description">NO_SUCH_OBJECT</span><pre>NO_SUCH_OBJECT</pre></a></li>
+<li class="constant  "><a href="#constant_OBJECT_CLASS_VIOLATION" title="OBJECT_CLASS_VIOLATION() :: "><span class="description">OBJECT_CLASS_VIOLATION</span><pre>OBJECT_CLASS_VIOLATION</pre></a></li>
+<li class="constant  "><a href="#constant_OPERATIONS_ERROR" title="OPERATIONS_ERROR() :: "><span class="description">OPERATIONS_ERROR</span><pre>OPERATIONS_ERROR</pre></a></li>
+<li class="constant  "><a href="#constant_OPT_CLIENT_CONTROLS" title="OPT_CLIENT_CONTROLS() :: "><span class="description">OPT_CLIENT_CONTROLS</span><pre>OPT_CLIENT_CONTROLS</pre></a></li>
+<li class="constant  "><a href="#constant_OPT_DEBUG_LEVEL" title="OPT_DEBUG_LEVEL() :: "><span class="description">OPT_DEBUG_LEVEL</span><pre>OPT_DEBUG_LEVEL</pre></a></li>
+<li class="constant  "><a href="#constant_OPT_DEREF" title="OPT_DEREF() :: "><span class="description">OPT_DEREF</span><pre>OPT_DEREF</pre></a></li>
+<li class="constant  "><a href="#constant_OPT_ERROR_NUMBER" title="OPT_ERROR_NUMBER() :: "><span class="description">OPT_ERROR_NUMBER</span><pre>OPT_ERROR_NUMBER</pre></a></li>
+<li class="constant  "><a href="#constant_OPT_ERROR_STRING" title="OPT_ERROR_STRING() :: "><span class="description">OPT_ERROR_STRING</span><pre>OPT_ERROR_STRING</pre></a></li>
+<li class="constant  "><a href="#constant_OPT_HOST_NAME" title="OPT_HOST_NAME() :: "><span class="description">OPT_HOST_NAME</span><pre>OPT_HOST_NAME</pre></a></li>
+<li class="constant  "><a href="#constant_OPT_MATCHED_DN" title="OPT_MATCHED_DN() :: "><span class="description">OPT_MATCHED_DN</span><pre>OPT_MATCHED_DN</pre></a></li>
+<li class="constant  "><a href="#constant_OPT_NETWORK_TIMEOUT" title="OPT_NETWORK_TIMEOUT() :: "><span class="description">OPT_NETWORK_TIMEOUT</span><pre>OPT_NETWORK_TIMEOUT</pre></a></li>
+<li class="constant  "><a href="#constant_OPT_PROTOCOL_VERSION" title="OPT_PROTOCOL_VERSION() :: "><span class="description">OPT_PROTOCOL_VERSION</span><pre>OPT_PROTOCOL_VERSION</pre></a></li>
+<li class="constant  "><a href="#constant_OPT_REFERRALS" title="OPT_REFERRALS() :: "><span class="description">OPT_REFERRALS</span><pre>OPT_REFERRALS</pre></a></li>
+<li class="constant  "><a href="#constant_OPT_RESTART" title="OPT_RESTART() :: "><span class="description">OPT_RESTART</span><pre>OPT_RESTART</pre></a></li>
+<li class="constant  "><a href="#constant_OPT_SERVER_CONTROLS" title="OPT_SERVER_CONTROLS() :: "><span class="description">OPT_SERVER_CONTROLS</span><pre>OPT_SERVER_CONTROLS</pre></a></li>
+<li class="constant  "><a href="#constant_OPT_SIZELIMIT" title="OPT_SIZELIMIT() :: "><span class="description">OPT_SIZELIMIT</span><pre>OPT_SIZELIMIT</pre></a></li>
+<li class="constant  "><a href="#constant_OPT_TIMELIMIT" title="OPT_TIMELIMIT() :: "><span class="description">OPT_TIMELIMIT</span><pre>OPT_TIMELIMIT</pre></a></li>
+<li class="constant  "><a href="#constant_OPT_X_SASL_AUTHCID" title="OPT_X_SASL_AUTHCID() :: "><span class="description">OPT_X_SASL_AUTHCID</span><pre>OPT_X_SASL_AUTHCID</pre></a></li>
+<li class="constant  "><a href="#constant_OPT_X_SASL_AUTHZID" title="OPT_X_SASL_AUTHZID() :: "><span class="description">OPT_X_SASL_AUTHZID</span><pre>OPT_X_SASL_AUTHZID</pre></a></li>
+<li class="constant  "><a href="#constant_OPT_X_SASL_MECH" title="OPT_X_SASL_MECH() :: "><span class="description">OPT_X_SASL_MECH</span><pre>OPT_X_SASL_MECH</pre></a></li>
+<li class="constant  "><a href="#constant_OPT_X_SASL_REALM" title="OPT_X_SASL_REALM() :: "><span class="description">OPT_X_SASL_REALM</span><pre>OPT_X_SASL_REALM</pre></a></li>
+<li class="constant  "><a href="#constant_OTHER" title="OTHER() :: "><span class="description">OTHER</span><pre>OTHER</pre></a></li>
+<li class="constant  "><a href="#constant_PASSWORD_EXPIRED" title="PASSWORD_EXPIRED() :: "><span class="description">PASSWORD_EXPIRED</span><pre>PASSWORD_EXPIRED</pre></a></li>
+<li class="constant  "><a href="#constant_PROTOCOL_ERROR" title="PROTOCOL_ERROR() :: "><span class="description">PROTOCOL_ERROR</span><pre>PROTOCOL_ERROR</pre></a></li>
+<li class="constant  "><a href="#constant_REFERRAL" title="REFERRAL() :: "><span class="description">REFERRAL</span><pre>REFERRAL</pre></a></li>
+<li class="constant  "><a href="#constant_RESTRICTED_TO_SPECIFIC_MACHINES" title="RESTRICTED_TO_SPECIFIC_MACHINES() :: "><span class="description">RESTRICTED_TO_SPECIFIC_MACHINES</span><pre>RESTRICTED_TO_SPECIFIC_MACHINES</pre></a></li>
+<li class="constant  "><a href="#constant_RESULTS_TOO_LARGE" title="RESULTS_TOO_LARGE() :: "><span class="description">RESULTS_TOO_LARGE</span><pre>RESULTS_TOO_LARGE</pre></a></li>
+<li class="constant  "><a href="#constant_SASL_BIND_IN_PROGRESS" title="SASL_BIND_IN_PROGRESS() :: "><span class="description">SASL_BIND_IN_PROGRESS</span><pre>SASL_BIND_IN_PROGRESS</pre></a></li>
+<li class="constant  "><a href="#constant_SCOPE_BASE" title="SCOPE_BASE() :: "><span class="description">SCOPE_BASE</span><pre>SCOPE_BASE</pre></a></li>
+<li class="constant  "><a href="#constant_SCOPE_ONELEVEL" title="SCOPE_ONELEVEL() :: "><span class="description">SCOPE_ONELEVEL</span><pre>SCOPE_ONELEVEL</pre></a></li>
+<li class="constant  "><a href="#constant_SCOPE_SUBTREE" title="SCOPE_SUBTREE() :: "><span class="description">SCOPE_SUBTREE</span><pre>SCOPE_SUBTREE</pre></a></li>
+<li class="constant  "><a href="#constant_SIZELIMIT_EXCEEDED" title="SIZELIMIT_EXCEEDED() :: "><span class="description">SIZELIMIT_EXCEEDED</span><pre>SIZELIMIT_EXCEEDED</pre></a></li>
+<li class="constant  "><a href="#constant_STRONG_AUTH_REQUIRED" title="STRONG_AUTH_REQUIRED() :: "><span class="description">STRONG_AUTH_REQUIRED</span><pre>STRONG_AUTH_REQUIRED</pre></a></li>
+<li class="constant  "><a href="#constant_SUCCESS" title="SUCCESS() :: "><span class="description">SUCCESS</span><pre>SUCCESS</pre></a></li>
+<li class="constant  "><a href="#constant_TIMELIMIT_EXCEEDED" title="TIMELIMIT_EXCEEDED() :: "><span class="description">TIMELIMIT_EXCEEDED</span><pre>TIMELIMIT_EXCEEDED</pre></a></li>
+<li class="constant  "><a href="#constant_TYPE_OR_VALUE_EXISTS" title="TYPE_OR_VALUE_EXISTS() :: "><span class="description">TYPE_OR_VALUE_EXISTS</span><pre>TYPE_OR_VALUE_EXISTS</pre></a></li>
+<li class="constant  "><a href="#constant_UNAVAILABLE" title="UNAVAILABLE() :: "><span class="description">UNAVAILABLE</span><pre>UNAVAILABLE</pre></a></li>
+<li class="constant  "><a href="#constant_UNAVAILABLE_CRITICAL_EXTENSION" title="UNAVAILABLE_CRITICAL_EXTENSION() :: "><span class="description">UNAVAILABLE_CRITICAL_EXTENSION</span><pre>UNAVAILABLE_CRITICAL_EXTENSION</pre></a></li>
+<li class="constant  "><a href="#constant_UNDEFINED_TYPE" title="UNDEFINED_TYPE() :: "><span class="description">UNDEFINED_TYPE</span><pre>UNDEFINED_TYPE</pre></a></li>
+<li class="constant  "><a href="#constant_UNWILLING_TO_PERFORM" title="UNWILLING_TO_PERFORM() :: "><span class="description">UNWILLING_TO_PERFORM</span><pre>UNWILLING_TO_PERFORM</pre></a></li>
+<li class="constant  "><a href="#constant_USER_ACCOUNT_LOCKED" title="USER_ACCOUNT_LOCKED() :: "><span class="description">USER_ACCOUNT_LOCKED</span><pre>USER_ACCOUNT_LOCKED</pre></a></li>
+<li class="constant  "><a href="#constant_USER_MUST_RESET_PASSWORD" title="USER_MUST_RESET_PASSWORD() :: "><span class="description">USER_MUST_RESET_PASSWORD</span><pre>USER_MUST_RESET_PASSWORD</pre></a></li>
+<li class="constant  "><a href="#constant_USER_NOT_FOUND" title="USER_NOT_FOUND() :: "><span class="description">USER_NOT_FOUND</span><pre>USER_NOT_FOUND</pre></a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="span8">
+<a xmlns:php="http://php.net/xsl" id="\Dreamscapes\Ldap\Core\Ldap"></a><ul xmlns:php="http://php.net/xsl" class="breadcrumb">
+<li>
+<a href="../index.html"><i title="Classes" class="icon-custom icon-class"></i></a><span class="divider">\</span>
+</li>
+<li><a href="../namespaces/Dreamscapes.html">Dreamscapes</a></li>
+<li>
+<span class="divider">\</span><a href="../namespaces/Dreamscapes.Ldap.html">Ldap</a>
+</li>
+<li>
+<span class="divider">\</span><a href="../namespaces/Dreamscapes.Ldap.Core.html">Core</a>
+</li>
+<li class="active">
+<span class="divider">\</span><a href="../classes/Dreamscapes.Ldap.Core.Ldap.html">Ldap</a>
+</li>
+</ul>
+<div xmlns:php="http://php.net/xsl" class="element class">
+<p class="short_description">Object encapsulation of the resource(ldap link) native object</p>
+<div class="details">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>package</th>
+<td><a href="../packages/Ldap-Core.html">Ldap-Core</a></td>
+</tr></table>
+<h3>
+<i title="Methods" class="icon-custom icon-method"></i> Methods</h3>
+<a id="method___call"></a><div class="element clickable method public method___call " data-toggle="collapse" data-target=".method___call .collapse" title="public">
+<h2>Magic method to provide read() and list() methods</h2>
+<pre>__call(string $method, array $args) : \Dreamscapes\Ldap\Core\ResultResource</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$method</h4>
+<code>string</code><p>Method name that was called</p></div>
+<div class="subelement argument">
+<h4>$args</h4>
+<code>array</code><p>Arguments with which the method was called</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>\Dreamscapes\Ldap\Core\ResultResource</code></div>
+</div></div>
+</div>
+<a id="method___construct"></a><div class="element clickable method public method___construct " data-toggle="collapse" data-target=".method___construct .collapse" title="public">
+<h2>Create a new instance</h2>
+<pre>__construct(string $ldapUrl<code> = null</code>) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>If $ldapUrl is provided, it will also open connection to the ldap server by calling
+self::connect().</p></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$ldapUrl</h4>
+<code>string</code><p>Optional ldap URI string of the ldap server</p></div>
+</div></div>
+</div>
+<a id="method___toString"></a><div class="element clickable method public method___toString " data-toggle="collapse" data-target=".method___toString .collapse" title="public">
+<h2>Allow resource's string representation to be ldap URI string</h2>
+<pre>__toString() : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>string</code>Ldap server and port of this connection (i.e. example.com:389)</div>
+</div></div>
+</div>
+<a id="method_add"></a><div class="element clickable method public method_add " data-toggle="collapse" data-target=".method_add .collapse" title="public">
+<h2>Add entries to LDAP directory</h2>
+<pre>add(string $dn, array $entry) : \Dreamscapes\Ldap\Core\Ldap</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>fluent</th>
+<td>This method is part of a fluent interface and will return the same instance</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$dn</h4>
+<code>string</code><p>The distinguished name of an LDAP entity</p></div>
+<div class="subelement argument">
+<h4>$entry</h4>
+<code>array</code><p>An array that specifies the information about the entry</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>\Dreamscapes\Ldap\Core\Ldap</code></div>
+</div></div>
+</div>
+<a id="method_bind"></a><div class="element clickable method public method_bind " data-toggle="collapse" data-target=".method_bind .collapse" title="public">
+<h2>Bind to LDAP directory</h2>
+<pre>bind(string $bindDn<code> = null</code>, string $bindPassword<code> = null</code>) : \Dreamscapes\Ldap\Core\Ldap</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>fluent</th>
+<td>This method is part of a fluent interface and will return the same instance</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$bindDn</h4>
+<code>string</code><p>Username for the bind</p></div>
+<div class="subelement argument">
+<h4>$bindPassword</h4>
+<code>string</code><p>Password for the username</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>\Dreamscapes\Ldap\Core\Ldap</code></div>
+</div></div>
+</div>
+<a id="method_close"></a><div class="element clickable method public method_close " data-toggle="collapse" data-target=".method_close .collapse" title="public">
+<h2>Alias of self::unbind()</h2>
+<pre>close() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="method_compare"></a><div class="element clickable method public method_compare " data-toggle="collapse" data-target=".method_compare .collapse" title="public">
+<h2>Compare value of attribute found in entry specified with DN</h2>
+<pre>compare(string $dn, string $attribute, string $value) : boolean</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$dn</h4>
+<code>string</code><p>The distinguished name of an LDAP entity</p></div>
+<div class="subelement argument">
+<h4>$attribute</h4>
+<code>string</code><p>The attribute name</p></div>
+<div class="subelement argument">
+<h4>$value</h4>
+<code>string</code><p>The compared value</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>boolean</code>Returns TRUE if value matches otherwise returns FALSE</div>
+</div></div>
+</div>
+<a id="method_connect"></a><div class="element clickable method public method_connect " data-toggle="collapse" data-target=".method_connect .collapse" title="public">
+<h2>Open connection to an ldap server</h2>
+<pre>connect(string $ldapUrl) : \Dreamscapes\Ldap\Core\Ldap</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>fluent</th>
+<td>This method is part of a fluent interface and will return the same instance</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$ldapUrl</h4>
+<code>string</code><p>Ldap URI string of the ldap server (i.e.</p>
+<pre><code>                             ldap://my.server.com:389)</code></pre></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>\Dreamscapes\Ldap\Core\Ldap</code></div>
+</div></div>
+</div>
+<a id="method_delete"></a><div class="element clickable method public method_delete " data-toggle="collapse" data-target=".method_delete .collapse" title="public">
+<h2>Delete an entry from a directory</h2>
+<pre>delete(string $dn) : \Dreamscapes\Ldap\Core\Ldap</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>fluent</th>
+<td>This method is part of a fluent interface and will return the same instance</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$dn</h4>
+<code>string</code><p>The distinguished name of an LDAP entity</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>\Dreamscapes\Ldap\Core\Ldap</code></div>
+</div></div>
+</div>
+<a id="method_dnToUfn"></a><div class="element clickable method public method_dnToUfn " data-toggle="collapse" data-target=".method_dnToUfn .collapse" title="public">
+<h2>Convert DN to User Friendly Naming format</h2>
+<pre>dnToUfn(string $dn) : string</pre>
+<div class="labels"><span class="label">Static</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$dn</h4>
+<code>string</code><p>The distinguished name of an LDAP entity</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>string</code>The user friendly name</div>
+</div></div>
+</div>
+<a id="method_errToStr"></a><div class="element clickable method public method_errToStr " data-toggle="collapse" data-target=".method_errToStr .collapse" title="public">
+<h2>Convert LDAP error number into string error message</h2>
+<pre>errToStr(integer $errno) : string</pre>
+<div class="labels"><span class="label">Static</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$errno</h4>
+<code>integer</code><p>The error number</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>string</code>The error message, as a string</div>
+</div></div>
+</div>
+<a id="method_errno"></a><div class="element clickable method public method_errno " data-toggle="collapse" data-target=".method_errno .collapse" title="public">
+<h2>Return the LDAP error number of the last LDAP command</h2>
+<pre>errno() : integer</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>integer</code></div>
+</div></div>
+</div>
+<a id="method_error"></a><div class="element clickable method public method_error " data-toggle="collapse" data-target=".method_error .collapse" title="public">
+<h2>Return the LDAP error message of the last LDAP command</h2>
+<pre>error() : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>string</code></div>
+</div></div>
+</div>
+<a id="method_escape"></a><div class="element clickable method public method_escape " data-toggle="collapse" data-target=".method_escape .collapse" title="public">
+<h2>Escape a string for use in an LDAP filter or DN</h2>
+<pre>escape(string $value, string $ignore<code> = null</code>, integer $flags<code> = null</code>) : string</pre>
+<div class="labels"><span class="label">Static</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p><code>$flags</code> may be one of: <code>Ldap::ESCAPE_FILTER</code>, <code>Ldap::ESCAPE_DN</code></p></div>
+<table class="table table-bordered"><tr>
+<th>since</th>
+<td>PHP 5.6</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$value</h4>
+<code>string</code><p>The value to escape</p></div>
+<div class="subelement argument">
+<h4>$ignore</h4>
+<code>string</code><p>Characters to ignore when escaping</p></div>
+<div class="subelement argument">
+<h4>$flags</h4>
+<code>integer</code><p>The context the escaped string will be used in</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>string</code>Returns the escaped string</div>
+</div></div>
+</div>
+<a id="method_explodeDn"></a><div class="element clickable method public method_explodeDn " data-toggle="collapse" data-target=".method_explodeDn .collapse" title="public">
+<h2>Splits DN into its component parts</h2>
+<pre>explodeDn(string $dn, integer $withAttrib<code> = 0</code>) : array</pre>
+<div class="labels"><span class="label">Static</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$dn</h4>
+<code>string</code><p>The distinguished name of an LDAP entity</p></div>
+<div class="subelement argument">
+<h4>$withAttrib</h4>
+<code>integer</code><p>Used to request if the RDNs are returned with only values or
+                             their attributes as well</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>array</code>Returns an array of all DN components</div>
+</div></div>
+</div>
+<a id="method_getOption"></a><div class="element clickable method public method_getOption " data-toggle="collapse" data-target=".method_getOption .collapse" title="public">
+<h2>Get the current value for given option</h2>
+<pre>getOption(integer $option) : mixed</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$option</h4>
+<code>integer</code><p>The option to be returned</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>mixed</code></div>
+</div></div>
+</div>
+<a id="method_getResource"></a><div class="element clickable method public method_getResource " data-toggle="collapse" data-target=".method_getResource .collapse" title="public">
+<h2>Get the PHP's native ldap resource object</h2>
+<pre>getResource() : resource</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>resource</code>(ldap link)</div>
+</div></div>
+</div>
+<a id="method_list"></a><div class="element clickable method public method_list " data-toggle="collapse" data-target=".method_list .collapse" title="public">
+<h2>Perform search operation with SCOPE_ONELEVEL - see
+                                 self::search() for argument list</h2>
+<pre>list() : </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered">
+<tr>
+<th>magic</th>
+<td></td>
+</tr>
+<tr>
+<th>method</th>
+<td>Perform search operation with SCOPE_ONELEVEL - see
+                                 self::search() for argument list</td>
+</tr>
+</table>
+<h3>Returns</h3>
+<div class="subelement response"><code></code></div>
+</div></div>
+</div>
+<a id="method_modAdd"></a><div class="element clickable method public method_modAdd " data-toggle="collapse" data-target=".method_modAdd .collapse" title="public">
+<h2>Add attribute values to current attributes</h2>
+<pre>modAdd(string $dn, array $entry) : \Dreamscapes\Ldap\Core\Ldap</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>fluent</th>
+<td>This method is part of a fluent interface and will return the same instance</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$dn</h4>
+<code>string</code><p>The distinguished name of an LDAP entity</p></div>
+<div class="subelement argument">
+<h4>$entry</h4>
+<code>array</code><p>Values to be added to the specified attributes</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>\Dreamscapes\Ldap\Core\Ldap</code></div>
+</div></div>
+</div>
+<a id="method_modDel"></a><div class="element clickable method public method_modDel " data-toggle="collapse" data-target=".method_modDel .collapse" title="public">
+<h2>Compatibility alias for self::modDelete()</h2>
+<pre>modDel(string $dn, array $entry) : \Dreamscapes\Ldap\Core\Ldap</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>fluent</th>
+<td>This method is part of a fluent interface and will return the same instance</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$dn</h4>
+<code>string</code><p>The distinguished name of an LDAP entity</p></div>
+<div class="subelement argument">
+<h4>$entry</h4>
+<code>array</code><p>Values to be deleted from the specified attributes</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>\Dreamscapes\Ldap\Core\Ldap</code></div>
+</div></div>
+</div>
+<a id="method_modDelete"></a><div class="element clickable method public method_modDelete " data-toggle="collapse" data-target=".method_modDelete .collapse" title="public">
+<h2>Delete attribute values from current attributes</h2>
+<pre>modDelete(string $dn, array $entry) : \Dreamscapes\Ldap\Core\Ldap</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>fluent</th>
+<td>This method is part of a fluent interface and will return the same instance</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$dn</h4>
+<code>string</code><p>The distinguished name of an LDAP entity</p></div>
+<div class="subelement argument">
+<h4>$entry</h4>
+<code>array</code><p>Values to be deleted from the specified attributes</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>\Dreamscapes\Ldap\Core\Ldap</code></div>
+</div></div>
+</div>
+<a id="method_modReplace"></a><div class="element clickable method public method_modReplace " data-toggle="collapse" data-target=".method_modReplace .collapse" title="public">
+<h2>Replace attribute values with new ones</h2>
+<pre>modReplace(string $dn, array $entry) : \Dreamscapes\Ldap\Core\Ldap</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>fluent</th>
+<td>This method is part of a fluent interface and will return the same instance</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$dn</h4>
+<code>string</code><p>The distinguished name of an LDAP entity</p></div>
+<div class="subelement argument">
+<h4>$entry</h4>
+<code>array</code><p>Attributes and their values to be replaced</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>\Dreamscapes\Ldap\Core\Ldap</code></div>
+</div></div>
+</div>
+<a id="method_modify"></a><div class="element clickable method public method_modify " data-toggle="collapse" data-target=".method_modify .collapse" title="public">
+<h2>Modify an LDAP entry</h2>
+<pre>modify(string $dn, array $entry) : \Dreamscapes\Ldap\Core\Ldap</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>fluent</th>
+<td>This method is part of a fluent interface and will return the same instance</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$dn</h4>
+<code>string</code><p>The distinguished name of an LDAP entity</p></div>
+<div class="subelement argument">
+<h4>$entry</h4>
+<code>array</code><p>Attributes with their modified values</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>\Dreamscapes\Ldap\Core\Ldap</code></div>
+</div></div>
+</div>
+<a id="method_modifyBatch"></a><div class="element clickable method public method_modifyBatch " data-toggle="collapse" data-target=".method_modifyBatch .collapse" title="public">
+<h2>Modify an existing entry in the LDAP directory</h2>
+<pre>modifyBatch(string $dn, array $entry) : \Dreamscapes\Ldap\Core\Ldap</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>Allows detailed specification of the modifications to perform.</p>
+<p>Example:</p>
+<p>$modifs = array(</p>
+<pre><code>array(
+    "attrib"  =&gt; "telephoneNumber",
+    "modtype" =&gt; Ldap::MODIFY_BATCH_ADD,
+    "values"  =&gt; array("+420 777 111 222")
+)</code></pre>
+<p>);
+$ldap->modifyBatch("cn=Robert Rossmann,dc=example,dc=com", $modifs);</p></div>
+<table class="table table-bordered">
+<tr>
+<th>since</th>
+<td>PHP ~5.4.26, >=5.5.10</td>
+</tr>
+<tr>
+<th>see</th>
+<td><a href="https://wiki.php.net/rfc/ldap_modify_batch"></a></td>
+</tr>
+<tr>
+<th>fluent</th>
+<td>This method is part of a fluent interface and will return the same instance</td>
+</tr>
+</table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$dn</h4>
+<code>string</code><p>The distinguished name of an LDAP entity</p></div>
+<div class="subelement argument">
+<h4>$entry</h4>
+<code>array</code><p>Modification specifications</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>\Dreamscapes\Ldap\Core\Ldap</code></div>
+</div></div>
+</div>
+<a id="method_pagedResult"></a><div class="element clickable method public method_pagedResult " data-toggle="collapse" data-target=".method_pagedResult .collapse" title="public">
+<h2>Send LDAP pagination control</h2>
+<pre>pagedResult(integer $pageSize, boolean $isCritical<code> = false</code>, string $cookie<code> = ''</code>) : \Dreamscapes\Ldap\Core\Ldap</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>fluent</th>
+<td>This method is part of a fluent interface and will return the same instance</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$pageSize</h4>
+<code>integer</code><p>The number of entries by page</p></div>
+<div class="subelement argument">
+<h4>$isCritical</h4>
+<code>boolean</code><p>Indicates whether the pagination is critical of not</p></div>
+<div class="subelement argument">
+<h4>$cookie</h4>
+<code>string</code><p>An opaque structure sent by the server</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>\Dreamscapes\Ldap\Core\Ldap</code></div>
+</div></div>
+</div>
+<a id="method_read"></a><div class="element clickable method public method_read " data-toggle="collapse" data-target=".method_read .collapse" title="public">
+<h2>Perform search operation with SCOPE_BASE - see self::search()
+                                 for argument list</h2>
+<pre>read() : </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered">
+<tr>
+<th>magic</th>
+<td></td>
+</tr>
+<tr>
+<th>method</th>
+<td>Perform search operation with SCOPE_BASE - see self::search()
+                                 for argument list</td>
+</tr>
+</table>
+<h3>Returns</h3>
+<div class="subelement response"><code></code></div>
+</div></div>
+</div>
+<a id="method_rename"></a><div class="element clickable method public method_rename " data-toggle="collapse" data-target=".method_rename .collapse" title="public">
+<h2>Modify the name of an entry</h2>
+<pre>rename(string $dn, string $newRdn, string $newParent, boolean $deleteOldRdn) : \Dreamscapes\Ldap\Core\Ldap</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>fluent</th>
+<td>This method is part of a fluent interface and will return the same instance</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$dn</h4>
+<code>string</code><p>The distinguished name of an LDAP entity</p></div>
+<div class="subelement argument">
+<h4>$newRdn</h4>
+<code>string</code><p>The new RDN</p></div>
+<div class="subelement argument">
+<h4>$newParent</h4>
+<code>string</code><p>The new parent/superior entry</p></div>
+<div class="subelement argument">
+<h4>$deleteOldRdn</h4>
+<code>boolean</code><p>If TRUE the old RDN value(s) are removed, else the old RDN</p>
+<pre><code>                         value(s) are retained as non-distinguished values of the entry</code></pre></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>\Dreamscapes\Ldap\Core\Ldap</code></div>
+</div></div>
+</div>
+<a id="method_saslBind"></a><div class="element clickable method public method_saslBind " data-toggle="collapse" data-target=".method_saslBind .collapse" title="public">
+<h2>Bind to LDAP directory using SASL</h2>
+<pre>saslBind(string $bindDn<code> = null</code>, string $bindPassword<code> = null</code>, string $saslMech<code> = null</code>, string $saslRealm<code> = null</code>, string $saslAuthcId<code> = null</code>, string $saslAuthzId<code> = null</code>, string $props<code> = null</code>) : \Dreamscapes\Ldap\Core\Ldap</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>fluent</th>
+<td>This method is part of a fluent interface and will return the same instance</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$bindDn</h4>
+<code>string</code>
+</div>
+<div class="subelement argument">
+<h4>$bindPassword</h4>
+<code>string</code>
+</div>
+<div class="subelement argument">
+<h4>$saslMech</h4>
+<code>string</code>
+</div>
+<div class="subelement argument">
+<h4>$saslRealm</h4>
+<code>string</code>
+</div>
+<div class="subelement argument">
+<h4>$saslAuthcId</h4>
+<code>string</code>
+</div>
+<div class="subelement argument">
+<h4>$saslAuthzId</h4>
+<code>string</code>
+</div>
+<div class="subelement argument">
+<h4>$props</h4>
+<code>string</code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code>\Dreamscapes\Ldap\Core\Ldap</code></div>
+</div></div>
+</div>
+<a id="method_search"></a><div class="element clickable method public method_search " data-toggle="collapse" data-target=".method_search .collapse" title="public">
+<h2>Search LDAP tree</h2>
+<pre>search(string $baseDn, string $filter, array $attributes, string $scope<code> = self::SCOPE_SUBTREE</code>, boolean $attrsOnly<code> = false</code>, integer $sizeLimit<code> = 0</code>, integer $timeLimit<code> = 0</code>, integer $deref<code> = LDAP_DEREF_NEVER</code>) : \Dreamscapes\Ldap\Core\ResultResource</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>The scope of the operation is controlled by the $scope parameter, which can be one of:</p>
+<p>self::SCOPE_SUBTREE - equivalent of ldap_search() (default)
+self::SCOPE_ONELEVEL - equivalent of ldap_list()
+self::SCOPE_BASE - equivalent of ldap_read()</p></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$baseDn</h4>
+<code>string</code><p>The base DN for the directory</p></div>
+<div class="subelement argument">
+<h4>$filter</h4>
+<code>string</code><p>Ldap query filter (an empty filter is not allowed)</p></div>
+<div class="subelement argument">
+<h4>$attributes</h4>
+<code>array</code><p>An array of the required attributes, e.g. array("mail", "sn",</p>
+<pre><code>                         "cn")</code></pre></div>
+<div class="subelement argument">
+<h4>$scope</h4>
+<code>string</code><p>One of self::SCOPE_SUBTREE, self::SCOPE_ONELEVEL or
+                             self::SCOPE_BASE</p></div>
+<div class="subelement argument">
+<h4>$attrsOnly</h4>
+<code>boolean</code><p>Should be set to 1 if only attribute types are wanted</p></div>
+<div class="subelement argument">
+<h4>$sizeLimit</h4>
+<code>integer</code><p>Enables you to limit the count of entries fetched. Setting this
+                             to 0 means no limit</p></div>
+<div class="subelement argument">
+<h4>$timeLimit</h4>
+<code>integer</code><p>Sets the number of seconds how long is spend on the search.
+                             Setting this to 0 means no limit.</p></div>
+<div class="subelement argument">
+<h4>$deref</h4>
+<code>integer</code><p>Specifies how aliases should be handled during the search</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>\Dreamscapes\Ldap\Core\ResultResource</code></div>
+</div></div>
+</div>
+<a id="method_setOption"></a><div class="element clickable method public method_setOption " data-toggle="collapse" data-target=".method_setOption .collapse" title="public">
+<h2>Set the value of the given option</h2>
+<pre>setOption(integer $option, mixed $newVal) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$option</h4>
+<code>integer</code><p>An lDAP option constant</p></div>
+<div class="subelement argument">
+<h4>$newVal</h4>
+<code>mixed</code><p>The new value for the option</p></div>
+</div></div>
+</div>
+<a id="method_setRebindProc"></a><div class="element clickable method public method_setRebindProc " data-toggle="collapse" data-target=".method_setRebindProc .collapse" title="public">
+<h2>Compatibility alias of self::setRebindProcedure()</h2>
+<pre>setRebindProc(callable $callback) : \Dreamscapes\Ldap\Core\Ldap</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>fluent</th>
+<td>This method is part of a fluent interface and will return the same instance</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$callback</h4>
+<code>callable</code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code>\Dreamscapes\Ldap\Core\Ldap</code></div>
+</div></div>
+</div>
+<a id="method_setRebindProcedure"></a><div class="element clickable method public method_setRebindProcedure " data-toggle="collapse" data-target=".method_setRebindProcedure .collapse" title="public">
+<h2>Set a callback function to do re-binds on referral chasing</h2>
+<pre>setRebindProcedure(callable $callback) : \Dreamscapes\Ldap\Core\Ldap</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>fluent</th>
+<td>This method is part of a fluent interface and will return the same instance</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$callback</h4>
+<code>callable</code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code>\Dreamscapes\Ldap\Core\Ldap</code></div>
+</div></div>
+</div>
+<a id="method_startTls"></a><div class="element clickable method public method_startTls " data-toggle="collapse" data-target=".method_startTls .collapse" title="public">
+<h2>Start TLS</h2>
+<pre>startTls() : \Dreamscapes\Ldap\Core\Ldap</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>fluent</th>
+<td>This method is part of a fluent interface and will return the same instance</td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response"><code>\Dreamscapes\Ldap\Core\Ldap</code></div>
+</div></div>
+</div>
+<a id="method_unbind"></a><div class="element clickable method public method_unbind " data-toggle="collapse" data-target=".method_unbind .collapse" title="public">
+<h2>Unbind from LDAP directory</h2>
+<pre>unbind() : void</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"><p>Once unbound the instance holding the link resource must not be used any further.</p></div></div></div>
+</div>
+<h3>
+<i title="Constants" class="icon-custom icon-constant"></i> Constants</h3>
+<a id="constant_ACCOUNT_DISABLED"> </a><div class="element clickable constant  constant_ACCOUNT_DISABLED" data-toggle="collapse" data-target=".constant_ACCOUNT_DISABLED .collapse" title="">
+<h2>ACCOUNT_DISABLED</h2>
+<pre>ACCOUNT_DISABLED = 533 </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_ACCOUNT_EXPIRED"> </a><div class="element clickable constant  constant_ACCOUNT_EXPIRED" data-toggle="collapse" data-target=".constant_ACCOUNT_EXPIRED .collapse" title="">
+<h2>ACCOUNT_EXPIRED</h2>
+<pre>ACCOUNT_EXPIRED = 701 </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_ADMINLIMIT_EXCEEDED"> </a><div class="element clickable constant  constant_ADMINLIMIT_EXCEEDED" data-toggle="collapse" data-target=".constant_ADMINLIMIT_EXCEEDED .collapse" title="">
+<h2>ADMINLIMIT_EXCEEDED</h2>
+<pre>ADMINLIMIT_EXCEEDED = 11 </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_AFFECTS_MULTIPLE_DSAS"> </a><div class="element clickable constant  constant_AFFECTS_MULTIPLE_DSAS" data-toggle="collapse" data-target=".constant_AFFECTS_MULTIPLE_DSAS .collapse" title="">
+<h2>AFFECTS_MULTIPLE_DSAS</h2>
+<pre>AFFECTS_MULTIPLE_DSAS = 71 </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_ALIAS_DEREF_PROBLEM"> </a><div class="element clickable constant  constant_ALIAS_DEREF_PROBLEM" data-toggle="collapse" data-target=".constant_ALIAS_DEREF_PROBLEM .collapse" title="">
+<h2>ALIAS_DEREF_PROBLEM</h2>
+<pre>ALIAS_DEREF_PROBLEM = 36 </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_ALIAS_PROBLEM"> </a><div class="element clickable constant  constant_ALIAS_PROBLEM" data-toggle="collapse" data-target=".constant_ALIAS_PROBLEM .collapse" title="">
+<h2>ALIAS_PROBLEM</h2>
+<pre>ALIAS_PROBLEM = 33 </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_ALREADY_EXISTS"> </a><div class="element clickable constant  constant_ALREADY_EXISTS" data-toggle="collapse" data-target=".constant_ALREADY_EXISTS .collapse" title="">
+<h2>ALREADY_EXISTS</h2>
+<pre>ALREADY_EXISTS = 68 </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_AUTH_METHOD_NOT_SUPPORTED"> </a><div class="element clickable constant  constant_AUTH_METHOD_NOT_SUPPORTED" data-toggle="collapse" data-target=".constant_AUTH_METHOD_NOT_SUPPORTED .collapse" title="">
+<h2>AUTH_METHOD_NOT_SUPPORTED</h2>
+<pre>AUTH_METHOD_NOT_SUPPORTED = 7 </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_BUSY"> </a><div class="element clickable constant  constant_BUSY" data-toggle="collapse" data-target=".constant_BUSY .collapse" title="">
+<h2>BUSY</h2>
+<pre>BUSY = 51 </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_COMPARE_FALSE"> </a><div class="element clickable constant  constant_COMPARE_FALSE" data-toggle="collapse" data-target=".constant_COMPARE_FALSE .collapse" title="">
+<h2>COMPARE_FALSE</h2>
+<pre>COMPARE_FALSE = 5 </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_COMPARE_TRUE"> </a><div class="element clickable constant  constant_COMPARE_TRUE" data-toggle="collapse" data-target=".constant_COMPARE_TRUE .collapse" title="">
+<h2>COMPARE_TRUE</h2>
+<pre>COMPARE_TRUE = 6 </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_CONFIDENTIALITY_REQUIRED"> </a><div class="element clickable constant  constant_CONFIDENTIALITY_REQUIRED" data-toggle="collapse" data-target=".constant_CONFIDENTIALITY_REQUIRED .collapse" title="">
+<h2>CONFIDENTIALITY_REQUIRED</h2>
+<pre>CONFIDENTIALITY_REQUIRED = 13 </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_CONSTRAINT_VIOLATION"> </a><div class="element clickable constant  constant_CONSTRAINT_VIOLATION" data-toggle="collapse" data-target=".constant_CONSTRAINT_VIOLATION .collapse" title="">
+<h2>CONSTRAINT_VIOLATION</h2>
+<pre>CONSTRAINT_VIOLATION = 19 </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_ERROR_TOO_MANY_CONTEXT_IDS"> </a><div class="element clickable constant  constant_ERROR_TOO_MANY_CONTEXT_IDS" data-toggle="collapse" data-target=".constant_ERROR_TOO_MANY_CONTEXT_IDS .collapse" title="">
+<h2>ERROR_TOO_MANY_CONTEXT_IDS</h2>
+<pre>ERROR_TOO_MANY_CONTEXT_IDS = 49 </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_ESCAPE_DN"> </a><div class="element clickable constant  constant_ESCAPE_DN" data-toggle="collapse" data-target=".constant_ESCAPE_DN .collapse" title="">
+<h2>ESCAPE_DN</h2>
+<pre>ESCAPE_DN = LDAP_ESCAPE_DN </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_ESCAPE_FILTER"> </a><div class="element clickable constant  constant_ESCAPE_FILTER" data-toggle="collapse" data-target=".constant_ESCAPE_FILTER .collapse" title="">
+<h2>ESCAPE_FILTER</h2>
+<pre>ESCAPE_FILTER = LDAP_ESCAPE_FILTER </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_INAPPROPRIATE_AUTH"> </a><div class="element clickable constant  constant_INAPPROPRIATE_AUTH" data-toggle="collapse" data-target=".constant_INAPPROPRIATE_AUTH .collapse" title="">
+<h2>INAPPROPRIATE_AUTH</h2>
+<pre>INAPPROPRIATE_AUTH = 48 </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_INAPPROPRIATE_MATCHING"> </a><div class="element clickable constant  constant_INAPPROPRIATE_MATCHING" data-toggle="collapse" data-target=".constant_INAPPROPRIATE_MATCHING .collapse" title="">
+<h2>INAPPROPRIATE_MATCHING</h2>
+<pre>INAPPROPRIATE_MATCHING = 18 </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_INSUFFICIENT_ACCESS"> </a><div class="element clickable constant  constant_INSUFFICIENT_ACCESS" data-toggle="collapse" data-target=".constant_INSUFFICIENT_ACCESS .collapse" title="">
+<h2>INSUFFICIENT_ACCESS</h2>
+<pre>INSUFFICIENT_ACCESS = 50 </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_INVALID_CREDENTIALS"> </a><div class="element clickable constant  constant_INVALID_CREDENTIALS" data-toggle="collapse" data-target=".constant_INVALID_CREDENTIALS .collapse" title="">
+<h2>INVALID_CREDENTIALS</h2>
+<pre>INVALID_CREDENTIALS = 49 </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_INVALID_DN_SYNTAX"> </a><div class="element clickable constant  constant_INVALID_DN_SYNTAX" data-toggle="collapse" data-target=".constant_INVALID_DN_SYNTAX .collapse" title="">
+<h2>INVALID_DN_SYNTAX</h2>
+<pre>INVALID_DN_SYNTAX = 34 </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_INVALID_SYNTAX"> </a><div class="element clickable constant  constant_INVALID_SYNTAX" data-toggle="collapse" data-target=".constant_INVALID_SYNTAX .collapse" title="">
+<h2>INVALID_SYNTAX</h2>
+<pre>INVALID_SYNTAX = 21 </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_IS_LEAF"> </a><div class="element clickable constant  constant_IS_LEAF" data-toggle="collapse" data-target=".constant_IS_LEAF .collapse" title="">
+<h2>IS_LEAF</h2>
+<pre>IS_LEAF = 35 </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_LOOP_DETECT"> </a><div class="element clickable constant  constant_LOOP_DETECT" data-toggle="collapse" data-target=".constant_LOOP_DETECT .collapse" title="">
+<h2>LOOP_DETECT</h2>
+<pre>LOOP_DETECT = 54 </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_MODIFY_BATCH_ADD"> </a><div class="element clickable constant  constant_MODIFY_BATCH_ADD" data-toggle="collapse" data-target=".constant_MODIFY_BATCH_ADD .collapse" title="">
+<h2>MODIFY_BATCH_ADD</h2>
+<pre>MODIFY_BATCH_ADD = LDAP_MODIFY_BATCH_ADD </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_MODIFY_BATCH_REMOVE"> </a><div class="element clickable constant  constant_MODIFY_BATCH_REMOVE" data-toggle="collapse" data-target=".constant_MODIFY_BATCH_REMOVE .collapse" title="">
+<h2>MODIFY_BATCH_REMOVE</h2>
+<pre>MODIFY_BATCH_REMOVE = LDAP_MODIFY_BATCH_REMOVE </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_MODIFY_BATCH_REMOVE_ALL"> </a><div class="element clickable constant  constant_MODIFY_BATCH_REMOVE_ALL" data-toggle="collapse" data-target=".constant_MODIFY_BATCH_REMOVE_ALL .collapse" title="">
+<h2>MODIFY_BATCH_REMOVE_ALL</h2>
+<pre>MODIFY_BATCH_REMOVE_ALL = LDAP_MODIFY_BATCH_REMOVE_ALL </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_MODIFY_BATCH_REPLACE"> </a><div class="element clickable constant  constant_MODIFY_BATCH_REPLACE" data-toggle="collapse" data-target=".constant_MODIFY_BATCH_REPLACE .collapse" title="">
+<h2>MODIFY_BATCH_REPLACE</h2>
+<pre>MODIFY_BATCH_REPLACE = LDAP_MODIFY_BATCH_REPLACE </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_NAMING_VIOLATION"> </a><div class="element clickable constant  constant_NAMING_VIOLATION" data-toggle="collapse" data-target=".constant_NAMING_VIOLATION .collapse" title="">
+<h2>NAMING_VIOLATION</h2>
+<pre>NAMING_VIOLATION = 64 </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_NOT_ALLOWED_ON_NONLEAF"> </a><div class="element clickable constant  constant_NOT_ALLOWED_ON_NONLEAF" data-toggle="collapse" data-target=".constant_NOT_ALLOWED_ON_NONLEAF .collapse" title="">
+<h2>NOT_ALLOWED_ON_NONLEAF</h2>
+<pre>NOT_ALLOWED_ON_NONLEAF = 66 </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_NOT_ALLOWED_ON_RDN"> </a><div class="element clickable constant  constant_NOT_ALLOWED_ON_RDN" data-toggle="collapse" data-target=".constant_NOT_ALLOWED_ON_RDN .collapse" title="">
+<h2>NOT_ALLOWED_ON_RDN</h2>
+<pre>NOT_ALLOWED_ON_RDN = 67 </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_NOT_PERMITTED_TO_LOGON_AT_THIS_TIME"> </a><div class="element clickable constant  constant_NOT_PERMITTED_TO_LOGON_AT_THIS_TIME" data-toggle="collapse" data-target=".constant_NOT_PERMITTED_TO_LOGON_AT_THIS_TIME .collapse" title="">
+<h2>NOT_PERMITTED_TO_LOGON_AT_THIS_TIME</h2>
+<pre>NOT_PERMITTED_TO_LOGON_AT_THIS_TIME = 530 </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_NO_OBJECT_CLASS_MODS"> </a><div class="element clickable constant  constant_NO_OBJECT_CLASS_MODS" data-toggle="collapse" data-target=".constant_NO_OBJECT_CLASS_MODS .collapse" title="">
+<h2>NO_OBJECT_CLASS_MODS</h2>
+<pre>NO_OBJECT_CLASS_MODS = 69 </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_NO_SUCH_ATTRIBUTE"> </a><div class="element clickable constant  constant_NO_SUCH_ATTRIBUTE" data-toggle="collapse" data-target=".constant_NO_SUCH_ATTRIBUTE .collapse" title="">
+<h2>NO_SUCH_ATTRIBUTE</h2>
+<pre>NO_SUCH_ATTRIBUTE = 16 </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_NO_SUCH_OBJECT"> </a><div class="element clickable constant  constant_NO_SUCH_OBJECT" data-toggle="collapse" data-target=".constant_NO_SUCH_OBJECT .collapse" title="">
+<h2>NO_SUCH_OBJECT</h2>
+<pre>NO_SUCH_OBJECT = 32 </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_OBJECT_CLASS_VIOLATION"> </a><div class="element clickable constant  constant_OBJECT_CLASS_VIOLATION" data-toggle="collapse" data-target=".constant_OBJECT_CLASS_VIOLATION .collapse" title="">
+<h2>OBJECT_CLASS_VIOLATION</h2>
+<pre>OBJECT_CLASS_VIOLATION = 65 </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_OPERATIONS_ERROR"> </a><div class="element clickable constant  constant_OPERATIONS_ERROR" data-toggle="collapse" data-target=".constant_OPERATIONS_ERROR .collapse" title="">
+<h2>OPERATIONS_ERROR</h2>
+<pre>OPERATIONS_ERROR = 1 </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_OPT_CLIENT_CONTROLS"> </a><div class="element clickable constant  constant_OPT_CLIENT_CONTROLS" data-toggle="collapse" data-target=".constant_OPT_CLIENT_CONTROLS .collapse" title="">
+<h2>OPT_CLIENT_CONTROLS</h2>
+<pre>OPT_CLIENT_CONTROLS = LDAP_OPT_CLIENT_CONTROLS </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_OPT_DEBUG_LEVEL"> </a><div class="element clickable constant  constant_OPT_DEBUG_LEVEL" data-toggle="collapse" data-target=".constant_OPT_DEBUG_LEVEL .collapse" title="">
+<h2>OPT_DEBUG_LEVEL</h2>
+<pre>OPT_DEBUG_LEVEL = LDAP_OPT_DEBUG_LEVEL </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_OPT_DEREF"> </a><div class="element clickable constant  constant_OPT_DEREF" data-toggle="collapse" data-target=".constant_OPT_DEREF .collapse" title="">
+<h2>OPT_DEREF</h2>
+<pre>OPT_DEREF = LDAP_OPT_DEREF </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_OPT_ERROR_NUMBER"> </a><div class="element clickable constant  constant_OPT_ERROR_NUMBER" data-toggle="collapse" data-target=".constant_OPT_ERROR_NUMBER .collapse" title="">
+<h2>OPT_ERROR_NUMBER</h2>
+<pre>OPT_ERROR_NUMBER = LDAP_OPT_ERROR_NUMBER </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_OPT_ERROR_STRING"> </a><div class="element clickable constant  constant_OPT_ERROR_STRING" data-toggle="collapse" data-target=".constant_OPT_ERROR_STRING .collapse" title="">
+<h2>OPT_ERROR_STRING</h2>
+<pre>OPT_ERROR_STRING = LDAP_OPT_ERROR_STRING </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_OPT_HOST_NAME"> </a><div class="element clickable constant  constant_OPT_HOST_NAME" data-toggle="collapse" data-target=".constant_OPT_HOST_NAME .collapse" title="">
+<h2>OPT_HOST_NAME</h2>
+<pre>OPT_HOST_NAME = LDAP_OPT_HOST_NAME </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_OPT_MATCHED_DN"> </a><div class="element clickable constant  constant_OPT_MATCHED_DN" data-toggle="collapse" data-target=".constant_OPT_MATCHED_DN .collapse" title="">
+<h2>OPT_MATCHED_DN</h2>
+<pre>OPT_MATCHED_DN = LDAP_OPT_MATCHED_DN </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_OPT_NETWORK_TIMEOUT"> </a><div class="element clickable constant  constant_OPT_NETWORK_TIMEOUT" data-toggle="collapse" data-target=".constant_OPT_NETWORK_TIMEOUT .collapse" title="">
+<h2>OPT_NETWORK_TIMEOUT</h2>
+<pre>OPT_NETWORK_TIMEOUT = LDAP_OPT_NETWORK_TIMEOUT </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_OPT_PROTOCOL_VERSION"> </a><div class="element clickable constant  constant_OPT_PROTOCOL_VERSION" data-toggle="collapse" data-target=".constant_OPT_PROTOCOL_VERSION .collapse" title="">
+<h2>OPT_PROTOCOL_VERSION</h2>
+<pre>OPT_PROTOCOL_VERSION = LDAP_OPT_PROTOCOL_VERSION </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_OPT_REFERRALS"> </a><div class="element clickable constant  constant_OPT_REFERRALS" data-toggle="collapse" data-target=".constant_OPT_REFERRALS .collapse" title="">
+<h2>OPT_REFERRALS</h2>
+<pre>OPT_REFERRALS = LDAP_OPT_REFERRALS </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_OPT_RESTART"> </a><div class="element clickable constant  constant_OPT_RESTART" data-toggle="collapse" data-target=".constant_OPT_RESTART .collapse" title="">
+<h2>OPT_RESTART</h2>
+<pre>OPT_RESTART = LDAP_OPT_RESTART </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_OPT_SERVER_CONTROLS"> </a><div class="element clickable constant  constant_OPT_SERVER_CONTROLS" data-toggle="collapse" data-target=".constant_OPT_SERVER_CONTROLS .collapse" title="">
+<h2>OPT_SERVER_CONTROLS</h2>
+<pre>OPT_SERVER_CONTROLS = LDAP_OPT_SERVER_CONTROLS </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_OPT_SIZELIMIT"> </a><div class="element clickable constant  constant_OPT_SIZELIMIT" data-toggle="collapse" data-target=".constant_OPT_SIZELIMIT .collapse" title="">
+<h2>OPT_SIZELIMIT</h2>
+<pre>OPT_SIZELIMIT = LDAP_OPT_SIZELIMIT </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_OPT_TIMELIMIT"> </a><div class="element clickable constant  constant_OPT_TIMELIMIT" data-toggle="collapse" data-target=".constant_OPT_TIMELIMIT .collapse" title="">
+<h2>OPT_TIMELIMIT</h2>
+<pre>OPT_TIMELIMIT = LDAP_OPT_TIMELIMIT </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_OPT_X_SASL_AUTHCID"> </a><div class="element clickable constant  constant_OPT_X_SASL_AUTHCID" data-toggle="collapse" data-target=".constant_OPT_X_SASL_AUTHCID .collapse" title="">
+<h2>OPT_X_SASL_AUTHCID</h2>
+<pre>OPT_X_SASL_AUTHCID = LDAP_OPT_X_SASL_AUTHCID </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_OPT_X_SASL_AUTHZID"> </a><div class="element clickable constant  constant_OPT_X_SASL_AUTHZID" data-toggle="collapse" data-target=".constant_OPT_X_SASL_AUTHZID .collapse" title="">
+<h2>OPT_X_SASL_AUTHZID</h2>
+<pre>OPT_X_SASL_AUTHZID = LDAP_OPT_X_SASL_AUTHZID </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_OPT_X_SASL_MECH"> </a><div class="element clickable constant  constant_OPT_X_SASL_MECH" data-toggle="collapse" data-target=".constant_OPT_X_SASL_MECH .collapse" title="">
+<h2>OPT_X_SASL_MECH</h2>
+<pre>OPT_X_SASL_MECH = LDAP_OPT_X_SASL_MECH </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_OPT_X_SASL_REALM"> </a><div class="element clickable constant  constant_OPT_X_SASL_REALM" data-toggle="collapse" data-target=".constant_OPT_X_SASL_REALM .collapse" title="">
+<h2>OPT_X_SASL_REALM</h2>
+<pre>OPT_X_SASL_REALM = LDAP_OPT_X_SASL_REALM </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_OTHER"> </a><div class="element clickable constant  constant_OTHER" data-toggle="collapse" data-target=".constant_OTHER .collapse" title="">
+<h2>OTHER</h2>
+<pre>OTHER = 80 </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_PASSWORD_EXPIRED"> </a><div class="element clickable constant  constant_PASSWORD_EXPIRED" data-toggle="collapse" data-target=".constant_PASSWORD_EXPIRED .collapse" title="">
+<h2>PASSWORD_EXPIRED</h2>
+<pre>PASSWORD_EXPIRED = 532 </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_PROTOCOL_ERROR"> </a><div class="element clickable constant  constant_PROTOCOL_ERROR" data-toggle="collapse" data-target=".constant_PROTOCOL_ERROR .collapse" title="">
+<h2>PROTOCOL_ERROR</h2>
+<pre>PROTOCOL_ERROR = 2 </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_REFERRAL"> </a><div class="element clickable constant  constant_REFERRAL" data-toggle="collapse" data-target=".constant_REFERRAL .collapse" title="">
+<h2>REFERRAL</h2>
+<pre>REFERRAL = 10 </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_RESTRICTED_TO_SPECIFIC_MACHINES"> </a><div class="element clickable constant  constant_RESTRICTED_TO_SPECIFIC_MACHINES" data-toggle="collapse" data-target=".constant_RESTRICTED_TO_SPECIFIC_MACHINES .collapse" title="">
+<h2>RESTRICTED_TO_SPECIFIC_MACHINES</h2>
+<pre>RESTRICTED_TO_SPECIFIC_MACHINES = 531 </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_RESULTS_TOO_LARGE"> </a><div class="element clickable constant  constant_RESULTS_TOO_LARGE" data-toggle="collapse" data-target=".constant_RESULTS_TOO_LARGE .collapse" title="">
+<h2>RESULTS_TOO_LARGE</h2>
+<pre>RESULTS_TOO_LARGE = 70 </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_SASL_BIND_IN_PROGRESS"> </a><div class="element clickable constant  constant_SASL_BIND_IN_PROGRESS" data-toggle="collapse" data-target=".constant_SASL_BIND_IN_PROGRESS .collapse" title="">
+<h2>SASL_BIND_IN_PROGRESS</h2>
+<pre>SASL_BIND_IN_PROGRESS = 14 </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_SCOPE_BASE"> </a><div class="element clickable constant  constant_SCOPE_BASE" data-toggle="collapse" data-target=".constant_SCOPE_BASE .collapse" title="">
+<h2>SCOPE_BASE</h2>
+<pre>SCOPE_BASE = 'ldap_read' </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_SCOPE_ONELEVEL"> </a><div class="element clickable constant  constant_SCOPE_ONELEVEL" data-toggle="collapse" data-target=".constant_SCOPE_ONELEVEL .collapse" title="">
+<h2>SCOPE_ONELEVEL</h2>
+<pre>SCOPE_ONELEVEL = 'ldap_list' </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_SCOPE_SUBTREE"> </a><div class="element clickable constant  constant_SCOPE_SUBTREE" data-toggle="collapse" data-target=".constant_SCOPE_SUBTREE .collapse" title="">
+<h2>SCOPE_SUBTREE</h2>
+<pre>SCOPE_SUBTREE = 'ldap_search' </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_SIZELIMIT_EXCEEDED"> </a><div class="element clickable constant  constant_SIZELIMIT_EXCEEDED" data-toggle="collapse" data-target=".constant_SIZELIMIT_EXCEEDED .collapse" title="">
+<h2>SIZELIMIT_EXCEEDED</h2>
+<pre>SIZELIMIT_EXCEEDED = 4 </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_STRONG_AUTH_REQUIRED"> </a><div class="element clickable constant  constant_STRONG_AUTH_REQUIRED" data-toggle="collapse" data-target=".constant_STRONG_AUTH_REQUIRED .collapse" title="">
+<h2>STRONG_AUTH_REQUIRED</h2>
+<pre>STRONG_AUTH_REQUIRED = 8 </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_SUCCESS"> </a><div class="element clickable constant  constant_SUCCESS" data-toggle="collapse" data-target=".constant_SUCCESS .collapse" title="">
+<h2>SUCCESS</h2>
+<pre>SUCCESS = 0 </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_TIMELIMIT_EXCEEDED"> </a><div class="element clickable constant  constant_TIMELIMIT_EXCEEDED" data-toggle="collapse" data-target=".constant_TIMELIMIT_EXCEEDED .collapse" title="">
+<h2>TIMELIMIT_EXCEEDED</h2>
+<pre>TIMELIMIT_EXCEEDED = 3 </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_TYPE_OR_VALUE_EXISTS"> </a><div class="element clickable constant  constant_TYPE_OR_VALUE_EXISTS" data-toggle="collapse" data-target=".constant_TYPE_OR_VALUE_EXISTS .collapse" title="">
+<h2>TYPE_OR_VALUE_EXISTS</h2>
+<pre>TYPE_OR_VALUE_EXISTS = 20 </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_UNAVAILABLE"> </a><div class="element clickable constant  constant_UNAVAILABLE" data-toggle="collapse" data-target=".constant_UNAVAILABLE .collapse" title="">
+<h2>UNAVAILABLE</h2>
+<pre>UNAVAILABLE = 52 </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_UNAVAILABLE_CRITICAL_EXTENSION"> </a><div class="element clickable constant  constant_UNAVAILABLE_CRITICAL_EXTENSION" data-toggle="collapse" data-target=".constant_UNAVAILABLE_CRITICAL_EXTENSION .collapse" title="">
+<h2>UNAVAILABLE_CRITICAL_EXTENSION</h2>
+<pre>UNAVAILABLE_CRITICAL_EXTENSION = 12 </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_UNDEFINED_TYPE"> </a><div class="element clickable constant  constant_UNDEFINED_TYPE" data-toggle="collapse" data-target=".constant_UNDEFINED_TYPE .collapse" title="">
+<h2>UNDEFINED_TYPE</h2>
+<pre>UNDEFINED_TYPE = 17 </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_UNWILLING_TO_PERFORM"> </a><div class="element clickable constant  constant_UNWILLING_TO_PERFORM" data-toggle="collapse" data-target=".constant_UNWILLING_TO_PERFORM .collapse" title="">
+<h2>UNWILLING_TO_PERFORM</h2>
+<pre>UNWILLING_TO_PERFORM = 53 </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_USER_ACCOUNT_LOCKED"> </a><div class="element clickable constant  constant_USER_ACCOUNT_LOCKED" data-toggle="collapse" data-target=".constant_USER_ACCOUNT_LOCKED .collapse" title="">
+<h2>USER_ACCOUNT_LOCKED</h2>
+<pre>USER_ACCOUNT_LOCKED = 775 </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_USER_MUST_RESET_PASSWORD"> </a><div class="element clickable constant  constant_USER_MUST_RESET_PASSWORD" data-toggle="collapse" data-target=".constant_USER_MUST_RESET_PASSWORD .collapse" title="">
+<h2>USER_MUST_RESET_PASSWORD</h2>
+<pre>USER_MUST_RESET_PASSWORD = 773 </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_USER_NOT_FOUND"> </a><div class="element clickable constant  constant_USER_NOT_FOUND" data-toggle="collapse" data-target=".constant_USER_NOT_FOUND .collapse" title="">
+<h2>USER_NOT_FOUND</h2>
+<pre>USER_NOT_FOUND = 525 </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row"><footer class="span12">
+            Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
+            Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.8.1</a> and<br>
+            generated on 2014-12-16T22:05:23Z.<br></footer></div>
+</div>
+</body>
+</html>
