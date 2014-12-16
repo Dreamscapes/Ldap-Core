@@ -13,7 +13,8 @@
         "psr-0": { "Dreamscapes\\": "." }
     },
     "require": {
-        "php": ">=5.4.0"
+        "php": ">=5.4.0",
+        "ext-ldap": "*"
     },
     "require-dev": {
         "squizlabs/php_codesniffer": "~2",
