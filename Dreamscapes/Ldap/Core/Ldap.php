@@ -77,10 +77,10 @@ if (! defined('LDAP_MODIFY_BATCH_REMOVE_ALL')) {
 /**
  * Object encapsulation of the resource(ldap link) native object
  *
- * @method  ResultResource read()   Perform search operation with SCOPE_BASE - see self::search()
- *                                  for argument list
- * @method  ResultResource list()   Perform search operation with SCOPE_ONELEVEL - see
- *                                  self::search() for argument list
+ * @method  Result read()   Perform search operation with SCOPE_BASE - see self::search()
+ *                          for argument list
+ * @method  Result list()   Perform search operation with SCOPE_ONELEVEL - see
+ *                          self::search() for argument list
  *
  * @package Ldap-Core
  */
@@ -606,7 +606,7 @@ class Ldap
      * @param  integer $timeLimit   Sets the number of seconds how long is spend on the search.
      *                              Setting this to 0 means no limit.
      * @param  integer $deref       Specifies how aliases should be handled during the search
-     * @return ResultResource
+     * @return Result
      */
     public function search(
         $baseDn,
@@ -630,7 +630,7 @@ class Ldap
         );
         $this->verifyOperation();
 
-        return new ResultResource($this, $result);
+        return new Result($this, $result);
     }
 
     /**
@@ -702,7 +702,7 @@ class Ldap
      *
      * @param  string           $method Method name that was called
      * @param  array            $args   Arguments with which the method was called
-     * @return ResultResource
+     * @return Result
      */
     public function __call($method, $args)
     {
