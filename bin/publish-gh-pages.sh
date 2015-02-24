@@ -20,9 +20,9 @@ FOLDER="docs"
 
 # CONDITIONS
 
-# Only publish when running tests for PHP 5.5, when committing to master and when not building a pull request
+# Only publish when running tests for PHP 5.6, when committing to master and when not building a pull request
 if [ "$TRAVIS_BRANCH" != "master" ] \
-|| [ "$TRAVIS_PHP_VERSION" != "5.5" ] \
+|| [ "$TRAVIS_PHP_VERSION" != "5.6" ] \
 || [ "$TRAVIS_PULL_REQUEST" != "false" ]
 then
   echo "Not updating gh-pages for this build"
