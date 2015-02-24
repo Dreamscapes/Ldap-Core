@@ -46,7 +46,7 @@ vendor:
 
 # Lint all PHP files to conform to the PSR-2 coding style guide
 lint: vendor
-	@$(BIN)phpcs --standard=PSR2 --ignore=vendor/*,$(DOCDIR)/* -p $(LIBDIR)
+	@$(BIN)phpcs --standard=PSR2 -p $(LIBDIR)
 
 # Generate API documentation (configuration available in phpdoc.dist.xml)
 docs: vendor
