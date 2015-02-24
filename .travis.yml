@@ -4,11 +4,9 @@ php:
 - '5.5'
 - '5.4'
 before_install: echo "extension=ldap.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
-install: composer install
-script: './vendor/bin/phpcs --standard=PSR2 --ignore=vendor/*,docs/* -p .'
-after_success:
-- './vendor/bin/phpdoc'
-- './bin/publish-gh-pages.sh'
+install: make install
+script: make lint
+after_success: '[[ -n "$TRAVIS_TAG" ]] && make gh-pages'
 env:
   global:
     secure: fZXPsnwuJ+OXyWoGmpltUcPbcWdNAic9S8fWuaGIvbSbyrN+blEEnnZzyGTCKabBG7k3yEMgP9URGxrzVv4gIB8l1K9GK2mH82RqBbpaRL/5S3Zn7eN9VCgcN2t5ihMSh9dtDSOdW7zc5j+asQSmppieTLa0UQ5wBPhKbHpixKk=
