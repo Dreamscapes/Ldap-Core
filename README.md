@@ -1,5 +1,7 @@
-Ldap Core [![Build Status](https://travis-ci.org/Dreamscapes/Ldap-Core.svg)](https://travis-ci.org/Dreamscapes/Ldap-Core)
-=========
+# Ldap Core
+
+[![Build Status][travis-badge]][travis-url]
+![Built with GNU Make][make-badge]
 
 > Object-oriented implementation of PHP's native ldap functions
 
@@ -32,7 +34,7 @@ See the [Travis docs](http://docs.travis-ci.com/user/languages/php/#Custom-PHP-c
 
 ## Usage
 
-There are two classes - `Dreamscapes\Ldap\Core\Ldap` and `Dreamscapes\Ldap\Core\ResultResource`, each of which implement part of the native ldap functions as instance methods (some functions which do not operate on the resource objects are static). The differentiating principle is simple - if the function deals with the state of the ldap connection, it is implemented in the first, whereas functions dealing with the data returned from ldap server (the result resource) are implemented in the latter class.
+There are two classes - `Dreamscapes\Ldap\Core\Ldap` and `Dreamscapes\Ldap\Core\Result`, each of which implement part of the native ldap functions as instance methods (some functions which do not operate on the resource objects are static). The differentiating principle is simple - if the function deals with the state of the ldap connection, it is implemented in the first, whereas functions dealing with the data returned from ldap server (the result resource) are implemented in the latter class.
 
 ### Deviations
 
@@ -61,7 +63,7 @@ $con->bind('admin@example.com', 'my pass'); // Example AD credentials
 // Read the rootDSE entry
 $res = $con->read('', 'objectclass=*', ['*']);
 
-// $res is now instance of ResultResource class
+// $res is now instance of Result class
 echo "Number of entries in resultset: " . $res->countEntries();
 print_r($res->getEntries());
 ```
@@ -81,3 +83,7 @@ Documentation is now available at *./docs/index.html*
 
 This software is licensed under the **BSD (3-Clause) License**.
 See the [LICENSE](LICENSE) file for more information.
+
+[travis-badge]: https://travis-ci.org/Dreamscapes/Ldap-Core.svg
+[travis-url]: https://travis-ci.org/Dreamscapes/Ldap-Core
+[make-badge]: https://img.shields.io/badge/built%20with-GNU%20Make-brightgreen.svg
