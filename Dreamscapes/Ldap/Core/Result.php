@@ -107,7 +107,9 @@ class Result extends ResultResource
     {
         $referrals = null;
 
-        ldap_parse_reference($this->link, $this->resource, $referrals);
+        // Intentionally  suppressing errors here because it logs a warning when there are no
+        // referrals. And there is no way to check IF there are any referrals. Go figure...
+        @ldap_parse_reference($this->link, $this->resource, $referrals);
 
         return $referrals;
     }

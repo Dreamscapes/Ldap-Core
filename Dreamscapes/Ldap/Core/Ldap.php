@@ -293,7 +293,7 @@ class Ldap
      */
     public function add($dn, array $entry)
     {
-        ldap_add($this->resource, $dn, $entry);
+        @ldap_add($this->resource, $dn, $entry);
         $this->verifyOperation();
 
         return $this;
@@ -315,7 +315,7 @@ class Ldap
      */
     public function compare($dn, $attribute, $value)
     {
-        $retVal = ldap_compare($this->resource, $dn, $attribute, $value);
+        $retVal = @ldap_compare($this->resource, $dn, $attribute, $value);
         $this->verifyOperation();
 
         return $retVal;
@@ -329,7 +329,7 @@ class Ldap
      */
     public function delete($dn)
     {
-        ldap_delete($this->resource, $dn);
+        @ldap_delete($this->resource, $dn);
         $this->verifyOperation();
 
         return $this;
@@ -345,7 +345,7 @@ class Ldap
     public function connect($ldapUrl)
     {
         // Make sure the connection has been established successfully
-        if (! $this->resource = ldap_connect($ldapUrl)) {
+        if (! $this->resource = @ldap_connect($ldapUrl)) {
             throw new \Exception(sprintf("Unable to connect to ldap server %s", $ldapUrl));
         }
 
@@ -380,7 +380,7 @@ class Ldap
      */
     public function bind($bindDn = null, $bindPassword = null)
     {
-        ldap_bind($this->resource, $bindDn, $bindPassword);
+        @ldap_bind($this->resource, $bindDn, $bindPassword);
         $this->verifyOperation();
 
         return $this;
@@ -429,7 +429,7 @@ class Ldap
      */
     public function modAdd($dn, array $entry)
     {
-        ldap_mod_add($this->resource, $dn, $entry);
+        @ldap_mod_add($this->resource, $dn, $entry);
         $this->verifyOperation();
 
         return $this;
@@ -444,7 +444,7 @@ class Ldap
      */
     public function modDelete($dn, array $entry)
     {
-        ldap_mod_del($this->resource, $dn, $entry);
+        @ldap_mod_del($this->resource, $dn, $entry);
         $this->verifyOperation();
 
         return $this;
@@ -471,7 +471,7 @@ class Ldap
      */
     public function modReplace($dn, array $entry)
     {
-        ldap_mod_replace($this->resource, $dn, $entry);
+        @ldap_mod_replace($this->resource, $dn, $entry);
         $this->verifyOperation();
 
         return $this;
@@ -486,7 +486,7 @@ class Ldap
      */
     public function modify($dn, array $entry)
     {
-        ldap_modify($this->resource, $dn, $entry);
+        @ldap_modify($this->resource, $dn, $entry);
         $this->verifyOperation();
 
         return $this;
@@ -525,7 +525,7 @@ class Ldap
             );
         }
 
-        ldap_modify_batch($this->resource, $dn, $entry);
+        @ldap_modify_batch($this->resource, $dn, $entry);
         $this->verifyOperation();
 
         return $this;
@@ -543,7 +543,7 @@ class Ldap
      */
     public function rename($dn, $newRdn, $newParent, $deleteOldRdn)
     {
-        ldap_rename($this->resource, $dn, $newrdn, $newparent, $deleteoldrdn);
+        @ldap_rename($this->resource, $dn, $newrdn, $newparent, $deleteoldrdn);
         $this->verifyOperation();
 
         return $this;
@@ -570,7 +570,7 @@ class Ldap
         $saslAuthzId = null,
         $props = null
     ) {
-        ldap_sasl_bind(
+        @ldap_sasl_bind(
             $this->resource,
             $bindDn,
             $bindPassword,
@@ -641,7 +641,7 @@ class Ldap
      */
     public function setOption($option, $newVal)
     {
-        ldap_set_option($this->resource, $option, $newVal);
+        @ldap_set_option($this->resource, $option, $newVal);
         $this->verifyOperation();
 
         return $this;
@@ -655,7 +655,7 @@ class Ldap
      */
     public function setRebindProcedure(callable $callback)
     {
-        ldap_set_rebind_proc($this->resource, $callback);
+        @ldap_set_rebind_proc($this->resource, $callback);
         $this->verifyOperation();
 
         return $this;
@@ -679,7 +679,7 @@ class Ldap
      */
     public function startTls()
     {
-        ldap_start_tls($this->resource);
+        @ldap_start_tls($this->resource);
         $this->verifyOperation();
 
         return $this;
