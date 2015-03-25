@@ -5,5 +5,7 @@ This library follows [PSR-2](http://www.php-fig.org/psr/psr-2) coding style. Whe
 To check your code, run:
 ```
 composer install
-./vendor/bin/phpcs --standard=PSR2 --ignore=vendor/*,docs/* -p .
+make lint
+# Or...
+vendor/bin/phpcs --standard=PSR2 -p Dreamscapes
 ```

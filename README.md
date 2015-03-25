@@ -45,7 +45,7 @@ All methods are named as close to the original functions as possible, although w
 1. The method names are **camelCased** instead of **underscore_based**
 1. All methods return data by returning them and not by populating variables passed as references
 1. Some functions are not implemented (usually because they are redundant)
-1. Exceptions are thrown if the ldap protocol encounters an error, although standard PHP warnings and errors are not suppressed in most cases (still considering this)
+1. Exceptions are thrown if the ldap protocol encounters an error, and standard PHP warnings and errors are suppressed in most cases
 
 ### Example
 ```php
@@ -75,7 +75,7 @@ Online API documentation is available [here](http://dreamscapes.github.io/Ldap-C
 git clone https://github.com/Dreamscapes/Ldap-Core.git
 cd Ldap-Core
 composer install
-php vendor/bin/phpdoc
+make docs
 ```
 Documentation is now available at *./docs/index.html*
 
