@@ -77,10 +77,12 @@ if (! defined('LDAP_MODIFY_BATCH_REMOVE_ALL')) {
 /**
  * Object encapsulation of the resource(ldap link) native object
  *
- * @method  Result read()   Perform search operation with SCOPE_BASE - see self::search()
+ * @method  Result read()   Perform search operation with SCOPE_BASE - see self::ldapSearch()
  *                          for argument list
  * @method  Result list()   Perform search operation with SCOPE_ONELEVEL - see
- *                          self::search() for argument list
+ *                          self::ldapSearch() for argument list
+ * @method  Result search() Perform search operation with SCOPE_SUBTREE - see
+ *                          self::ldapSearch() for argument list
  *
  * @package Ldap-Core
  */
@@ -608,7 +610,7 @@ class Ldap
      * @param  integer $deref       Specifies how aliases should be handled during the search
      * @return Result
      */
-    public function search(
+    public function ldapSearch(
         $baseDn,
         $filter,
         array $attributes,
@@ -698,7 +700,7 @@ class Ldap
     }
 
     /**
-     * Magic method to provide read() and list() methods
+     * Magic method to provide read(), list() and search() methods
      *
      * @param  string           $method Method name that was called
      * @param  array            $args   Arguments with which the method was called
@@ -709,6 +711,7 @@ class Ldap
         $scopeMap = [
             'read' => static::SCOPE_BASE,
             'list' => static::SCOPE_ONELEVEL,
+            'search' => static::SCOPE_SUBTREE,
         ];
 
         // Only the methods above are allowed to be called magically
@@ -719,11 +722,16 @@ class Ldap
             );
         }
 
-        // Append the search scope to the argument list
-        $args[] = $scopeMap[$method];
+        // Pad the args array to 3 elements. If this actually happens and the NULLs are inserted,
+        // it will cause an error - missing required arguments. This is by design - the first 3
+        // arguments to ldap_search are mandatory. With this hat trick, we do not have to throw that
+        // exception ourselves, letting PHP do the job.
+        $args = array_pad($args, 3, null);
+        // Append the search scope to the argument list at key 3 (fourth arg)
+        array_splice($args, 3, 0, $scopeMap[$method]);
 
         // Do the actual search
-        return call_user_func_array([$this, 'search'], $args);
+        return call_user_func_array([$this, 'ldapSearch'], $args);
     }
 
 
