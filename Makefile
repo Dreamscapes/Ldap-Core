@@ -6,7 +6,7 @@
 # @author       Robert Rossmann <rr.rossmann@me.com>
 # @copyright    2015 Robert Rossmann
 # @link         https://github.com/Dreamscapes/Ldap-Core
-# @license      http://choosealicense.com/licenses/BSD-3-Clause  BSD-3-Clause License
+# @license      http://choosealicense.com/licenses/bsd-3-clause  BSD-3-Clause License
 
 # Helper vars
 BIN = vendor/bin/
