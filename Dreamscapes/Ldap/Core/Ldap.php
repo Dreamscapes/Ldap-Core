@@ -708,14 +708,14 @@ class Ldap
      */
     public function __call($method, $args)
     {
-        $scopeMap = [
+        $allowed = [
             'read' => static::SCOPE_BASE,
             'list' => static::SCOPE_ONELEVEL,
             'search' => static::SCOPE_SUBTREE,
         ];
 
         // Only the methods above are allowed to be called magically
-        if (! in_array($method, array_keys($scopeMap))) {
+        if (! in_array($method, array_keys($allowed))) {
             trigger_error(
                 sprintf('Call to undefined method %s::%s()', __CLASS__, $method),
                 E_USER_ERROR
@@ -728,7 +728,7 @@ class Ldap
         // exception ourselves, letting PHP do the job.
         $args = array_pad($args, 3, null);
         // Append the search scope to the argument list at key 3 (fourth arg)
-        array_splice($args, 3, 0, $scopeMap[$method]);
+        array_splice($args, 3, 0, $allowed[$method]);
 
         // Do the actual search
         return call_user_func_array([$this, 'ldapSearch'], $args);
