@@ -142,9 +142,9 @@ class Ldap
     const USER_ACCOUNT_LOCKED                   = 775;
 
     // LDAP SEARCH SCOPES
-    const SCOPE_BASE                            = 'ldap_read';
-    const SCOPE_ONELEVEL                        = 'ldap_list';
-    const SCOPE_SUBTREE                         = 'ldap_search';
+    const SCOPE_BASE                            = 0x0;
+    const SCOPE_ONELEVEL                        = 0x1;
+    const SCOPE_SUBTREE                         = 0x2;
 
     // LDAP OPTIONS
     const OPT_DEREF                             = LDAP_OPT_DEREF;
@@ -620,7 +620,25 @@ class Ldap
         $timeLimit = 0,
         $deref = LDAP_DEREF_NEVER
     ) {
-        $result = $scope(
+        // Select the appropriate method based on scope
+        switch($scope) {
+            case static::SCOPE_BASE:
+                $method = 'ldap_read';
+                break;
+
+            case static::SCOPE_ONELEVEL:
+                $method = 'ldap_list';
+                break;
+
+            case static::SCOPE_SUBTREE:
+                $method = 'ldap_search';
+                break;
+
+            default:
+                throw new \Exception(sprintf('Unrecognised search scope %s', $scope));
+        }
+
+        $result = $method(
             $this->resource,
             $baseDn,
             $filter,
