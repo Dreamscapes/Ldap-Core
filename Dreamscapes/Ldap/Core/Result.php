@@ -20,7 +20,7 @@ namespace Dreamscapes\Ldap\Core;
  *
  * @package Ldap-Core
  */
-class Result extends ResultResource
+class Result
 {
     /**
      * PHP's native ldap link resource object
