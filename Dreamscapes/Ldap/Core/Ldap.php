@@ -642,7 +642,7 @@ class Ldap
                 throw new \Exception(sprintf('Unrecognised search scope %s', $scope));
         }
 
-        $result = $method(
+        $result = @$method(
             $this->resource,
             $baseDn,
             $filter,
@@ -719,7 +719,7 @@ class Ldap
      */
     public function unbind()
     {
-        ldap_unbind($this->resource);
+        @ldap_unbind($this->resource);
     }
 
     /**
