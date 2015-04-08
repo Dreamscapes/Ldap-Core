@@ -548,7 +548,7 @@ class Ldap
      */
     public function rename($dn, $newRdn, $newParent, $deleteOldRdn)
     {
-        @ldap_rename($this->resource, $dn, $newrdn, $newparent, $deleteoldrdn);
+        @ldap_rename($this->resource, $dn, $newRdn, $newParent, $deleteOldRdn);
         $this->verifyOperation();
 
         return $this;
