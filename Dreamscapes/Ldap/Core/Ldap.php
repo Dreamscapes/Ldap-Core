@@ -760,8 +760,17 @@ class Ldap
      */
     protected function verifyOperation()
     {
-        $this->code = ldap_errno($this->resource);
-        $this->message = ldap_error($this->resource);
+        // This could happen if Ldap::unbind() has been called and then another ldap operation was
+        // attempted with this link - in that case, the resource type will be 'Unknown'
+        // This is an exceptional situation and so I shall throw one at you (see switch below)
+        if (get_resource_type($this->resource) !== 'ldap link') {
+            // I hope this code is not used by ldap...
+            $this->code = -2;
+            $this->message = 'Not a valid ldap link resource';
+        } else {
+            $this->code = ldap_errno($this->resource);
+            $this->message = ldap_error($this->resource);
+        }
 
         // Active Directory conceals some additional error codes in the ErrorMessage of the response
         // that we cannot get to with ldap_errno() in authentication failures - let's try to extract
@@ -790,6 +799,10 @@ class Ldap
             case static::COMPARE_TRUE:
 
                 break;
+
+            // An ldap operation was performed on a resource that has been already closed
+            case -2:
+                throw new \Exception($this->message, $this->code);
 
             default:
                 throw new LdapException($this);
