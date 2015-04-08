@@ -3,6 +3,7 @@ vendor
 docs
 tmp
 phpdoc.xml
+composer.lock
 
 # Platform-specific excludes
 thumbs.db
@@ -10,3 +11,4 @@ thumbs.db
 
 # Code editor-specific excludes
 *.sublime-*
+.idea
