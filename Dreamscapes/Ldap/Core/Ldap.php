@@ -301,7 +301,9 @@ class Ldap
         return $this;
     }
 
-    /** Alias of self::unbind() */
+    /**
+     * Alias of self::unbind()
+     */
     public function close()
     {
         return $this->unbind();
@@ -343,6 +345,7 @@ class Ldap
      * @param  string       $ldapUrl    Ldap URI string of the ldap server (i.e.
      *                                  ldap://my.server.com:389)
      * @return self
+     * @throws \Exception               On connect error.
      */
     public function connect($ldapUrl)
     {
@@ -545,7 +548,7 @@ class Ldap
      */
     public function rename($dn, $newRdn, $newParent, $deleteOldRdn)
     {
-        @ldap_rename($this->resource, $dn, $newrdn, $newparent, $deleteoldrdn);
+        @ldap_rename($this->resource, $dn, $newRdn, $newParent, $deleteOldRdn);
         $this->verifyOperation();
 
         return $this;
@@ -600,7 +603,7 @@ class Ldap
      * @param  string  $filter      Ldap query filter (an empty filter is not allowed)
      * @param  array   $attributes  An array of the required attributes, e.g. array("mail", "sn",
      *                              "cn")
-     * @param  string  $scope       One of self::SCOPE_SUBTREE, self::SCOPE_ONELEVEL or
+     * @param  int     $scope       One of self::SCOPE_SUBTREE, self::SCOPE_ONELEVEL or
      *                              self::SCOPE_BASE
      * @param  boolean $attrsOnly   Should be set to 1 if only attribute types are wanted
      * @param  integer $sizeLimit   Enables you to limit the count of entries fetched. Setting this
@@ -609,6 +612,7 @@ class Ldap
      *                              Setting this to 0 means no limit.
      * @param  integer $deref       Specifies how aliases should be handled during the search
      * @return Result
+     * @throws \Exception           On Unrecognised search scope
      */
     public function ldapSearch(
         $baseDn,
@@ -638,7 +642,7 @@ class Ldap
                 throw new \Exception(sprintf('Unrecognised search scope %s', $scope));
         }
 
-        $result = $method(
+        $result = @$method(
             $this->resource,
             $baseDn,
             $filter,
@@ -658,6 +662,7 @@ class Ldap
      *
      * @param integer $option An lDAP option constant
      * @param mixed   $newVal The new value for the option
+     * @return self
      */
     public function setOption($option, $newVal)
     {
@@ -714,7 +719,7 @@ class Ldap
      */
     public function unbind()
     {
-        ldap_unbind($this->resource);
+        @ldap_unbind($this->resource);
     }
 
     /**
@@ -757,6 +762,7 @@ class Ldap
      * Check the ldap status code and throw exception on error
      *
      * @return void
+     * @throws LdapException On LDAP error.
      */
     protected function verifyOperation()
     {
