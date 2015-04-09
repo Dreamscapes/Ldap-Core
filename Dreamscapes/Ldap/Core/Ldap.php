@@ -602,7 +602,7 @@ class Ldap
      * @param  string  $baseDn      The base DN for the directory
      * @param  string  $filter      Ldap query filter (an empty filter is not allowed)
      * @param  array   $attributes  An array of the required attributes, e.g. array("mail", "sn",
-     *                              "cn")
+     *                              "cn"). Empty array (the default) means all attributes
      * @param  int     $scope       One of self::SCOPE_SUBTREE, self::SCOPE_ONELEVEL or
      *                              self::SCOPE_BASE
      * @param  boolean $attrsOnly   Should be set to 1 if only attribute types are wanted
@@ -617,7 +617,7 @@ class Ldap
     public function ldapSearch(
         $baseDn,
         $filter,
-        array $attributes,
+        array $attributes = [],
         $scope = self::SCOPE_SUBTREE,
         $attrsOnly = false,
         $sizeLimit = 0,
@@ -745,11 +745,13 @@ class Ldap
             );
         }
 
-        // Pad the args array to 3 elements. If this actually happens and the NULLs are inserted,
-        // it will cause an error - missing required arguments. This is by design - the first 3
-        // arguments to ldap_search are mandatory. With this hat trick, we do not have to throw that
-        // exception ourselves, letting PHP do the job.
-        $args = array_pad($args, 3, null);
+        // Pad the args array to 2 elements. If this actually happens and the NULLs are inserted,
+        // it will cause an error - missing required arguments. This is by design - the first 2
+        // arguments to ldap_search (not counting link_identifier) are mandatory. With this hat
+        // trick, we do not have to throw that exception ourselves, letting PHP do the job.
+        $args = array_pad($args, 2, null);
+        // If third argument is missing (attributes), make it the default empty array (meaning all attributes).
+        $args = array_pad($args, 3, []);
         // Append the search scope to the argument list at key 3 (fourth arg)
         array_splice($args, 3, 0, $allowed[$method]);
 
