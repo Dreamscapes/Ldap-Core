@@ -289,8 +289,8 @@ class Ldap
     /**
      * Add entries to LDAP directory
      *
-     * @param string $dn    The distinguished name of an LDAP entity
-     * @param array  $entry An array that specifies the information about the entry
+     * @param  string $dn    The distinguished name of an LDAP entity
+     * @param  array  $entry An array that specifies the information about the entry
      * @return self
      */
     public function add($dn, array $entry)
@@ -660,8 +660,8 @@ class Ldap
     /**
      * Set the value of the given option
      *
-     * @param integer $option An lDAP option constant
-     * @param mixed   $newVal The new value for the option
+     * @param  integer $option An lDAP option constant
+     * @param  mixed   $newVal The new value for the option
      * @return self
      */
     public function setOption($option, $newVal)
@@ -689,7 +689,7 @@ class Ldap
     /**
      * Compatibility alias of self::setRebindProcedure()
      *
-     * @param callable $callback
+     * @param  callable $callback
      * @return self
      */
     public function setRebindProc(callable $callback)
