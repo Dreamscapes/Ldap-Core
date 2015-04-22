@@ -50,19 +50,27 @@ class Result
     /**
      * Retrieve the LDAP pagination cookie
      *
-     * @return array    Array with two keys: 'cookie' and 'estimated'
+     * @param  string       $key    Optionally return only one of the keys: 'cookie' or 'estimated'
+     * @return array|mixed          Array with two keys: 'cookie' and 'estimated' or, if `$key` was
+     *                              specified, returns the value of only that key
      */
-    public function pagedResultResponse()
+    public function pagedResultResponse($key = null)
     {
         $cookie = null;
         $estimated = null;
 
         @ldap_control_paged_result_response($this->link, $this->resource, $cookie, $estimated);
 
-        return [
-            'cookie' => $cookie,
-            'estimated' => $estimated,
-        ];
+        switch ($key) {
+            case 'cookie':
+                return $cookie;
+
+            case 'estimated':
+                return $estimated;
+
+            default:
+                return [ 'cookie' => $cookie, 'estimated' => $estimated ];
+        }
     }
 
     /**
