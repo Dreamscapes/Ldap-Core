@@ -734,7 +734,8 @@ class Ldap
         // arguments to ldap_search (not counting link_identifier) are mandatory. With this hat
         // trick, we do not have to throw that exception ourselves, letting PHP do the job.
         $args = array_pad($args, 2, null);
-        // If third argument is missing (attributes), make it the default empty array (meaning all attributes).
+        // If third argument is missing (attributes), make it the default empty array (meaning all
+        // attributes).
         $args = array_pad($args, 3, []);
         // Append the search scope to the argument list at key 3 (fourth arg)
         array_splice($args, 3, 0, $allowed[$method]);
