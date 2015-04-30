@@ -624,25 +624,9 @@ class Ldap
         $timeLimit = 0,
         $deref = LDAP_DEREF_NEVER
     ) {
-        // Select the appropriate method based on scope
-        switch($scope) {
-            case static::SCOPE_BASE:
-                $method = 'ldap_read';
-                break;
+        $function = $this->scopeToFunction($scope);
 
-            case static::SCOPE_ONELEVEL:
-                $method = 'ldap_list';
-                break;
-
-            case static::SCOPE_SUBTREE:
-                $method = 'ldap_search';
-                break;
-
-            default:
-                throw new \Exception(sprintf('Unrecognised search scope %s', $scope));
-        }
-
-        $result = @$method(
+        $result = @$function(
             $this->resource,
             $baseDn,
             $filter,
@@ -815,5 +799,35 @@ class Ldap
             default:
                 throw new LdapException($this);
         }
+    }
+
+
+    /**
+     * Translate an ldap scope static constant to function name
+     *
+     * @param  mixed $scope Scope constant to be translated
+     * @return string       Function name representing the ldap operation of that scope
+     */
+    protected function scopeToFunction($scope)
+    {
+        // Select the appropriate function based on scope
+        switch($scope) {
+            case static::SCOPE_BASE:
+                $function = 'ldap_read';
+                break;
+
+            case static::SCOPE_ONELEVEL:
+                $function = 'ldap_list';
+                break;
+
+            case static::SCOPE_SUBTREE:
+                $function = 'ldap_search';
+                break;
+
+            default:
+                throw new \Exception(sprintf('Unrecognised search scope %s', $scope));
+        }
+
+        return $function;
     }
 }
