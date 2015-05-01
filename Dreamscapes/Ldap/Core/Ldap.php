@@ -599,19 +599,25 @@ class Ldap
      * self::SCOPE_ONELEVEL - equivalent of ldap_list()
      * self::SCOPE_BASE - equivalent of ldap_read()
      *
-     * @param  string  $baseDn      The base DN for the directory
-     * @param  string  $filter      Ldap query filter (an empty filter is not allowed)
-     * @param  array   $attributes  An array of the required attributes, e.g. array("mail", "sn",
-     *                              "cn"). Empty array (the default) means all attributes
-     * @param  int     $scope       One of self::SCOPE_SUBTREE, self::SCOPE_ONELEVEL or
-     *                              self::SCOPE_BASE
-     * @param  boolean $attrsOnly   Should be set to 1 if only attribute types are wanted
-     * @param  integer $sizeLimit   Enables you to limit the count of entries fetched. Setting this
-     *                              to 0 means no limit
-     * @param  integer $timeLimit   Sets the number of seconds how long is spend on the search.
-     *                              Setting this to 0 means no limit.
-     * @param  integer $deref       Specifies how aliases should be handled during the search
-     * @return Result
+     * Note that when doing parallel searches, the number of base DNs and filters must match.
+     *
+     * Also note that PHP does not support returning different attributes for individual parallel
+     * searches - if you perform a parallel search, all resultsets will have the same attributes.
+     *
+     * @param  string|array  $baseDn      The base DN for the directory
+     * @param  string|array  $filter      Ldap query filter (an empty filter is not allowed)
+     * @param  array         $attributes  An array of the required attributes, e.g. array("mail",
+     *                                    "sn", "cn"). Empty array (the default) means all
+     *                                    attributes
+     * @param  int           $scope       One of self::SCOPE_SUBTREE, self::SCOPE_ONELEVEL or
+     *                                    self::SCOPE_BASE
+     * @param  boolean       $attrsOnly   Should be set to 1 if only attribute types are wanted
+     * @param  integer       $sizeLimit   Enables you to limit the count of entries fetched. Setting
+     *                                    this to 0 means no limit
+     * @param  integer       $timeLimit   Sets the number of seconds how long is spend on the
+     *                                    search. Setting this to 0 means no limit
+     * @param  integer       $deref       Specifies how aliases should be handled during the search
+     * @return Result|Result[]
      * @throws \Exception           On Unrecognised search scope
      */
     public function ldapSearch(
@@ -625,9 +631,22 @@ class Ldap
         $deref = LDAP_DEREF_NEVER
     ) {
         $function = $this->scopeToFunction($scope);
+        // Support for parallel search
+        $baseDn = (array)$baseDn;
+        $filter = (array)$filter;
 
-        $result = @$function(
-            $this->resource,
+        // Sanity check... We need to do this ourselves because we are suppressing errors from the
+        // ldap function call.
+        if (count($baseDn) !== count($filter)) {
+            // This is a programmer error - we should raise an error instead of catchable exception
+            trigger_error('Array sizes of base DNs and filters do not match', E_USER_ERROR);
+        }
+
+        // Align the resources to match the amount of baseDns and filters provided
+        $resources = array_fill(0, count($baseDn), $this->resource);
+
+        $results = @$function(
+            $resources,
             $baseDn,
             $filter,
             $attributes,
@@ -638,7 +657,15 @@ class Ldap
         );
         $this->verifyOperation();
 
-        return new Result($this, $result);
+        // Convert result resources into Result instances
+        foreach ($results as $key => $result) {
+            if (is_resource($result)) {
+                $results[$key] = new Result($this, $result);
+            } // Else - let it be whatever it was (probably FALSE - a failed search)
+        }
+
+        // If there is only one result, this was not a parallel search - return it directly
+        return count($results) === 1 ? $results[0] : $results;
     }
 
     /**
