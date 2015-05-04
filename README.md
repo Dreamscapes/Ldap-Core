@@ -7,7 +7,9 @@
 
 ## About
 
-This small library provides access to ldap functions in a nice, object-oriented implementation. Additionally, you can use some mocking library to actually test your ldap interactions.
+This small library provides access to ldap functions in a nice, object-oriented implementation.
+
+Its purpose is not to provide *fancy extra* functionality for ldap interaction, but only to provide an object-level encapsulation around native PHP functions in a way that makes sense for OOP world. As such, this library is intended either for those who prefer OOP programming style, for those who want to be able to **test** their ldap interaction or for those who would like to write their own libraries which provide that *fancy extra* functionality.
 
 ## Installation
 
