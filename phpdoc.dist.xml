@@ -12,6 +12,6 @@
   </files>
   <title>Dreamscapes - Ldap Core</title>
   <transformations>
-    <template name="responsive"></template>
+    <template name="clean"></template>
   </transformations>
 </phpdoc>
