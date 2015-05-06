@@ -11,13 +11,13 @@
 # Helper vars
 BIN = vendor/bin/
 # Current PHP version (in the form {MAJOR}.{MINOR}, i.e. 5.6)
-PHP_V = $(shell php -v | head -n 1 | cut -f2 -d" " | cut -f1,2 -d".")
+PHP_V = $(shell php -v | head -n 1 | cut -f 2 -d " " | cut -f 1,2 -d .)
 # If there is any target that mutates some remote data, check if it runs on this version of PHP
 PHP_T = 5.6
 
 # Project-specific information
 GH_USER = Alaneor
-GH_REPO = $(shell git remote -v | grep origin | grep fetch | cut -d":" -f2 | cut -d"." -f1)
+GH_REPO = $(shell git remote -v | grep origin | grep fetch | cut -d : -f 2 | cut -d . -f 1)
 
 # Project-specific paths
 LIBDIR = Dreamscapes
