@@ -202,7 +202,7 @@ class Ldap
      * @param  string $dn The distinguished name of an LDAP entity
      * @return string     The user friendly name
      */
-    public static function dnToUfn($dn)
+    public static function dnToUfn(string $dn): string
     {
         return ldap_dn2ufn($dn);
     }
@@ -213,7 +213,7 @@ class Ldap
      * @param  integer $errno The error number
      * @return string         The error message, as a string
      */
-    public static function errToStr($errno)
+    public static function errToStr(int $errno): string
     {
         return ldap_err2str($errno);
     }
@@ -226,7 +226,7 @@ class Ldap
      *                              their attributes as well
      * @return array                Returns an array of all DN components
      */
-    public static function explodeDn($dn, $withAttrib = 0)
+    public static function explodeDn(string $dn, int $withAttrib = 0): array
     {
         return ldap_explode_dn($dn, $withAttrib);
     }
@@ -242,7 +242,7 @@ class Ldap
      * @param  integer  $flags  The context the escaped string will be used in
      * @return string           Returns the escaped string
      */
-    public static function escape($value, $ignore = null, $flags = null)
+    public static function escape(string $value, string $ignore = null, int $flags = null): string
     {
         if (! function_exists('ldap_escape')) {
             // Bail out, can't work our magic!
@@ -271,7 +271,7 @@ class Ldap
      *
      * @return string Ldap server and port of this connection (i.e. example.com:389)
      */
-    public function __toString()
+    public function __toString(): string
     {
         return $this->getOption(static::OPT_HOST_NAME);
     }
@@ -293,7 +293,7 @@ class Ldap
      * @param  array  $entry An array that specifies the information about the entry
      * @return self
      */
-    public function add($dn, array $entry)
+    public function add(string $dn, array $entry): self
     {
         @ldap_add($this->resource, $dn, $entry);
         $this->verifyOperation();
@@ -317,7 +317,7 @@ class Ldap
      * @param  string   $value      The compared value
      * @return bool                 Returns TRUE if value matches otherwise returns FALSE
      */
-    public function compare($dn, $attribute, $value)
+    public function compare(string $dn, string $attribute, string $value): bool
     {
         $retVal = @ldap_compare($this->resource, $dn, $attribute, $value);
         $this->verifyOperation();
@@ -331,7 +331,7 @@ class Ldap
      * @param  string $dn The distinguished name of an LDAP entity
      * @return self
      */
-    public function delete($dn)
+    public function delete(string $dn): self
     {
         @ldap_delete($this->resource, $dn);
         $this->verifyOperation();
@@ -347,7 +347,7 @@ class Ldap
      * @return self
      * @throws \Exception               On connect error.
      */
-    public function connect($ldapUrl)
+    public function connect(string $ldapUrl): self
     {
         // Make sure the connection has been established successfully
         if (! $this->resource = @ldap_connect($ldapUrl)) {
@@ -369,7 +369,7 @@ class Ldap
      * @param  string       $cookie         An opaque structure sent by the server
      * @return self
      */
-    public function pagedResult($pageSize, $isCritical = false, $cookie = '')
+    public function pagedResult(int $pageSize, bool $isCritical = false, string $cookie = ''): self
     {
         ldap_control_paged_result($this->resource, $pageSize, $isCritical, $cookie);
 
@@ -383,7 +383,7 @@ class Ldap
      * @param  string $bindPassword Password for the username
      * @return self
      */
-    public function bind($bindDn = null, $bindPassword = null)
+    public function bind(string $bindDn = null, string $bindPassword = null): self
     {
         @ldap_bind($this->resource, $bindDn, $bindPassword);
         $this->verifyOperation();
@@ -396,7 +396,7 @@ class Ldap
      *
      * @return string
      */
-    public function error()
+    public function error(): string
     {
         return $this->message;
     }
@@ -406,7 +406,7 @@ class Ldap
      *
      * @return integer
      */
-    public function errno()
+    public function errno(): int
     {
         return $this->code;
     }
@@ -417,7 +417,7 @@ class Ldap
      * @param  integer $option The option to be returned
      * @return mixed
      */
-    public function getOption($option)
+    public function getOption(int $option)
     {
         $retVal = null;
         ldap_get_option($this->resource, $option, $retVal);
@@ -432,7 +432,7 @@ class Ldap
      * @param  array  $entry Values to be added to the specified attributes
      * @return self
      */
-    public function modAdd($dn, array $entry)
+    public function modAdd(string $dn, array $entry): self
     {
         @ldap_mod_add($this->resource, $dn, $entry);
         $this->verifyOperation();
@@ -447,7 +447,7 @@ class Ldap
      * @param  array  $entry Values to be deleted from the specified attributes
      * @return self
      */
-    public function modDelete($dn, array $entry)
+    public function modDelete(string $dn, array $entry): self
     {
         @ldap_mod_del($this->resource, $dn, $entry);
         $this->verifyOperation();
@@ -462,7 +462,7 @@ class Ldap
      * @param  array  $entry Values to be deleted from the specified attributes
      * @return self
      */
-    public function modDel($dn, array $entry)
+    public function modDel(string $dn, array $entry): self
     {
         return $this->modDelete($dn, $entry);
     }
@@ -474,7 +474,7 @@ class Ldap
      * @param  array  $entry Attributes and their values to be replaced
      * @return self
      */
-    public function modReplace($dn, array $entry)
+    public function modReplace(string $dn, array $entry): self
     {
         @ldap_mod_replace($this->resource, $dn, $entry);
         $this->verifyOperation();
@@ -489,7 +489,7 @@ class Ldap
      * @param  array  $entry Attributes with their modified values
      * @return self
      */
-    public function modify($dn, array $entry)
+    public function modify(string $dn, array $entry): self
     {
         @ldap_modify($this->resource, $dn, $entry);
         $this->verifyOperation();
@@ -520,7 +520,7 @@ class Ldap
      *
      * @see https://wiki.php.net/rfc/ldap_modify_batch
      */
-    public function modifyBatch($dn, array $entry)
+    public function modifyBatch(string $dn, array $entry): self
     {
         if (! function_exists('ldap_modify_batch')) {
             // Bail out, can't work our magic!
@@ -546,7 +546,7 @@ class Ldap
      *                              value(s) are retained as non-distinguished values of the entry
      * @return self
      */
-    public function rename($dn, $newRdn, $newParent, $deleteOldRdn)
+    public function rename(string $dn, string $newRdn, string $newParent, bool $deleteOldRdn): self
     {
         @ldap_rename($this->resource, $dn, $newRdn, $newParent, $deleteOldRdn);
         $this->verifyOperation();
@@ -567,14 +567,14 @@ class Ldap
      * @return self
      */
     public function saslBind(
-        $bindDn = null,
-        $bindPassword = null,
-        $saslMech = null,
-        $saslRealm = null,
-        $saslAuthcId = null,
-        $saslAuthzId = null,
-        $props = null
-    ) {
+        string $bindDn = null,
+        string $bindPassword = null,
+        string $saslMech = null,
+        string $saslRealm = null,
+        string $saslAuthcId = null,
+        string $saslAuthzId = null,
+        string $props = null
+    ): self {
         @ldap_sasl_bind(
             $this->resource,
             $bindDn,
@@ -624,11 +624,11 @@ class Ldap
         $baseDn,
         $filter,
         array $attributes = [],
-        $scope = self::SCOPE_SUBTREE,
-        $attrsOnly = false,
-        $sizeLimit = 0,
-        $timeLimit = 0,
-        $deref = LDAP_DEREF_NEVER
+        int $scope = self::SCOPE_SUBTREE,
+        bool $attrsOnly = false,
+        int $sizeLimit = 0,
+        int $timeLimit = 0,
+        int $deref = LDAP_DEREF_NEVER
     ) {
         $function = $this->scopeToFunction($scope);
         // Support for parallel search
@@ -675,7 +675,7 @@ class Ldap
      * @param  mixed   $newVal The new value for the option
      * @return self
      */
-    public function setOption($option, $newVal)
+    public function setOption(int $option, $newVal): self
     {
         @ldap_set_option($this->resource, $option, $newVal);
         $this->verifyOperation();
@@ -689,7 +689,7 @@ class Ldap
      * @param callable $callback
      * @return self
      */
-    public function setRebindProcedure(callable $callback)
+    public function setRebindProcedure(callable $callback): self
     {
         @ldap_set_rebind_proc($this->resource, $callback);
         $this->verifyOperation();
@@ -703,7 +703,7 @@ class Ldap
      * @param  callable $callback
      * @return self
      */
-    public function setRebindProc(callable $callback)
+    public function setRebindProc(callable $callback): self
     {
         return $this->setRebindProcedure($callback);
     }
@@ -713,7 +713,7 @@ class Ldap
      *
      * @return self
      */
-    public function startTls()
+    public function startTls(): self
     {
         @ldap_start_tls($this->resource);
         $this->verifyOperation();
@@ -740,7 +740,7 @@ class Ldap
      * @param  array            $args   Arguments with which the method was called
      * @return Result
      */
-    public function __call($method, $args)
+    public function __call(string $method, array $args)
     {
         $allowed = [
             'read' => static::SCOPE_BASE,
@@ -836,7 +836,7 @@ class Ldap
      * @param  mixed $scope Scope constant to be translated
      * @return string       Function name representing the ldap operation of that scope
      */
-    protected function scopeToFunction($scope)
+    protected function scopeToFunction($scope): string
     {
         // Select the appropriate function based on scope
         switch($scope) {

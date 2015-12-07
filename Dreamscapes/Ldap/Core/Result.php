@@ -54,7 +54,7 @@ class Result
      * @return array|mixed          Array with two keys: 'cookie' and 'estimated' or, if `$key` was
      *                              specified, returns the value of only that key
      */
-    public function pagedResultResponse($key = null)
+    public function pagedResultResponse(string $key = null)
     {
         $cookie = null;
         $estimated = null;
@@ -78,7 +78,7 @@ class Result
      *
      * @return int      Number of entries in the result
      */
-    public function countEntries()
+    public function countEntries(): int
     {
         return ldap_count_entries($this->link, $this->resource);
     }
@@ -101,7 +101,7 @@ class Result
      *
      * @return array    Complete result information in a multi-dimensional array
      */
-    public function getEntries()
+    public function getEntries(): array
     {
         return ldap_get_entries($this->link, $this->resource);
     }
@@ -111,7 +111,7 @@ class Result
      *
      * @return array
      */
-    public function parseReference()
+    public function parseReference(): array
     {
         $referrals = null;
 
@@ -128,7 +128,7 @@ class Result
      * @param  string $by The attribute to use as a key in the sort
      * @return self
      */
-    public function sort($by)
+    public function sort(string $by): self
     {
         ldap_sort($this->link, $this->resource, $by);
 
