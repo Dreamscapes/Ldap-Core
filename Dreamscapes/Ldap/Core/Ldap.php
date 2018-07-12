@@ -628,7 +628,7 @@ class Ldap
         $attrsOnly = false,
         $sizeLimit = 0,
         $timeLimit = 0,
-        $deref = LDAP_DEREF_NEVER
+        $deref = \LDAP_DEREF_NEVER
     ) {
         $function = $this->scopeToFunction($scope);
         // Support for parallel search
