@@ -24,15 +24,7 @@ Its purpose is not to provide *fancy extra* functionality for ldap interaction, 
 
 ### Via Composer
 
- `composer require dreamscapes/ldap-core:dev-master` (visit [Packagist](https://packagist.org/packages/Dreamscapes/ldap-core) for list of all available versions)
-
-#### Installing on Travis-CI
-
-Since Composer will not allow you to install a library on a system which does not meet the system requirements listed in *composer.json*, it is necessary that you enable the ldap extension **before** invoking `composer install`, i.e. in the *before_install* build lifecycle:
-
-`echo "extension=ldap.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini`
-
-See the [Travis docs](http://docs.travis-ci.com/user/languages/php/#Custom-PHP-configuration) for detailed information.
+ `composer require dreamscapes/ldap-core` (visit [Packagist](https://packagist.org/packages/Dreamscapes/ldap-core) for list of all available versions)
 
 ## Usage
 
