@@ -817,7 +817,6 @@ class Ldap
             case static::SIZELIMIT_EXCEEDED:
             case static::COMPARE_FALSE:
             case static::COMPARE_TRUE:
-
                 break;
 
             // An ldap operation was performed on a resource that has been already closed
@@ -839,7 +838,7 @@ class Ldap
     protected function scopeToFunction($scope)
     {
         // Select the appropriate function based on scope
-        switch($scope) {
+        switch ($scope) {
             case static::SCOPE_BASE:
                 $function = 'ldap_read';
                 break;
