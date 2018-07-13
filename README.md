@@ -24,7 +24,7 @@ Its purpose is not to provide *fancy extra* functionality for ldap interaction, 
 
 ### Via Composer
 
- `composer require dreamscapes/ldap-core:dev-master` (visit [Packagist](https://packagist.org/packages/Dreamscapes/ldap-core) for list of all available versions)
+ `composer require dreamscapes/ldap-core` (visit [Packagist](https://packagist.org/packages/Dreamscapes/ldap-core) for list of all available versions)
 
 ## Usage
 
